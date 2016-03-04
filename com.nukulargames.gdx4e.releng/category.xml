@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <bundle id="com.nukulargames.gdx4e.core" version="1.0.0.qualifier">
+      <category name="com.nukulargames.gdx4e"/>
+   </bundle>
+   <bundle id="com.nukulargames.gdx4e.core-natives" version="1.0.0.qualifier">
+      <category name="com.nukulargames.gdx4e"/>
+   </bundle>
+   <bundle id="com.nukulargames.gdx4e.eclipse-backend" version="1.0.0.qualifier">
+      <category name="com.nukulargames.gdx4e"/>
+   </bundle>
+   <bundle id="com.nukulargames.gdx4e.eclipse-backend-natives" version="1.0.0.qualifier">
+      <category name="com.nukulargames.gdx4e"/>
+   </bundle>
+   <bundle id="com.nukulargames.gdx4e.lwjgl-backend" version="1.0.0.qualifier">
+      <category name="com.nukulargames.gdx4e"/>
+   </bundle>
+   <bundle id="com.nukulargames.gdx4e.lwjgl-backend-natives" version="1.0.0.qualifier">
+      <category name="com.nukulargames.gdx4e"/>
+   </bundle>
+   <bundle id="com.nukulargames.gdx4e.actors.edit" version="1.0.0.qualifier">
+      <category name="com.nukulargames.gdx4e"/>
+   </bundle>
+   <bundle id="com.nukulargames.gdx4e.actors.editor" version="1.0.0.qualifier">
+      <category name="com.nukulargames.gdx4e"/>
+   </bundle>
+   <bundle id="com.nukulargames.gdx4e.actors.model" version="1.0.0.qualifier">
+      <category name="com.nukulargames.gdx4e"/>
+   </bundle>
+   <bundle id="com.nukulargames.gdx4e.actors.dsl" version="1.0.0.qualifier">
+      <category name="com.nukulargames.gdx4e"/>
+   </bundle>
+   <bundle id="com.nukulargames.gdx4e.actors.dsl.ide" version="1.0.0.qualifier">
+      <category name="com.nukulargames.gdx4e"/>
+   </bundle>
+   <bundle id="com.nukulargames.gdx4e.actors.dsl.ui" version="1.0.0.qualifier">
+      <category name="com.nukulargames.gdx4e"/>
+   </bundle>
+   <bundle id="com.nukulargames.gdx4e.core-ext" version="1.0.0.qualifier">
+      <category name="com.nukulargames.gdx4e"/>
+   </bundle>
+   <bundle id="com.nukulargames.gdx4e.actors.preview" version="1.0.0.qualifier">
+      <category name="com.nukulargames.gdx4e"/>
+   </bundle>
+   <category-def name="com.nukulargames.gdx4e" label="gdx4e"/>
+</site>

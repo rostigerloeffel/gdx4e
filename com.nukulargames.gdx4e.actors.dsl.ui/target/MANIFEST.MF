@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: com.nukulargames.gdx4e.actors.dsl.ui; singleton:=
+ true
+Export-Package: com.nukulargames.gdx4e.actors.dsl.ui.contentassist,com
+ .nukulargames.gdx4e.actors.dsl.ui.quickfix,com.nukulargames.gdx4e.act
+ ors.dsl.ui.internal
+Bundle-Name: com.nukulargames.gdx4e.actors.dsl.ui
+Bundle-Version: 1.0.0.201602281045
+Require-Bundle: com.nukulargames.gdx4e.actors.dsl,com.nukulargames.gdx
+ 4e.actors.dsl.ide,com.nukulargames.gdx4e.actors.model,org.eclipse.xte
+ xt.ui,org.eclipse.xtext.ui.shared,org.eclipse.xtext.ui.codetemplates.
+ ui,org.eclipse.ui.editors;bundle-version="3.5.0",org.eclipse.ui.ide;b
+ undle-version="3.5.0",org.eclipse.ui,org.eclipse.compare,org.eclipse.
+ xtext.builder,org.eclipse.xtend.lib;resolution:=optional,org.eclipse.
+ xtext.xbase.lib,org.eclipse.xtext.common.types.ui,org.eclipse.xtext.x
+ base.ui,org.eclipse.jdt.debug.ui
+Bundle-ManifestVersion: 2
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Activator: com.nukulargames.gdx4e.actors.dsl.ui.internal.DslAct
+ ivator
+Bundle-Vendor: My Company
+Import-Package: org.apache.log4j
+

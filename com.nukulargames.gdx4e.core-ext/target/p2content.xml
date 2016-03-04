@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<units size='1'>
+  <unit id='com.nukulargames.gdx4e.core-ext' version='1.0.0.201602281045' singleton='false'>
+    <update id='com.nukulargames.gdx4e.core-ext' range='[0.0.0,1.0.0.201602281045)' severity='0'/>
+    <properties size='4'>
+      <property name='org.eclipse.equinox.p2.name' value='Libgdx-ext'/>
+      <property name='maven-groupId' value='com.nukulargames.gdx4e'/>
+      <property name='maven-artifactId' value='com.nukulargames.gdx4e.core-ext'/>
+      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+    </properties>
+    <provides size='4'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='com.nukulargames.gdx4e.core-ext' version='1.0.0.201602281045'/>
+      <provided namespace='osgi.bundle' name='com.nukulargames.gdx4e.core-ext' version='1.0.0.201602281045'/>
+      <provided namespace='java.package' name='com.nukulargames.gdx4e.ext' version='0.0.0'/>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+    </provides>
+    <requires size='1'>
+      <required namespace='osgi.bundle' name='com.nukulargames.gdx4e.core' range='0.0.0'/>
+    </requires>
+    <artifacts size='1'>
+      <artifact classifier='osgi.bundle' id='com.nukulargames.gdx4e.core-ext' version='1.0.0.201602281045'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='manifest'>
+          Bundle-SymbolicName: com.nukulargames.gdx4e.core-ext&#xA;Bundle-Version: 1.0.0.201602281045&#xA;
+        </instruction>
+      </instructions>
+    </touchpointData>
+  </unit>
+</units>

@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: com.nukulargames.gdx4e.actors.dsl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.nukulargames.gdx4e.actors.dsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.nukulargames.gdx4e.actors.model,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtext.common.types,
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
+ com.nukulargames.gdx4e.core,
+ com.nukulargames.gdx4e.core-ext
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.nukulargames.gdx4e.actors.dsl.formatting,
+ com.nukulargames.gdx4e.actors.dsl.parser.antlr.internal,
+ com.nukulargames.gdx4e.actors.dsl.parser.antlr,
+ com.nukulargames.gdx4e.actors.dsl.validation,
+ com.nukulargames.gdx4e.actors.dsl.scoping,
+ com.nukulargames.gdx4e.actors.dsl,
+ com.nukulargames.gdx4e.actors.dsl.generator,
+ com.nukulargames.gdx4e.actors.dsl.serializer,
+ com.nukulargames.gdx4e.actors.dsl.services,
+ com.nukulargames.gdx4e.actors.dsl.jvmmodel
+Import-Package: org.apache.log4j

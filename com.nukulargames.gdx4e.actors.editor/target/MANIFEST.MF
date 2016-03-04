@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: com.nukulargames.gdx4e.actors.editor;singleton:=t
+ rue
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.core.resources;vi
+ sibility:=reexport,com.nukulargames.gdx4e.actors.edit;visibility:=ree
+ xport,org.eclipse.emf.ecore.xmi;visibility:=reexport,org.eclipse.emf.
+ edit.ui;visibility:=reexport,org.eclipse.ui.ide;visibility:=reexport
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+Export-Package: com.nukulargames.gdx4e.actors.presentation
+Bundle-Name: %pluginName
+Bundle-Version: 1.0.0.201602281045
+Bundle-ClassPath: .
+Bundle-Localization: plugin
+Bundle-Activator: com.nukulargames.gdx4e.actors.presentation.ActorsEdi
+ torPlugin$Implementation
+

@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: com.nukulargames.gdx4e.core-ext
+Export-Package: com.nukulargames.gdx4e.ext
+Bundle-Name: Libgdx-ext
+Bundle-Version: 1.0.0.201602281045
+Require-Bundle: com.nukulargames.gdx4e.core
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+

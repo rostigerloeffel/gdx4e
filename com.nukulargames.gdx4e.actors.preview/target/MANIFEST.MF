@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: com.nukulargames.gdx4e.actors.preview;singleton:=
+ true
+Bundle-Name: View
+Bundle-Version: 1.0.0.201602281045
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.ui,com.nukulargam
+ es.gdx4e.core,com.nukulargames.gdx4e.actors.model,com.nukulargames.gd
+ x4e.eclipse-backend
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+

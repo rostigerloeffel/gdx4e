@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: com.nukulargames.gdx4e.actors.edit;singleton:=tru
+ e
+Require-Bundle: org.eclipse.core.runtime,com.nukulargames.gdx4e.actors
+ .model;visibility:=reexport,org.eclipse.emf.edit;visibility:=reexport
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+Export-Package: com.nukulargames.gdx4e.actors.provider
+Bundle-Name: %pluginName
+Bundle-Version: 1.0.0.201602281045
+Bundle-ClassPath: .
+Bundle-Localization: plugin
+Bundle-Activator: com.nukulargames.gdx4e.actors.provider.ActorsEditPlu
+ gin$Implementation
+

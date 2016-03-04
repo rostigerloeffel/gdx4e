@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: com.nukulargames.gdx4e.lwjgl-backend
+Export-Package: com.badlogic.gdx.backends.lwjgl,com.badlogic.gdx.backe
+ nds.lwjgl.audio,com.jcraft.jogg,com.jcraft.jorbis,javazoom.jl.decoder
+ ,net.java.games.input,net.java.games.util,net.java.games.util.plugins
+ ,org.lwjgl,org.lwjgl.input,org.lwjgl.openal,org.lwjgl.opencl,org.lwjg
+ l.opencl.api,org.lwjgl.opengl,org.lwjgl.opengles,org.lwjgl.util,org.l
+ wjgl.util.glu,org.lwjgl.util.glu.tessellation,org.lwjgl.util.input,or
+ g.lwjgl.util.jinput,org.lwjgl.util.mapped,org.lwjgl.util.vector
+Bundle-Name: libgdx-lwjgl-backend
+Bundle-Version: 1.0.0.201602281045
+Bundle-ClassPath: libs/gdx-backend-lwjgl-1.9.2.jar,libs/jinput-2.0.5.j
+ ar,libs/jlayer-1.0.1-gdx.jar,libs/jorbis-0.0.17.jar,libs/jutils-1.0.0
+ .jar,libs/lwjgl_util-2.9.2.jar,libs/lwjgl-2.9.2.jar
+Require-Bundle: com.nukulargames.gdx4e.core
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+

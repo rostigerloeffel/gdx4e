@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.nukulargames.gdx4e.actors.model/src" editDirectory="/com.nukulargames.gdx4e.actors.edit/src"
+    editorDirectory="/com.nukulargames.gdx4e.actors.editor/src" modelPluginID="com.nukulargames.gdx4e.actors.model"
+    modelName="Actors" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/com.nukulargames.gdx4e.actors.tests/src" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" editPluginID="com.nukulargames.gdx4e.actors.edit"
+    editorPluginID="com.nukulargames.gdx4e.actors.editor" testsPluginID="com.nukulargames.gdx4e.actors.tests"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>Actors.ecore</foreignModel>
+  <genPackages prefix="Actors" basePackage="com.nukulargames.gdx4e" disposableProviderFactory="true"
+      ecorePackage="Actors.ecore#/">
+    <genClasses ecoreClass="Actors.ecore#//Model">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference Actors.ecore#//Model/actors"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Actors.ecore#//Model/basePackage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Actors.ecore#//Model/layers"/>
+    </genClasses>
+    <genClasses ecoreClass="Actors.ecore#//Actor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Actors.ecore#//Actor/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Actors.ecore#//Actor/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Actors.ecore#//Actor/y"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Actors.ecore#//Actor/layer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Actors.ecore#//Actor/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Actors.ecore#//Actor/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Actors.ecore#//Actor/scaleX"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Actors.ecore#//Actor/scaleY"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Actors.ecore#//Actor/rotation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Actors.ecore#//Actor/animations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Actors.ecore#//Actor/states"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Actors.ecore#//Actor/defaultState"/>
+    </genClasses>
+    <genClasses ecoreClass="Actors.ecore#//Group">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Actors.ecore#//Group/children"/>
+    </genClasses>
+    <genClasses ecoreClass="Actors.ecore#//ActorReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Actors.ecore#//ActorReference/actor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Actors.ecore#//ActorReference/dimensions"/>
+    </genClasses>
+    <genClasses ecoreClass="Actors.ecore#//Stage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Actors.ecore#//Stage/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Actors.ecore#//Animation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Actors.ecore#//Animation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Actors.ecore#//Animation/texture"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Actors.ecore#//Animation/columns"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Actors.ecore#//Animation/rows"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Actors.ecore#//Animation/delay"/>
+    </genClasses>
+    <genClasses ecoreClass="Actors.ecore#//State">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Actors.ecore#//State/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Actors.ecore#//State/animation"/>
+    </genClasses>
+    <genClasses ecoreClass="Actors.ecore#//Layer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Actors.ecore#//Layer/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

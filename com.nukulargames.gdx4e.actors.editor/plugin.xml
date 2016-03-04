@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Actors -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="com.nukulargames.gdx4e.actors.presentation.ActorsModelWizardID"
+            name="%_UI_ActorsModelWizard_label"
+            class="com.nukulargames.gdx4e.actors.presentation.ActorsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ActorsModelFile.gif">
+         <description>%_UI_ActorsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Actors -->
+      <editor
+            id="com.nukulargames.gdx4e.actors.presentation.ActorsEditorID"
+            name="%_UI_ActorsEditor_label"
+            icon="icons/full/obj16/ActorsModelFile.gif"
+            extensions="actors"
+            class="com.nukulargames.gdx4e.actors.presentation.ActorsEditor"
+            contributorClass="com.nukulargames.gdx4e.actors.presentation.ActorsActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

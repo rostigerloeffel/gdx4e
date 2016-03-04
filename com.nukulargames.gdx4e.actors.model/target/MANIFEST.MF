@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: com.nukulargames.gdx4e.actors.model;singleton:=tr
+ ue
+Export-Package: com.nukulargames.gdx4e.actors,com.nukulargames.gdx4e.a
+ ctors.impl,com.nukulargames.gdx4e.actors.util
+Bundle-Name: %pluginName
+Bundle-Version: 1.0.0.201602281045
+Bundle-ClassPath: .
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibil
+ ity:=reexport
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+

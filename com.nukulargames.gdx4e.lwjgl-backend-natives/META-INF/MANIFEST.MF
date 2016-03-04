@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: lwjgl-backend natives
+Bundle-SymbolicName: com.nukulargames.gdx4e.lwjgl-backend-natives
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Fragment-Host: com.nukulargames.gdx4e.core;bundle-version="1.0.0"
+Bundle-ClassPath: libs/lwjgl-platform-2.9.2-natives-linux.jar,
+ libs/lwjgl-platform-2.9.2-natives-osx.jar,
+ libs/lwjgl-platform-2.9.2-natives-windows.jar,
+ libs/jinput-platform-2.0.5-natives-linux.jar,
+ libs/jinput-platform-2.0.5-natives-osx.jar,
+ libs/jinput-platform-2.0.5-natives-windows.jar

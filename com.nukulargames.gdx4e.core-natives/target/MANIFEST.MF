@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: com.nukulargames.gdx4e.core-natives
+Bundle-Name: libgdx.desktop-natives
+Bundle-Version: 1.0.0.201602281045
+Bundle-ClassPath: libs/gdx-platform-1.9.2-natives-desktop.jar
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Fragment-Host: com.nukulargames.gdx4e.core;bundle-version="1.0.0"
+

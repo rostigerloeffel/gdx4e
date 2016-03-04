@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: com.nukulargames.gdx4e.eclipse-backend
+Export-Package: com.apple.concurrent,com.apple.eawt,com.apple.eawt.eve
+ nt,com.apple.eio,com.jcraft.jogg,com.jcraft.jorbis,com.nukulargames.g
+ dx4e.backend,javazoom.jl.decoder,org.lwjgl,org.lwjgl.egl,org.lwjgl.gl
+ fw,org.lwjgl.openal,org.lwjgl.opencl,org.lwjgl.opengl,org.lwjgl.openg
+ les,org.lwjgl.ovr,org.lwjgl.stb,org.lwjgl.system,org.lwjgl.system.jem
+ alloc,org.lwjgl.system.libc,org.lwjgl.system.libffi,org.lwjgl.system.
+ linux,org.lwjgl.system.macosx,org.lwjgl.system.simd,org.lwjgl.system.
+ windows,org.lwjgl.system.xxhash
+Bundle-Name: Lwjgl3-swt-backend
+Bundle-Version: 1.0.0.201602281045
+Bundle-ClassPath: .,src/,libs/AppleJavaExtensions-1.4.jar,libs/jlayer-
+ 1.0.1-libgdx.jar,libs/jorbis.jar,libs/lwjgl.jar
+Require-Bundle: com.nukulargames.gdx4e.core,org.eclipse.swt
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+
