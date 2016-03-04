@@ -26,7 +26,7 @@
 
     "files":
         [
-        {"includePattern": "com.nukulargames.gdx4e.releng/target/repository", "uploadPattern": "."}
+        {"includePattern": "com.nukulargames.gdx4e.releng/target/repository/(.*)", "uploadPattern": "."}
         ],
     "publish": true
 }
