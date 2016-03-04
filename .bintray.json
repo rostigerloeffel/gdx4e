@@ -17,7 +17,7 @@
     },
 
     "version": {
-        "name": "0.0.1",
+        "name": "snapshot",
         "desc": "",
         "released": "2016-03-04",
         "gpgSign": false,
@@ -26,7 +26,7 @@
 
     "files":
         [
-        {"includePattern": "gdx4e/com.nukulargames.gdx4e.releng/target/repository", "uploadPattern": "."}
+        {"includePattern": "com.nukulargames.gdx4e.releng/target/repository", "uploadPattern": "."}
         ],
     "publish": true
 }
