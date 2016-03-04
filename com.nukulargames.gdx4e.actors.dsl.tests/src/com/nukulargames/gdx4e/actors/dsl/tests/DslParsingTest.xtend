@@ -19,12 +19,12 @@ class DslParsingTest{
 //	@Inject
 //	ParseHelper<Model> parseHelper;
 //
-//	@Test 
-//	def void loadModel() {
-////		val result = parseHelper.parse('''
-////			Hello Xtext!
-////		''')
-////		Assert.assertNotNull(result)
-//	}
+	@Test 
+	def void loadModel() {
+//		val result = parseHelper.parse('''
+//			Hello Xtext!
+//		''')
+//		Assert.assertNotNull(result)
+	}
 
 }
