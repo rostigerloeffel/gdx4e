@@ -16,15 +16,15 @@ import org.junit.runner.RunWith
 @InjectWith(DslInjectorProvider)
 class DslParsingTest{
 
-	@Inject
-	ParseHelper<Model> parseHelper;
-
-	@Test 
-	def void loadModel() {
-		val result = parseHelper.parse('''
-			Hello Xtext!
-		''')
-		Assert.assertNotNull(result)
-	}
+//	@Inject
+//	ParseHelper<Model> parseHelper;
+//
+//	@Test 
+//	def void loadModel() {
+////		val result = parseHelper.parse('''
+////			Hello Xtext!
+////		''')
+////		Assert.assertNotNull(result)
+//	}
 
 }
