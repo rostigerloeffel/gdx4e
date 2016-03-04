@@ -19,7 +19,7 @@ before_script:
 script: mvn verify -Dgpg.skip=true
 deploy:
   provider: bintray
-  file: Path to a descriptor file, containing information for the Bintray upload
+  file: .bintray.json
   user: rostigerloeffel
   key:
     secure: Zqov0CvBBwR5/C+6UwN1Wu5WkHyweZKjuQl3HsZvk/xJsaKm34+oVSese9uLrHpMFIz88srLyvEUazW/6T8WPrVczqlF1LSEF8PfvxgGO6w9bvfjwYOZOKhK7tUCBW3K4FGdMPpWKYsoW/LkZ+X8RrgAzQ33G+SHsykqSjGRBcPqbRPEX0v6ZgkG/uBu6FE8G1GpiDss4kcQW6fw0rfmkLay5bhkMnC0KALDSGlIAx617hb/CNqiglhARJ+Lq0zmAhWNnmKeWOrLFl+xw9n8wnf/Lwx+Tia+NY3tCp541yaMjlOSV6a2xystIbkN1hhKyPGS7D7pBbBViFptCGeJCuuzwIfPgkZ0xeKNhQLs+6Wn2tTahcN4B1QPqiwCUYZlBRTBVxh6N/9CgYcBqkFX4C5nfKHu3pk9MkutcaTH3LvNt6GDzx9d82t2sXiNLkNZ4j0NEjyPxZW8Y6mNPa35xsv+UfiErwPzqnaufhvUV0vlCRhg3Qsr8xwcRJ8DUJZNcJSZF0pHpVOqQZzkpI3aBqpmOv03RHupzMFURbL7bu9Ggq9Wv808kiWAQZpA8ZGNefHuXkxGmoGJiOymwmG/nqrR8Qh9YVk0zliNOtCClji0e8Vz9VFqdZMLERr3Jrj4dc6Bzcxm23rMtlSfiPh0zR2fhQoKwuW9MnIwwkmd/20=
