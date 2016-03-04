@@ -19,9 +19,9 @@
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-p2-repository-plugin</artifactId>
 				<version>0.24.0</version>
-				<configuration>
+				<!-- <configuration>
 					<includeAllDependencies>true</includeAllDependencies>
-				</configuration>
+				</configuration> -->
 			</plugin>
 		</plugins>
 	</build>
