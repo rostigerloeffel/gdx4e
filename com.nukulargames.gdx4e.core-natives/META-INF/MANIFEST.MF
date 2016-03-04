@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: libgdx.desktop-natives
+Bundle-Name: LibGDX core (natives)
+Bundle-Vendor: nukulargames
 Bundle-SymbolicName: com.nukulargames.gdx4e.core-natives
 Bundle-Version: 1.0.0.qualifier
 Fragment-Host: com.nukulargames.gdx4e.core;bundle-version="1.0.0"

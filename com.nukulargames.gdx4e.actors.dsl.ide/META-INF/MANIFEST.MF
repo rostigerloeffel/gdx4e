@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: com.nukulargames.gdx4e.actors.dsl.ide
-Bundle-Vendor: My Company
+Bundle-Name: Actors IDE components
+Bundle-Vendor: nukulargames
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: com.nukulargames.gdx4e.actors.dsl.ide; singleton:=true
 Bundle-ActivationPolicy: lazy

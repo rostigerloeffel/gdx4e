@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Natives
+Bundle-Name: LibGDX backend for Eclipse (natives)
+Bundle-Vendor: nukulargames
 Bundle-SymbolicName: com.nukulargames.gdx4e.eclipse-backend-natives
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Lwjgl3-swt-backend
+Bundle-Name: LibGDX backend for Eclipse
+Bundle-Vendor: nukulargames
 Bundle-SymbolicName: com.nukulargames.gdx4e.eclipse-backend
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

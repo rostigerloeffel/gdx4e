@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: com.nukulargames.gdx4e.actors.dsl.tests
-Bundle-Vendor: My Company
+Bundle-Name: Actors DSL tests
+Bundle-Vendor: nukulargames
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: com.nukulargames.gdx4e.actors.dsl.tests; singleton:=true
 Bundle-ActivationPolicy: lazy

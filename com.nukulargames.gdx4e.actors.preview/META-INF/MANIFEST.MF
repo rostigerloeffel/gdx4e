@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: View
+Bundle-Name: Actors preview
+Bundle-Vendor: nukulargames
 Bundle-SymbolicName: com.nukulargames.gdx4e.actors.preview;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.core.runtime,

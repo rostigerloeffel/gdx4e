@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: Actors tree-based editor
 Bundle-SymbolicName: com.nukulargames.gdx4e.actors.editor;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: com.nukulargames.gdx4e.actors.presentation.ActorsEditorPlugin$Implementation
-Bundle-Vendor: %providerName
+Bundle-Vendor: nukulargames
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.nukulargames.gdx4e.actors.presentation

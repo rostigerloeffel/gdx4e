@@ -1,7 +1,7 @@
 {
     "package": {
-        "name": "auto-upload",
-        "repo": "gdx4e",
+        "name": "gdx4e",
+        "repo": "https://github.com/rostigerloeffel/gdx4e.git",
         "subject": "rostigerloeffel",
         "desc": "",
         "website_url": "www.jfrog.com",
@@ -26,9 +26,9 @@
 
     "files":
         [
-        {"includePattern": "com.nukulargames.gdx4e.releng/target/repository/artifacts.jar", "uploadPattern": "artifacts.jar"},
-        {"includePattern": "com.nukulargames.gdx4e.releng/target/repository/content.jar", "uploadPattern": "content.jar"},
-        {"includePattern": "com.nukulargames.gdx4e.releng/target/repository/plugins/(.*)", "uploadPattern": "plugins/$1"}
+        {"includePattern": "com.nukulargames.gdx4e.releng/target/repository/artifacts.jar", "uploadPattern": "snapshots/artifacts.jar"},
+        {"includePattern": "com.nukulargames.gdx4e.releng/target/repository/content.jar", "uploadPattern": "snapshots/content.jar"},
+        {"includePattern": "com.nukulargames.gdx4e.releng/target/repository/plugins/(.*)", "uploadPattern": "snapshots/plugins/$1"}
         ],
     "publish": true
 }
