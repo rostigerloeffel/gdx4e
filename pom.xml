@@ -30,6 +30,7 @@
 		<module>com.nukulargames.gdx4e.actors.dsl.ui</module>		
 		<!-- <module>com.nukulargames.gdx4e.actors.dsl.ui.tests</module> -->
 		<module>com.nukulargames.gdx4e.actors.preview</module>
+		<module>com.nukulargames.gdx4e.releng</module>
 	</modules>
 
 	<repositories>
