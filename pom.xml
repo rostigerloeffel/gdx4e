@@ -26,9 +26,9 @@
 		<module>com.nukulargames.gdx4e.actors.editor</module>		
 		<module>com.nukulargames.gdx4e.actors.dsl</module>
 		<module>com.nukulargames.gdx4e.actors.dsl.ide</module>
-		<module>com.nukulargames.gdx4e.actors.dsl.tests</module>
+		<!-- <module>com.nukulargames.gdx4e.actors.dsl.tests</module> -->
 		<module>com.nukulargames.gdx4e.actors.dsl.ui</module>		
-		<module>com.nukulargames.gdx4e.actors.dsl.ui.tests</module>
+		<!-- <module>com.nukulargames.gdx4e.actors.dsl.ui.tests</module> -->
 		<module>com.nukulargames.gdx4e.actors.preview</module>
 	</modules>
 
