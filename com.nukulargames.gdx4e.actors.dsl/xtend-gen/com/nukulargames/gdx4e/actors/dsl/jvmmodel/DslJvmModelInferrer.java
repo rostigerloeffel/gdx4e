@@ -333,6 +333,14 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
           _builder.newLineIfNotEmpty();
           _builder.append("initState();");
           _builder.newLine();
+          _builder.append("initPosition();");
+          _builder.newLine();
+          _builder.append("initSize();");
+          _builder.newLine();
+          _builder.append("initScale();");
+          _builder.newLine();
+          _builder.append("initRotation();");
+          _builder.newLine();
         }
       };
       this._jvmTypesBuilder.setBody(it, _client);
@@ -469,7 +477,7 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
       StringConcatenationClient _client = new StringConcatenationClient() {
         @Override
         protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
-          _builder.append("transit(States.");
+          _builder.append("currentState = States.");
           String _elvis = null;
           String _elvis_1 = null;
           State _defaultState = null;
@@ -511,7 +519,7 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
             _elvis = "DEFAULT";
           }
           _builder.append(_elvis, "");
-          _builder.append(");");
+          _builder.append(";");
           _builder.newLineIfNotEmpty();
         }
       };

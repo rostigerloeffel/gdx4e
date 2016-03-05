@@ -197,6 +197,10 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 				super();
 				«createAnimationCalls(actor)»
 				initState();
+				initPosition();
+				initSize();
+				initScale();
+				initRotation();
 			'''
 		]
 	}
@@ -254,7 +258,7 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 		actor.toMethod("initState", typeRef(void)) [
 			visibility = JvmVisibility.PROTECTED
 			body = '''
-				transit(States.«actor?.defaultState?.name?.toUpperCase ?: actor?.states?.head?.name?.toUpperCase ?: "DEFAULT"»);
+				currentState = States.«actor?.defaultState?.name?.toUpperCase ?: actor?.states?.head?.name?.toUpperCase ?: "DEFAULT"»;
 			'''
 		]
 	}
