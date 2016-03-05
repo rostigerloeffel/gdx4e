@@ -19,7 +19,4 @@ hs_err_pid*
 *.xtendbin
 *.xtextbin
 *.DS_Store
-com.nukulargames.gdx4e.releng/target/
-com.nukulargames.gdx4e.actors.dsl.tests/target/
-com.nukulargames.gdx4e.actors.dsl.ui.tests/target/
-com.nukulargames.gdx4e.actors.dsl.ide/target/
+*/target/**

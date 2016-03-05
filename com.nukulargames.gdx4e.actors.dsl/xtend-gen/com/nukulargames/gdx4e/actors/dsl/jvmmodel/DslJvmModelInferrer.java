@@ -14,7 +14,6 @@ import com.nukulargames.gdx4e.actors.Animation;
 import com.nukulargames.gdx4e.actors.Model;
 import com.nukulargames.gdx4e.actors.State;
 import com.nukulargames.gdx4e.ext.NukuActor;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
@@ -36,7 +35,6 @@ import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer;
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor;
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor.IPostIndexingInitializing;
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder;
-import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.Functions.Function2;
@@ -210,73 +208,6 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
     return _xifexpression;
   }
   
-  public List<State> normalizedStates(final Actor actor) {
-    List<State> _xifexpression = null;
-    EList<State> _states = actor.getStates();
-    boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(_states);
-    if (_isNullOrEmpty) {
-      ArrayList<State> _xblockexpression = null;
-      {
-        Animation _xifexpression_1 = null;
-        EList<Animation> _animations = actor.getAnimations();
-        boolean _isNullOrEmpty_1 = IterableExtensions.isNullOrEmpty(_animations);
-        if (_isNullOrEmpty_1) {
-          Animation _xblockexpression_1 = null;
-          {
-            final Animation animation = this.factory.createAnimation();
-            animation.setName("default");
-            String _name = actor.getName();
-            String _name_1 = actor.getName();
-            int _lastIndexOf = _name_1.lastIndexOf(".");
-            int _plus = (_lastIndexOf + 1);
-            String _substring = _name.substring(_plus);
-            String _plus_1 = (_substring + ".png");
-            animation.setTexture(_plus_1);
-            _xblockexpression_1 = animation;
-          }
-          _xifexpression_1 = _xblockexpression_1;
-        } else {
-          EList<Animation> _animations_1 = actor.getAnimations();
-          _xifexpression_1 = IterableExtensions.<Animation>head(_animations_1);
-        }
-        final Animation animation = _xifexpression_1;
-        final State state = this.factory.createState();
-        state.setName("default");
-        state.setAnimation(animation);
-        _xblockexpression = CollectionLiterals.<State>newArrayList(state);
-      }
-      _xifexpression = _xblockexpression;
-    } else {
-      _xifexpression = actor.getStates();
-    }
-    return _xifexpression;
-  }
-  
-  public List<Animation> normalizedAnimations(final Actor actor) {
-    List<Animation> _xifexpression = null;
-    EList<Animation> _animations = actor.getAnimations();
-    boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(_animations);
-    if (_isNullOrEmpty) {
-      ArrayList<Animation> _xblockexpression = null;
-      {
-        final Animation animation = this.factory.createAnimation();
-        animation.setName("default");
-        String _name = actor.getName();
-        String _name_1 = actor.getName();
-        int _lastIndexOf = _name_1.lastIndexOf(".");
-        int _plus = (_lastIndexOf + 1);
-        String _substring = _name.substring(_plus);
-        String _plus_1 = (_substring + ".png");
-        animation.setTexture(_plus_1);
-        _xblockexpression = CollectionLiterals.<Animation>newArrayList(animation);
-      }
-      _xifexpression = _xblockexpression;
-    } else {
-      _xifexpression = actor.getAnimations();
-    }
-    return _xifexpression;
-  }
-  
   public JvmEnumerationType stateEnum(final Actor actor) {
     final Procedure1<JvmEnumerationType> _function = (JvmEnumerationType it) -> {
       EList<JvmMember> _members = it.getMembers();
@@ -308,7 +239,7 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
   }
   
   public List<JvmField> textureFields(final Actor actor) {
-    List<Animation> _normalizedAnimations = this.normalizedAnimations(actor);
+    EList<Animation> _normalizedAnimations = actor.getNormalizedAnimations();
     final Function1<Animation, JvmField> _function = (Animation a) -> {
       String _name = a.getName();
       String _upperCase = _name.toUpperCase();
@@ -354,7 +285,7 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
   }
   
   public List<JvmField> animationFields(final Actor actor) {
-    List<Animation> _normalizedAnimations = this.normalizedAnimations(actor);
+    EList<Animation> _normalizedAnimations = actor.getNormalizedAnimations();
     final Function1<Animation, JvmField> _function = (Animation a) -> {
       String _name = a.getName();
       String _firstLower = StringExtensions.toFirstLower(_name);
@@ -410,7 +341,7 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
   }
   
   public String createAnimationCalls(final Actor actor) {
-    List<Animation> _normalizedAnimations = this.normalizedAnimations(actor);
+    EList<Animation> _normalizedAnimations = actor.getNormalizedAnimations();
     final Function1<Animation, String> _function = (Animation a) -> {
       String _name = a.getName();
       String _firstLower = StringExtensions.toFirstLower(_name);

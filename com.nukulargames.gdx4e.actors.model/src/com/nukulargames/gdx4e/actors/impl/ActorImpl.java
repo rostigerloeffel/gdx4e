@@ -46,6 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getStates <em>States</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getDefaultState <em>Default State</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getNormalizedStates <em>Normalized States</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getNormalizedAnimations <em>Normalized Animations</em>}</li>
  * </ul>
  *
  * @generated
@@ -260,6 +261,16 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	 * @ordered
 	 */
 	protected EList<State> normalizedStates;
+
+	/**
+	 * The cached value of the '{@link #getNormalizedAnimations() <em>Normalized Animations</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNormalizedAnimations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Animation> normalizedAnimations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -565,6 +576,18 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Animation> getNormalizedAnimations() {
+		if (normalizedAnimations == null) {
+			normalizedAnimations = new EObjectResolvingEList<Animation>(Animation.class, this, ActorsPackage.ACTOR__NORMALIZED_ANIMATIONS);
+		}
+		return normalizedAnimations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -612,6 +635,8 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return basicGetDefaultState();
 			case ActorsPackage.ACTOR__NORMALIZED_STATES:
 				return getNormalizedStates();
+			case ActorsPackage.ACTOR__NORMALIZED_ANIMATIONS:
+				return getNormalizedAnimations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -667,6 +692,10 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				getNormalizedStates().clear();
 				getNormalizedStates().addAll((Collection<? extends State>)newValue);
 				return;
+			case ActorsPackage.ACTOR__NORMALIZED_ANIMATIONS:
+				getNormalizedAnimations().clear();
+				getNormalizedAnimations().addAll((Collection<? extends Animation>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -718,6 +747,9 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 			case ActorsPackage.ACTOR__NORMALIZED_STATES:
 				getNormalizedStates().clear();
 				return;
+			case ActorsPackage.ACTOR__NORMALIZED_ANIMATIONS:
+				getNormalizedAnimations().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -756,6 +788,8 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return defaultState != null;
 			case ActorsPackage.ACTOR__NORMALIZED_STATES:
 				return normalizedStates != null && !normalizedStates.isEmpty();
+			case ActorsPackage.ACTOR__NORMALIZED_ANIMATIONS:
+				return normalizedAnimations != null && !normalizedAnimations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getStates <em>States</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getDefaultState <em>Default State</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getNormalizedStates <em>Normalized States</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getNormalizedAnimations <em>Normalized Animations</em>}</li>
  * </ul>
  *
  * @see com.nukulargames.gdx4e.actors.ActorsPackage#getActor()
@@ -344,5 +345,21 @@ public interface Actor extends EObject {
 	 * @generated
 	 */
 	EList<State> getNormalizedStates();
+
+	/**
+	 * Returns the value of the '<em><b>Normalized Animations</b></em>' reference list.
+	 * The list contents are of type {@link com.nukulargames.gdx4e.actors.Animation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Normalized Animations</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Normalized Animations</em>' reference list.
+	 * @see com.nukulargames.gdx4e.actors.ActorsPackage#getActor_NormalizedAnimations()
+	 * @model derived="true"
+	 * @generated
+	 */
+	EList<Animation> getNormalizedAnimations();
 
 } // Actor

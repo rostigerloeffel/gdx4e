@@ -3,6 +3,7 @@ package com.nukulargames.gdx4e.ext;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public abstract class NukuActor extends Actor {
@@ -35,12 +36,20 @@ public abstract class NukuActor extends Actor {
 	abstract protected void initRotation();
 	
 	protected Animation createAnimation(Texture texture, int rows, int columns, float delay) {
-		return null;
+		TextureRegion[][] splitted = TextureRegion.split(texture, texture.getWidth() / columns, texture.getHeight() / rows);
+		TextureRegion[] frames = new TextureRegion[columns * rows];
+		int index = 0;
+		for (int i = 0; i < rows; ++i) {
+			for (int j = 0; j < columns; ++j) {
+				frames[index++] = splitted[i][j];
+			}
+		}
+		Animation animation = new Animation(delay, frames);
+		return animation;
 	}
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		// TODO Auto-generated method stub
 		super.draw(batch, parentAlpha);
 	}
 }

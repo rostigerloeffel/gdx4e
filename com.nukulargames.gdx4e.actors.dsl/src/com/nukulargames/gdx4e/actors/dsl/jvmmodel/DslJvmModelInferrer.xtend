@@ -120,35 +120,35 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 		}
 	}
 	
-	def normalizedStates(Actor actor) {
-		if (actor.states.nullOrEmpty) {
-			val animation = if (actor.animations.nullOrEmpty) {
-				val animation = createAnimation
-				animation.name = "default"
-				animation.texture = actor.name.substring(actor.name.lastIndexOf('.') + 1) + ".png"
-				animation
-			} else {
-				actor.animations.head
-			}
-			val state = createState
-			state.name = "default"
-			state.animation = animation;
-			newArrayList(state)
-		} else {
-			actor.states
-		}
-	}
-	
-	def normalizedAnimations(Actor actor) {
-		if (actor.animations.nullOrEmpty) {
-			val animation = createAnimation
-			animation.name = "default"
-			animation.texture = actor.name.substring(actor.name.lastIndexOf('.') + 1) + ".png"
-			newArrayList(animation)
-		} else {
-			actor.animations
-		}
-	}
+//	def normalizedStates(Actor actor) {
+//		if (actor.states.nullOrEmpty) {
+//			val animation = if (actor.animations.nullOrEmpty) {
+//				val animation = createAnimation
+//				animation.name = "default"
+//				animation.texture = actor.name.substring(actor.name.lastIndexOf('.') + 1) + ".png"
+//				animation
+//			} else {
+//				actor.animations.head
+//			}
+//			val state = createState
+//			state.name = "default"
+//			state.animation = animation;
+//			newArrayList(state)
+//		} else {
+//			actor.states
+//		}
+//	}
+//	
+//	def normalizedAnimations(Actor actor) {
+//		if (actor.animations.nullOrEmpty) {
+//			val animation = createAnimation
+//			animation.name = "default"
+//			animation.texture = actor.name.substring(actor.name.lastIndexOf('.') + 1) + ".png"
+//			newArrayList(animation)
+//		} else {
+//			actor.animations
+//		}
+//	}
 	
 	def stateEnum(Actor actor) {
 		actor.toEnumerationType("States") [

@@ -311,6 +311,15 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getActor_NormalizedAnimations() {
+		return (EReference)actorEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getGroup() {
 		return groupEClass;
 	}
@@ -515,6 +524,7 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 		createEReference(actorEClass, ACTOR__STATES);
 		createEReference(actorEClass, ACTOR__DEFAULT_STATE);
 		createEReference(actorEClass, ACTOR__NORMALIZED_STATES);
+		createEReference(actorEClass, ACTOR__NORMALIZED_ANIMATIONS);
 
 		groupEClass = createEClass(GROUP);
 		createEReference(groupEClass, GROUP__CHILDREN);
@@ -591,6 +601,7 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 		initEReference(getActor_States(), this.getState(), null, "states", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActor_DefaultState(), this.getState(), null, "defaultState", null, 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActor_NormalizedStates(), this.getState(), null, "normalizedStates", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getActor_NormalizedAnimations(), this.getAnimation(), null, "normalizedAnimations", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGroup_Children(), this.getActorReference(), null, "children", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

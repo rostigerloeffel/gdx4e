@@ -239,13 +239,22 @@ public interface ActorsPackage extends EPackage {
 	int ACTOR__NORMALIZED_STATES = 12;
 
 	/**
+	 * The feature id for the '<em><b>Normalized Animations</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__NORMALIZED_ANIMATIONS = 13;
+
+	/**
 	 * The number of structural features of the '<em>Actor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_FEATURE_COUNT = 13;
+	int ACTOR_FEATURE_COUNT = 14;
 
 	/**
 	 * The number of operations of the '<em>Actor</em>' class.
@@ -382,6 +391,15 @@ public interface ActorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int GROUP__NORMALIZED_STATES = ACTOR__NORMALIZED_STATES;
+
+	/**
+	 * The feature id for the '<em><b>Normalized Animations</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__NORMALIZED_ANIMATIONS = ACTOR__NORMALIZED_ANIMATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -847,6 +865,17 @@ public interface ActorsPackage extends EPackage {
 	EReference getActor_NormalizedStates();
 
 	/**
+	 * Returns the meta object for the reference list '{@link com.nukulargames.gdx4e.actors.Actor#getNormalizedAnimations <em>Normalized Animations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Normalized Animations</em>'.
+	 * @see com.nukulargames.gdx4e.actors.Actor#getNormalizedAnimations()
+	 * @see #getActor()
+	 * @generated
+	 */
+	EReference getActor_NormalizedAnimations();
+
+	/**
 	 * Returns the meta object for class '{@link com.nukulargames.gdx4e.actors.Group <em>Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1208,6 +1237,14 @@ public interface ActorsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ACTOR__NORMALIZED_STATES = eINSTANCE.getActor_NormalizedStates();
+
+		/**
+		 * The meta object literal for the '<em><b>Normalized Animations</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTOR__NORMALIZED_ANIMATIONS = eINSTANCE.getActor_NormalizedAnimations();
 
 		/**
 		 * The meta object literal for the '{@link com.nukulargames.gdx4e.actors.impl.GroupImpl <em>Group</em>}' class.

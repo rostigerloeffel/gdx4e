@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Bundle-SymbolicName: com.nukulargames.gdx4e.eclipse-backend-natives
-Bundle-Name: Natives
-Bundle-Version: 1.0.0.201602281045
-Bundle-ClassPath: libs/lwjgl-natives.jar
-Bundle-ManifestVersion: 2
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Fragment-Host: com.nukulargames.gdx4e.core;bundle-version="1.0.0"
-
