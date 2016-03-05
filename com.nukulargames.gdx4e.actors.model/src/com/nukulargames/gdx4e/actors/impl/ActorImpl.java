@@ -130,7 +130,7 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float WIDTH_EDEFAULT = 0.0F;
+	protected static final float WIDTH_EDEFAULT = 1.0F;
 
 	/**
 	 * The cached value of the '{@link #getWidth() <em>Width</em>}' attribute.
@@ -150,7 +150,7 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float HEIGHT_EDEFAULT = 0.0F;
+	protected static final float HEIGHT_EDEFAULT = 1.0F;
 
 	/**
 	 * The cached value of the '{@link #getHeight() <em>Height</em>}' attribute.

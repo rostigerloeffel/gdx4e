@@ -73,6 +73,8 @@ public class ActorItemProvider
 			addScaleYPropertyDescriptor(object);
 			addRotationPropertyDescriptor(object);
 			addDefaultStatePropertyDescriptor(object);
+			addNormalizedStatesPropertyDescriptor(object);
+			addNormalizedAnimationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -289,6 +291,50 @@ public class ActorItemProvider
 				 getString("_UI_Actor_defaultState_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_defaultState_feature", "_UI_Actor_type"),
 				 ActorsPackage.Literals.ACTOR__DEFAULT_STATE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Normalized States feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNormalizedStatesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Actor_normalizedStates_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_normalizedStates_feature", "_UI_Actor_type"),
+				 ActorsPackage.Literals.ACTOR__NORMALIZED_STATES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Normalized Animations feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNormalizedAnimationsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Actor_normalizedAnimations_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_normalizedAnimations_feature", "_UI_Actor_type"),
+				 ActorsPackage.Literals.ACTOR__NORMALIZED_ANIMATIONS,
 				 true,
 				 false,
 				 true,

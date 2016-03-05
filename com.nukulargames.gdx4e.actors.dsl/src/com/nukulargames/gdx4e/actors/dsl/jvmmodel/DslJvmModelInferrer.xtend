@@ -258,7 +258,8 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 		actor.toMethod("initState", typeRef(void)) [
 			visibility = JvmVisibility.PROTECTED
 			body = '''
-				currentState = States.«actor?.defaultState?.name?.toUpperCase ?: actor?.states?.head?.name?.toUpperCase ?: "DEFAULT"»;
+				«val stateName = actor?.defaultState?.name?.toFirstUpper ?: actor?.states?.head?.name?.toFirstUpper ?: "Default"»
+				_enter«stateName»State();
 			'''
 		]
 	}
@@ -301,7 +302,6 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 					«ENDFOR»
 					default:
 				}
-				currentState = next;
 			'''
 		]
 	}
@@ -313,6 +313,7 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 				currentAnimation = «animationForState(actor, s).name.toFirstLower»Animation;
 				resetStateTime();
 				enter«s.name.toFirstUpper»State();
+				currentState = States.«s.name.toUpperCase»;
 			'''
 		]]
 	}

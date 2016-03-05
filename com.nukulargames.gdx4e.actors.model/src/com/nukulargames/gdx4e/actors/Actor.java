@@ -142,6 +142,7 @@ public interface Actor extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Width</b></em>' attribute.
+	 * The default value is <code>"1.0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Width</em>' attribute isn't clear,
@@ -151,7 +152,7 @@ public interface Actor extends EObject {
 	 * @return the value of the '<em>Width</em>' attribute.
 	 * @see #setWidth(float)
 	 * @see com.nukulargames.gdx4e.actors.ActorsPackage#getActor_Width()
-	 * @model
+	 * @model default="1.0"
 	 * @generated
 	 */
 	float getWidth();
@@ -168,6 +169,7 @@ public interface Actor extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Height</b></em>' attribute.
+	 * The default value is <code>"1.0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Height</em>' attribute isn't clear,
@@ -177,7 +179,7 @@ public interface Actor extends EObject {
 	 * @return the value of the '<em>Height</em>' attribute.
 	 * @see #setHeight(float)
 	 * @see com.nukulargames.gdx4e.actors.ActorsPackage#getActor_Height()
-	 * @model
+	 * @model default="1.0"
 	 * @generated
 	 */
 	float getHeight();

@@ -477,7 +477,6 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
       StringConcatenationClient _client = new StringConcatenationClient() {
         @Override
         protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
-          _builder.append("currentState = States.");
           String _elvis = null;
           String _elvis_1 = null;
           State _defaultState = null;
@@ -488,12 +487,12 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
           if (_defaultState!=null) {
             _name=_defaultState.getName();
           }
-          String _upperCase = null;
+          String _firstUpper = null;
           if (_name!=null) {
-            _upperCase=_name.toUpperCase();
+            _firstUpper=StringExtensions.toFirstUpper(_name);
           }
-          if (_upperCase != null) {
-            _elvis_1 = _upperCase;
+          if (_firstUpper != null) {
+            _elvis_1 = _firstUpper;
           } else {
             EList<State> _states = null;
             if (actor!=null) {
@@ -507,19 +506,22 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
             if (_head!=null) {
               _name_1=_head.getName();
             }
-            String _upperCase_1 = null;
+            String _firstUpper_1 = null;
             if (_name_1!=null) {
-              _upperCase_1=_name_1.toUpperCase();
+              _firstUpper_1=StringExtensions.toFirstUpper(_name_1);
             }
-            _elvis_1 = _upperCase_1;
+            _elvis_1 = _firstUpper_1;
           }
           if (_elvis_1 != null) {
             _elvis = _elvis_1;
           } else {
-            _elvis = "DEFAULT";
+            _elvis = "Default";
           }
-          _builder.append(_elvis, "");
-          _builder.append(";");
+          final String stateName = _elvis;
+          _builder.newLineIfNotEmpty();
+          _builder.append("_enter");
+          _builder.append(stateName, "");
+          _builder.append("State();");
           _builder.newLineIfNotEmpty();
         }
       };
@@ -644,8 +646,6 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
           _builder.newLine();
           _builder.append("}");
           _builder.newLine();
-          _builder.append("currentState = next;");
-          _builder.newLine();
         }
       };
       this._jvmTypesBuilder.setBody(it, _client);
@@ -680,6 +680,12 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
             String _firstUpper = StringExtensions.toFirstUpper(_name_1);
             _builder.append(_firstUpper, "");
             _builder.append("State();");
+            _builder.newLineIfNotEmpty();
+            _builder.append("currentState = States.");
+            String _name_2 = s.getName();
+            String _upperCase = _name_2.toUpperCase();
+            _builder.append(_upperCase, "");
+            _builder.append(";");
             _builder.newLineIfNotEmpty();
           }
         };
