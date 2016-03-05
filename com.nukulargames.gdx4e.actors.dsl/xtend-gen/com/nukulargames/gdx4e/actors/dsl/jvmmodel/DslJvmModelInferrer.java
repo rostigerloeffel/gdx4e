@@ -333,14 +333,6 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
           _builder.newLineIfNotEmpty();
           _builder.append("initState();");
           _builder.newLine();
-          _builder.append("initPosition();");
-          _builder.newLine();
-          _builder.append("initSize();");
-          _builder.newLine();
-          _builder.append("initScale();");
-          _builder.newLine();
-          _builder.append("initRotation();");
-          _builder.newLine();
         }
       };
       this._jvmTypesBuilder.setBody(it, _client);

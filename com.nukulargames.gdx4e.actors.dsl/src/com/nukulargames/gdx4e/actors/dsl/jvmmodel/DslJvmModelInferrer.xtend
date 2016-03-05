@@ -197,10 +197,6 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 				super();
 				«createAnimationCalls(actor)»
 				initState();
-				initPosition();
-				initSize();
-				initScale();
-				initRotation();
 			'''
 		]
 	}
