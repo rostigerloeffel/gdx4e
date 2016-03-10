@@ -7,8 +7,10 @@ Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui,
  com.nukulargames.gdx4e.core,
+ com.nukulargames.gdx4e.core-ext,
  com.nukulargames.gdx4e.actors.model,
  com.nukulargames.gdx4e.eclipse-backend,
  org.eclipse.jdt.core,
  org.eclipse.core.resources
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: com.nukulargames.gdx4e.backend

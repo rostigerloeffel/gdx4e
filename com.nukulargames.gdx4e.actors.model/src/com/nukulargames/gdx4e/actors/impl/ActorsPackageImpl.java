@@ -320,6 +320,42 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getActor_Red() {
+		return (EAttribute)actorEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getActor_Green() {
+		return (EAttribute)actorEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getActor_Blue() {
+		return (EAttribute)actorEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getActor_Alpha() {
+		return (EAttribute)actorEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getGroup() {
 		return groupEClass;
 	}
@@ -437,6 +473,15 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAnimation_NormalizedTexture() {
+		return (EAttribute)animationEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getState() {
 		return stateEClass;
 	}
@@ -525,6 +570,10 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 		createEReference(actorEClass, ACTOR__DEFAULT_STATE);
 		createEReference(actorEClass, ACTOR__NORMALIZED_STATES);
 		createEReference(actorEClass, ACTOR__NORMALIZED_ANIMATIONS);
+		createEAttribute(actorEClass, ACTOR__RED);
+		createEAttribute(actorEClass, ACTOR__GREEN);
+		createEAttribute(actorEClass, ACTOR__BLUE);
+		createEAttribute(actorEClass, ACTOR__ALPHA);
 
 		groupEClass = createEClass(GROUP);
 		createEReference(groupEClass, GROUP__CHILDREN);
@@ -542,6 +591,7 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 		createEAttribute(animationEClass, ANIMATION__COLUMNS);
 		createEAttribute(animationEClass, ANIMATION__ROWS);
 		createEAttribute(animationEClass, ANIMATION__DELAY);
+		createEAttribute(animationEClass, ANIMATION__NORMALIZED_TEXTURE);
 
 		stateEClass = createEClass(STATE);
 		createEAttribute(stateEClass, STATE__NAME);
@@ -602,6 +652,10 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 		initEReference(getActor_DefaultState(), this.getState(), null, "defaultState", null, 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActor_NormalizedStates(), this.getState(), null, "normalizedStates", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getActor_NormalizedAnimations(), this.getAnimation(), null, "normalizedAnimations", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActor_Red(), ecorePackage.getEFloat(), "red", "1.0f", 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActor_Green(), ecorePackage.getEFloat(), "green", "1.0f", 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActor_Blue(), ecorePackage.getEFloat(), "blue", "1.0f", 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActor_Alpha(), ecorePackage.getEFloat(), "alpha", "1.0f", 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGroup_Children(), this.getActorReference(), null, "children", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -619,6 +673,7 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 		initEAttribute(getAnimation_Columns(), ecorePackage.getEInt(), "columns", "1", 0, 1, Animation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnimation_Rows(), ecorePackage.getEInt(), "rows", "1", 0, 1, Animation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnimation_Delay(), ecorePackage.getEFloat(), "delay", "0.0f", 0, 1, Animation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnimation_NormalizedTexture(), ecorePackage.getEString(), "normalizedTexture", null, 1, 1, Animation.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 1, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

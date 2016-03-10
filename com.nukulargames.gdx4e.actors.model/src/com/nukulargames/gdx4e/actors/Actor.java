@@ -29,6 +29,10 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getDefaultState <em>Default State</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getNormalizedStates <em>Normalized States</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getNormalizedAnimations <em>Normalized Animations</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getRed <em>Red</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getGreen <em>Green</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getBlue <em>Blue</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getAlpha <em>Alpha</em>}</li>
  * </ul>
  *
  * @see com.nukulargames.gdx4e.actors.ActorsPackage#getActor()
@@ -363,5 +367,113 @@ public interface Actor extends EObject {
 	 * @generated
 	 */
 	EList<Animation> getNormalizedAnimations();
+
+	/**
+	 * Returns the value of the '<em><b>Red</b></em>' attribute.
+	 * The default value is <code>"1.0f"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Red</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Red</em>' attribute.
+	 * @see #setRed(float)
+	 * @see com.nukulargames.gdx4e.actors.ActorsPackage#getActor_Red()
+	 * @model default="1.0f"
+	 * @generated
+	 */
+	float getRed();
+
+	/**
+	 * Sets the value of the '{@link com.nukulargames.gdx4e.actors.Actor#getRed <em>Red</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Red</em>' attribute.
+	 * @see #getRed()
+	 * @generated
+	 */
+	void setRed(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Green</b></em>' attribute.
+	 * The default value is <code>"1.0f"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Green</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Green</em>' attribute.
+	 * @see #setGreen(float)
+	 * @see com.nukulargames.gdx4e.actors.ActorsPackage#getActor_Green()
+	 * @model default="1.0f"
+	 * @generated
+	 */
+	float getGreen();
+
+	/**
+	 * Sets the value of the '{@link com.nukulargames.gdx4e.actors.Actor#getGreen <em>Green</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Green</em>' attribute.
+	 * @see #getGreen()
+	 * @generated
+	 */
+	void setGreen(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Blue</b></em>' attribute.
+	 * The default value is <code>"1.0f"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Blue</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Blue</em>' attribute.
+	 * @see #setBlue(float)
+	 * @see com.nukulargames.gdx4e.actors.ActorsPackage#getActor_Blue()
+	 * @model default="1.0f"
+	 * @generated
+	 */
+	float getBlue();
+
+	/**
+	 * Sets the value of the '{@link com.nukulargames.gdx4e.actors.Actor#getBlue <em>Blue</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Blue</em>' attribute.
+	 * @see #getBlue()
+	 * @generated
+	 */
+	void setBlue(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Alpha</b></em>' attribute.
+	 * The default value is <code>"1.0f"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Alpha</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Alpha</em>' attribute.
+	 * @see #setAlpha(float)
+	 * @see com.nukulargames.gdx4e.actors.ActorsPackage#getActor_Alpha()
+	 * @model default="1.0f"
+	 * @generated
+	 */
+	float getAlpha();
+
+	/**
+	 * Sets the value of the '{@link com.nukulargames.gdx4e.actors.Actor#getAlpha <em>Alpha</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Alpha</em>' attribute.
+	 * @see #getAlpha()
+	 * @generated
+	 */
+	void setAlpha(float value);
 
 } // Actor

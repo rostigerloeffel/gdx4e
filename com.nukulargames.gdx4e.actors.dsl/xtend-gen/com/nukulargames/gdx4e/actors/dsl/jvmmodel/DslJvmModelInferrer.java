@@ -4,6 +4,7 @@
 package com.nukulargames.gdx4e.actors.dsl.jvmmodel;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -137,50 +138,53 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
       JvmOperation _initRotation = this.initRotation(element);
       this._jvmTypesBuilder.<JvmOperation>operator_add(_members_10, _initRotation);
       EList<JvmMember> _members_11 = it.getMembers();
-      JvmOperation _initState = this.initState(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_11, _initState);
+      JvmOperation _initColor = this.initColor(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_11, _initColor);
       EList<JvmMember> _members_12 = it.getMembers();
-      List<JvmOperation> _animation = this.getAnimation(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_12, _animation);
+      JvmOperation _initState = this.initState(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_12, _initState);
       EList<JvmMember> _members_13 = it.getMembers();
-      JvmOperation _draw = this.draw(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_13, _draw);
+      List<JvmOperation> _animation = this.getAnimation(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_13, _animation);
       EList<JvmMember> _members_14 = it.getMembers();
-      List<JvmOperation> _drawState = this.drawState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_14, _drawState);
+      JvmOperation _draw = this.draw(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_14, _draw);
       EList<JvmMember> _members_15 = it.getMembers();
-      JvmOperation _drawAnimation = this.drawAnimation(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_15, _drawAnimation);
+      List<JvmOperation> _drawState = this.drawState(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_15, _drawState);
       EList<JvmMember> _members_16 = it.getMembers();
-      JvmOperation _act = this.act(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_16, _act);
+      JvmOperation _drawAnimation = this.drawAnimation(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_16, _drawAnimation);
       EList<JvmMember> _members_17 = it.getMembers();
-      List<JvmOperation> __actState = this._actState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_17, __actState);
+      JvmOperation _act = this.act(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_17, _act);
       EList<JvmMember> _members_18 = it.getMembers();
-      List<JvmOperation> _actState = this.actState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_18, _actState);
+      List<JvmOperation> __actState = this._actState(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_18, __actState);
       EList<JvmMember> _members_19 = it.getMembers();
-      JvmOperation _resetStateTime = this.resetStateTime(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_19, _resetStateTime);
+      List<JvmOperation> _actState = this.actState(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_19, _actState);
       EList<JvmMember> _members_20 = it.getMembers();
-      JvmOperation _currentState_1 = this.getCurrentState(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_20, _currentState_1);
+      JvmOperation _resetStateTime = this.resetStateTime(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_20, _resetStateTime);
       EList<JvmMember> _members_21 = it.getMembers();
-      JvmOperation _transit = this.transit(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_21, _transit);
+      JvmOperation _currentState_1 = this.getCurrentState(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_21, _currentState_1);
       EList<JvmMember> _members_22 = it.getMembers();
-      List<JvmOperation> __enterState = this._enterState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_22, __enterState);
+      JvmOperation _transit = this.transit(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_22, _transit);
       EList<JvmMember> _members_23 = it.getMembers();
-      List<JvmOperation> _enterState = this.enterState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_23, _enterState);
+      List<JvmOperation> __enterState = this._enterState(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_23, __enterState);
       EList<JvmMember> _members_24 = it.getMembers();
-      List<JvmOperation> __leaveState = this._leaveState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_24, __leaveState);
+      List<JvmOperation> _enterState = this.enterState(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_24, _enterState);
       EList<JvmMember> _members_25 = it.getMembers();
+      List<JvmOperation> __leaveState = this._leaveState(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_25, __leaveState);
+      EList<JvmMember> _members_26 = it.getMembers();
       List<JvmOperation> _leaveState = this.leaveState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_25, _leaveState);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_26, _leaveState);
     };
     acceptor.<JvmGenericType>accept(genClass, _function);
     String _basePackageName_1 = this.basePackageName(model);
@@ -460,6 +464,35 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
       this._jvmTypesBuilder.setBody(it, _client);
     };
     return this._jvmTypesBuilder.toMethod(actor, "initRotation", _typeRef, _function);
+  }
+  
+  public JvmOperation initColor(final Actor actor) {
+    JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(void.class);
+    final Procedure1<JvmOperation> _function = (JvmOperation it) -> {
+      it.setVisibility(JvmVisibility.PROTECTED);
+      this._annotationTypesBuilder.annotationRef(Override.class);
+      StringConcatenationClient _client = new StringConcatenationClient() {
+        @Override
+        protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+          _builder.append("setColor((float) ");
+          float _red = actor.getRed();
+          _builder.append(_red, "");
+          _builder.append(", (float) ");
+          float _green = actor.getGreen();
+          _builder.append(_green, "");
+          _builder.append(", (float) ");
+          float _blue = actor.getBlue();
+          _builder.append(_blue, "");
+          _builder.append(", (float) ");
+          float _alpha = actor.getAlpha();
+          _builder.append(_alpha, "");
+          _builder.append(");");
+          _builder.newLineIfNotEmpty();
+        }
+      };
+      this._jvmTypesBuilder.setBody(it, _client);
+    };
+    return this._jvmTypesBuilder.toMethod(actor, "initColor", _typeRef, _function);
   }
   
   public JvmOperation initState(final Actor actor) {
@@ -900,7 +933,17 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
           _builder.append(" region = animation.getKeyFrame(animationStateTime, true);");
           _builder.newLineIfNotEmpty();
           _builder.append("\t");
+          _builder.append(Color.class, "\t");
+          _builder.append(" tint = batch.getColor();");
+          _builder.newLineIfNotEmpty();
+          _builder.append("\t");
+          _builder.append("batch.setColor(getColor());");
+          _builder.newLine();
+          _builder.append("\t");
           _builder.append("batch.draw(region, getX(), getY(), getOriginX(), getOriginY(), getWidth(), getHeight(), getScaleX(), getScaleY(), getRotation());");
+          _builder.newLine();
+          _builder.append("\t");
+          _builder.append("batch.setColor(tint);");
           _builder.newLine();
           _builder.append("}");
           _builder.newLine();

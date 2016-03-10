@@ -10,7 +10,8 @@ Bundle-ClassPath: .,
  libs/AppleJavaExtensions-1.4.jar,
  libs/jlayer-1.0.1-libgdx.jar,
  libs/jorbis.jar,
- libs/lwjgl.jar
+ libs/lwjgl.jar,
+ libs/lwjgl-natives.jar
 Require-Bundle: com.nukulargames.gdx4e.core,
  org.eclipse.swt
 Export-Package: com.apple.concurrent,

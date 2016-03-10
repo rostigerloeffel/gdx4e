@@ -33,6 +33,10 @@ Actor_Impl returns Actor:
 		('scale-x' '=' scaleX=EFloat)?
 		('scale-y' '=' scaleY=EFloat)?
 		('rotation' '=' rotation=EFloat)?
+		('red' '=' red=EFloat)?
+		('green' '=' green=EFloat)?
+		('blue' '=' blue=EFloat)?
+		('alpha' '=' alpha=EFloat)?
 		animations += Animation*
 		states += State*)?
 		('default' '=' defaultState = [State])?;

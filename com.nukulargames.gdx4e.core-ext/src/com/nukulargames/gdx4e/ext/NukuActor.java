@@ -17,6 +17,7 @@ public abstract class NukuActor extends Actor {
 		initSize();
 		initOrigin();
 		initScale();
+		initColor();
 	}
 	
 	abstract protected void initPosition();
@@ -32,20 +33,15 @@ public abstract class NukuActor extends Actor {
 		setScaleX(1.0f);
 		setScaleY(1.0f);
 	}
+	
+	protected void initColor() {
+		setColor(1.0f, 1.0f, 1.0f, 1.0f);
+	}
 
 	abstract protected void initRotation();
 	
 	protected Animation createAnimation(Texture texture, int rows, int columns, float delay) {
-		TextureRegion[][] splitted = TextureRegion.split(texture, texture.getWidth() / columns, texture.getHeight() / rows);
-		TextureRegion[] frames = new TextureRegion[columns * rows];
-		int index = 0;
-		for (int i = 0; i < rows; ++i) {
-			for (int j = 0; j < columns; ++j) {
-				frames[index++] = splitted[i][j];
-			}
-		}
-		Animation animation = new Animation(delay, frames);
-		return animation;
+		return AnimationFactory.createAnimation(texture, rows, columns, delay);
 	}
 	
 	@Override

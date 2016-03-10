@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.nukulargames.gdx4e.actors.impl.AnimationImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.impl.AnimationImpl#getRows <em>Rows</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.impl.AnimationImpl#getDelay <em>Delay</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.impl.AnimationImpl#getNormalizedTexture <em>Normalized Texture</em>}</li>
  * </ul>
  *
  * @generated
@@ -129,6 +130,16 @@ public class AnimationImpl extends MinimalEObjectImpl.Container implements Anima
 	 * @ordered
 	 */
 	protected float delay = DELAY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getNormalizedTexture() <em>Normalized Texture</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNormalizedTexture()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NORMALIZED_TEXTURE_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -259,6 +270,28 @@ public class AnimationImpl extends MinimalEObjectImpl.Container implements Anima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getNormalizedTexture() {
+		// TODO: implement this method to return the 'Normalized Texture' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNormalizedTexture(String newNormalizedTexture) {
+		// TODO: implement this method to set the 'Normalized Texture' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -272,6 +305,8 @@ public class AnimationImpl extends MinimalEObjectImpl.Container implements Anima
 				return getRows();
 			case ActorsPackage.ANIMATION__DELAY:
 				return getDelay();
+			case ActorsPackage.ANIMATION__NORMALIZED_TEXTURE:
+				return getNormalizedTexture();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -298,6 +333,9 @@ public class AnimationImpl extends MinimalEObjectImpl.Container implements Anima
 				return;
 			case ActorsPackage.ANIMATION__DELAY:
 				setDelay((Float)newValue);
+				return;
+			case ActorsPackage.ANIMATION__NORMALIZED_TEXTURE:
+				setNormalizedTexture((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -326,6 +364,9 @@ public class AnimationImpl extends MinimalEObjectImpl.Container implements Anima
 			case ActorsPackage.ANIMATION__DELAY:
 				setDelay(DELAY_EDEFAULT);
 				return;
+			case ActorsPackage.ANIMATION__NORMALIZED_TEXTURE:
+				setNormalizedTexture(NORMALIZED_TEXTURE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -348,6 +389,8 @@ public class AnimationImpl extends MinimalEObjectImpl.Container implements Anima
 				return rows != ROWS_EDEFAULT;
 			case ActorsPackage.ANIMATION__DELAY:
 				return delay != DELAY_EDEFAULT;
+			case ActorsPackage.ANIMATION__NORMALIZED_TEXTURE:
+				return NORMALIZED_TEXTURE_EDEFAULT == null ? getNormalizedTexture() != null : !NORMALIZED_TEXTURE_EDEFAULT.equals(getNormalizedTexture());
 		}
 		return super.eIsSet(featureID);
 	}

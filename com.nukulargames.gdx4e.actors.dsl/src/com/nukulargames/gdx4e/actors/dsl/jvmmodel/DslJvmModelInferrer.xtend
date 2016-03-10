@@ -20,6 +20,7 @@ import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor.IPostIndexingInitializing
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
+import com.badlogic.gdx.graphics.Color
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -85,6 +86,7 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
    			members += initSize(element)
    			members += initScale(element)
    			members += initRotation(element)
+   			members += initColor(element)
    			members += initState(element)
    			
    			members += getAnimation(element)
@@ -250,6 +252,16 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 		]
 	}
 	
+	def initColor(Actor actor) {		
+		actor.toMethod("initColor", typeRef(void)) [
+			visibility = JvmVisibility.PROTECTED
+			annotationRef(Override)
+			body = '''
+				setColor((float) «actor.red», (float) «actor.green», (float) «actor.blue», (float) «actor.alpha»);
+			'''
+		]
+	}
+	
 	def initState(Actor actor) {
 		actor.toMethod("initState", typeRef(void)) [
 			visibility = JvmVisibility.PROTECTED
@@ -381,7 +393,10 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 			body = '''
 				if (animation != null) {
 					final «TextureRegion» region = animation.getKeyFrame(animationStateTime, true);
+					«Color» tint = batch.getColor();
+					batch.setColor(getColor());
 					batch.draw(region, getX(), getY(), getOriginX(), getOriginY(), getWidth(), getHeight(), getScaleX(), getScaleY(), getRotation());
+					batch.setColor(tint);
 				}
 			'''	
 		]

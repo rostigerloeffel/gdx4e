@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.nukulargames.gdx4e.actors.Animation#getColumns <em>Columns</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.Animation#getRows <em>Rows</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.Animation#getDelay <em>Delay</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.Animation#getNormalizedTexture <em>Normalized Texture</em>}</li>
  * </ul>
  *
  * @see com.nukulargames.gdx4e.actors.ActorsPackage#getAnimation()
@@ -157,5 +158,31 @@ public interface Animation extends EObject {
 	 * @generated
 	 */
 	void setDelay(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Normalized Texture</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Normalized Texture</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Normalized Texture</em>' attribute.
+	 * @see #setNormalizedTexture(String)
+	 * @see com.nukulargames.gdx4e.actors.ActorsPackage#getAnimation_NormalizedTexture()
+	 * @model required="true" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getNormalizedTexture();
+
+	/**
+	 * Sets the value of the '{@link com.nukulargames.gdx4e.actors.Animation#getNormalizedTexture <em>Normalized Texture</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Normalized Texture</em>' attribute.
+	 * @see #getNormalizedTexture()
+	 * @generated
+	 */
+	void setNormalizedTexture(String value);
 
 } // Animation

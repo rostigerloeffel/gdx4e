@@ -75,6 +75,10 @@ public class ActorItemProvider
 			addDefaultStatePropertyDescriptor(object);
 			addNormalizedStatesPropertyDescriptor(object);
 			addNormalizedAnimationsPropertyDescriptor(object);
+			addRedPropertyDescriptor(object);
+			addGreenPropertyDescriptor(object);
+			addBluePropertyDescriptor(object);
+			addAlphaPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -344,6 +348,94 @@ public class ActorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Red feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Actor_red_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_red_feature", "_UI_Actor_type"),
+				 ActorsPackage.Literals.ACTOR__RED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Green feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGreenPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Actor_green_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_green_feature", "_UI_Actor_type"),
+				 ActorsPackage.Literals.ACTOR__GREEN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Blue feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBluePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Actor_blue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_blue_feature", "_UI_Actor_type"),
+				 ActorsPackage.Literals.ACTOR__BLUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Alpha feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAlphaPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Actor_alpha_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_alpha_feature", "_UI_Actor_type"),
+				 ActorsPackage.Literals.ACTOR__ALPHA,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -420,6 +512,10 @@ public class ActorItemProvider
 			case ActorsPackage.ACTOR__SCALE_X:
 			case ActorsPackage.ACTOR__SCALE_Y:
 			case ActorsPackage.ACTOR__ROTATION:
+			case ActorsPackage.ACTOR__RED:
+			case ActorsPackage.ACTOR__GREEN:
+			case ActorsPackage.ACTOR__BLUE:
+			case ActorsPackage.ACTOR__ALPHA:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ActorsPackage.ACTOR__ANIMATIONS:

@@ -47,6 +47,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getDefaultState <em>Default State</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getNormalizedStates <em>Normalized States</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getNormalizedAnimations <em>Normalized Animations</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getRed <em>Red</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getGreen <em>Green</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getBlue <em>Blue</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getAlpha <em>Alpha</em>}</li>
  * </ul>
  *
  * @generated
@@ -271,6 +275,86 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	 * @ordered
 	 */
 	protected EList<Animation> normalizedAnimations;
+
+	/**
+	 * The default value of the '{@link #getRed() <em>Red</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRed()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float RED_EDEFAULT = 1.0F;
+
+	/**
+	 * The cached value of the '{@link #getRed() <em>Red</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRed()
+	 * @generated
+	 * @ordered
+	 */
+	protected float red = RED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getGreen() <em>Green</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGreen()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float GREEN_EDEFAULT = 1.0F;
+
+	/**
+	 * The cached value of the '{@link #getGreen() <em>Green</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGreen()
+	 * @generated
+	 * @ordered
+	 */
+	protected float green = GREEN_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getBlue() <em>Blue</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBlue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float BLUE_EDEFAULT = 1.0F;
+
+	/**
+	 * The cached value of the '{@link #getBlue() <em>Blue</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBlue()
+	 * @generated
+	 * @ordered
+	 */
+	protected float blue = BLUE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAlpha() <em>Alpha</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlpha()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float ALPHA_EDEFAULT = 1.0F;
+
+	/**
+	 * The cached value of the '{@link #getAlpha() <em>Alpha</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlpha()
+	 * @generated
+	 * @ordered
+	 */
+	protected float alpha = ALPHA_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -588,6 +672,90 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public float getRed() {
+		return red;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRed(float newRed) {
+		float oldRed = red;
+		red = newRed;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ActorsPackage.ACTOR__RED, oldRed, red));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public float getGreen() {
+		return green;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGreen(float newGreen) {
+		float oldGreen = green;
+		green = newGreen;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ActorsPackage.ACTOR__GREEN, oldGreen, green));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public float getBlue() {
+		return blue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBlue(float newBlue) {
+		float oldBlue = blue;
+		blue = newBlue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ActorsPackage.ACTOR__BLUE, oldBlue, blue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public float getAlpha() {
+		return alpha;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAlpha(float newAlpha) {
+		float oldAlpha = alpha;
+		alpha = newAlpha;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ActorsPackage.ACTOR__ALPHA, oldAlpha, alpha));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -637,6 +805,14 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return getNormalizedStates();
 			case ActorsPackage.ACTOR__NORMALIZED_ANIMATIONS:
 				return getNormalizedAnimations();
+			case ActorsPackage.ACTOR__RED:
+				return getRed();
+			case ActorsPackage.ACTOR__GREEN:
+				return getGreen();
+			case ActorsPackage.ACTOR__BLUE:
+				return getBlue();
+			case ActorsPackage.ACTOR__ALPHA:
+				return getAlpha();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -696,6 +872,18 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				getNormalizedAnimations().clear();
 				getNormalizedAnimations().addAll((Collection<? extends Animation>)newValue);
 				return;
+			case ActorsPackage.ACTOR__RED:
+				setRed((Float)newValue);
+				return;
+			case ActorsPackage.ACTOR__GREEN:
+				setGreen((Float)newValue);
+				return;
+			case ActorsPackage.ACTOR__BLUE:
+				setBlue((Float)newValue);
+				return;
+			case ActorsPackage.ACTOR__ALPHA:
+				setAlpha((Float)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -750,6 +938,18 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 			case ActorsPackage.ACTOR__NORMALIZED_ANIMATIONS:
 				getNormalizedAnimations().clear();
 				return;
+			case ActorsPackage.ACTOR__RED:
+				setRed(RED_EDEFAULT);
+				return;
+			case ActorsPackage.ACTOR__GREEN:
+				setGreen(GREEN_EDEFAULT);
+				return;
+			case ActorsPackage.ACTOR__BLUE:
+				setBlue(BLUE_EDEFAULT);
+				return;
+			case ActorsPackage.ACTOR__ALPHA:
+				setAlpha(ALPHA_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -790,6 +990,14 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return normalizedStates != null && !normalizedStates.isEmpty();
 			case ActorsPackage.ACTOR__NORMALIZED_ANIMATIONS:
 				return normalizedAnimations != null && !normalizedAnimations.isEmpty();
+			case ActorsPackage.ACTOR__RED:
+				return red != RED_EDEFAULT;
+			case ActorsPackage.ACTOR__GREEN:
+				return green != GREEN_EDEFAULT;
+			case ActorsPackage.ACTOR__BLUE:
+				return blue != BLUE_EDEFAULT;
+			case ActorsPackage.ACTOR__ALPHA:
+				return alpha != ALPHA_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -820,6 +1028,14 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 		result.append(scaleY);
 		result.append(", rotation: ");
 		result.append(rotation);
+		result.append(", red: ");
+		result.append(red);
+		result.append(", green: ");
+		result.append(green);
+		result.append(", blue: ");
+		result.append(blue);
+		result.append(", alpha: ");
+		result.append(alpha);
 		result.append(')');
 		return result.toString();
 	}

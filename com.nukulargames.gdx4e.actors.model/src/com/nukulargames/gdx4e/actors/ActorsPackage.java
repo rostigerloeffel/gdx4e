@@ -248,13 +248,49 @@ public interface ActorsPackage extends EPackage {
 	int ACTOR__NORMALIZED_ANIMATIONS = 13;
 
 	/**
+	 * The feature id for the '<em><b>Red</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__RED = 14;
+
+	/**
+	 * The feature id for the '<em><b>Green</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__GREEN = 15;
+
+	/**
+	 * The feature id for the '<em><b>Blue</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__BLUE = 16;
+
+	/**
+	 * The feature id for the '<em><b>Alpha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__ALPHA = 17;
+
+	/**
 	 * The number of structural features of the '<em>Actor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_FEATURE_COUNT = 14;
+	int ACTOR_FEATURE_COUNT = 18;
 
 	/**
 	 * The number of operations of the '<em>Actor</em>' class.
@@ -400,6 +436,42 @@ public interface ActorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int GROUP__NORMALIZED_ANIMATIONS = ACTOR__NORMALIZED_ANIMATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Red</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__RED = ACTOR__RED;
+
+	/**
+	 * The feature id for the '<em><b>Green</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__GREEN = ACTOR__GREEN;
+
+	/**
+	 * The feature id for the '<em><b>Blue</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__BLUE = ACTOR__BLUE;
+
+	/**
+	 * The feature id for the '<em><b>Alpha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__ALPHA = ACTOR__ALPHA;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -567,13 +639,22 @@ public interface ActorsPackage extends EPackage {
 	int ANIMATION__DELAY = 4;
 
 	/**
+	 * The feature id for the '<em><b>Normalized Texture</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANIMATION__NORMALIZED_TEXTURE = 5;
+
+	/**
 	 * The number of structural features of the '<em>Animation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANIMATION_FEATURE_COUNT = 5;
+	int ANIMATION_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Animation</em>' class.
@@ -876,6 +957,50 @@ public interface ActorsPackage extends EPackage {
 	EReference getActor_NormalizedAnimations();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.nukulargames.gdx4e.actors.Actor#getRed <em>Red</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Red</em>'.
+	 * @see com.nukulargames.gdx4e.actors.Actor#getRed()
+	 * @see #getActor()
+	 * @generated
+	 */
+	EAttribute getActor_Red();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.nukulargames.gdx4e.actors.Actor#getGreen <em>Green</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Green</em>'.
+	 * @see com.nukulargames.gdx4e.actors.Actor#getGreen()
+	 * @see #getActor()
+	 * @generated
+	 */
+	EAttribute getActor_Green();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.nukulargames.gdx4e.actors.Actor#getBlue <em>Blue</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Blue</em>'.
+	 * @see com.nukulargames.gdx4e.actors.Actor#getBlue()
+	 * @see #getActor()
+	 * @generated
+	 */
+	EAttribute getActor_Blue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.nukulargames.gdx4e.actors.Actor#getAlpha <em>Alpha</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alpha</em>'.
+	 * @see com.nukulargames.gdx4e.actors.Actor#getAlpha()
+	 * @see #getActor()
+	 * @generated
+	 */
+	EAttribute getActor_Alpha();
+
+	/**
 	 * Returns the meta object for class '{@link com.nukulargames.gdx4e.actors.Group <em>Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1013,6 +1138,17 @@ public interface ActorsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAnimation_Delay();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.nukulargames.gdx4e.actors.Animation#getNormalizedTexture <em>Normalized Texture</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Normalized Texture</em>'.
+	 * @see com.nukulargames.gdx4e.actors.Animation#getNormalizedTexture()
+	 * @see #getAnimation()
+	 * @generated
+	 */
+	EAttribute getAnimation_NormalizedTexture();
 
 	/**
 	 * Returns the meta object for class '{@link com.nukulargames.gdx4e.actors.State <em>State</em>}'.
@@ -1247,6 +1383,38 @@ public interface ActorsPackage extends EPackage {
 		EReference ACTOR__NORMALIZED_ANIMATIONS = eINSTANCE.getActor_NormalizedAnimations();
 
 		/**
+		 * The meta object literal for the '<em><b>Red</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTOR__RED = eINSTANCE.getActor_Red();
+
+		/**
+		 * The meta object literal for the '<em><b>Green</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTOR__GREEN = eINSTANCE.getActor_Green();
+
+		/**
+		 * The meta object literal for the '<em><b>Blue</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTOR__BLUE = eINSTANCE.getActor_Blue();
+
+		/**
+		 * The meta object literal for the '<em><b>Alpha</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTOR__ALPHA = eINSTANCE.getActor_Alpha();
+
+		/**
 		 * The meta object literal for the '{@link com.nukulargames.gdx4e.actors.impl.GroupImpl <em>Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1357,6 +1525,14 @@ public interface ActorsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ANIMATION__DELAY = eINSTANCE.getAnimation_Delay();
+
+		/**
+		 * The meta object literal for the '<em><b>Normalized Texture</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANIMATION__NORMALIZED_TEXTURE = eINSTANCE.getAnimation_NormalizedTexture();
 
 		/**
 		 * The meta object literal for the '{@link com.nukulargames.gdx4e.actors.impl.StateImpl <em>State</em>}' class.
