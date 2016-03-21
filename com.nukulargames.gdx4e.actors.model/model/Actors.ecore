@@ -5,14 +5,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
         eType="#//Actor" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="basePackage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="layers" upperBound="-1"
-        eType="#//Layer" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Actor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="layer" eType="#//Layer"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
         defaultValueLiteral="1.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
@@ -39,18 +36,25 @@
         defaultValueLiteral="1.0f"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="alpha" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
         defaultValueLiteral="1.0f"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Group" eSuperTypes="#//Actor">
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
         eType="#//ActorReference" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActorReference">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" lowerBound="1" eType="#//Actor"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dimensions" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="holds" eType="#//Actor"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="uses" eType="#//Actor"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantity" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="normalizedReference" eType="#//Actor"
+        unsettable="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="normalizedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Stage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
+        eType="#//ActorReference" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Animation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -68,8 +72,5 @@
   <eClassifiers xsi:type="ecore:EClass" name="State">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="animation" eType="#//Animation"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Layer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

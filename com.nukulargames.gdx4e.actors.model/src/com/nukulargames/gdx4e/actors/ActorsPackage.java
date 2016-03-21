@@ -85,22 +85,13 @@ public interface ActorsPackage extends EPackage {
 	int MODEL__BASE_PACKAGE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Layers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__LAYERS = 2;
-
-	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = 3;
+	int MODEL_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -149,22 +140,13 @@ public interface ActorsPackage extends EPackage {
 	int ACTOR__Y = 2;
 
 	/**
-	 * The feature id for the '<em><b>Layer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR__LAYER = 3;
-
-	/**
 	 * The feature id for the '<em><b>Width</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__WIDTH = 4;
+	int ACTOR__WIDTH = 3;
 
 	/**
 	 * The feature id for the '<em><b>Height</b></em>' attribute.
@@ -173,7 +155,7 @@ public interface ActorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__HEIGHT = 5;
+	int ACTOR__HEIGHT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Scale X</b></em>' attribute.
@@ -182,7 +164,7 @@ public interface ActorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__SCALE_X = 6;
+	int ACTOR__SCALE_X = 5;
 
 	/**
 	 * The feature id for the '<em><b>Scale Y</b></em>' attribute.
@@ -191,7 +173,7 @@ public interface ActorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__SCALE_Y = 7;
+	int ACTOR__SCALE_Y = 6;
 
 	/**
 	 * The feature id for the '<em><b>Rotation</b></em>' attribute.
@@ -200,7 +182,7 @@ public interface ActorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__ROTATION = 8;
+	int ACTOR__ROTATION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Animations</b></em>' containment reference list.
@@ -209,7 +191,7 @@ public interface ActorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__ANIMATIONS = 9;
+	int ACTOR__ANIMATIONS = 8;
 
 	/**
 	 * The feature id for the '<em><b>States</b></em>' containment reference list.
@@ -218,7 +200,7 @@ public interface ActorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__STATES = 10;
+	int ACTOR__STATES = 9;
 
 	/**
 	 * The feature id for the '<em><b>Default State</b></em>' reference.
@@ -227,7 +209,7 @@ public interface ActorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__DEFAULT_STATE = 11;
+	int ACTOR__DEFAULT_STATE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Normalized States</b></em>' reference list.
@@ -236,7 +218,7 @@ public interface ActorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__NORMALIZED_STATES = 12;
+	int ACTOR__NORMALIZED_STATES = 11;
 
 	/**
 	 * The feature id for the '<em><b>Normalized Animations</b></em>' reference list.
@@ -245,7 +227,7 @@ public interface ActorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__NORMALIZED_ANIMATIONS = 13;
+	int ACTOR__NORMALIZED_ANIMATIONS = 12;
 
 	/**
 	 * The feature id for the '<em><b>Red</b></em>' attribute.
@@ -254,7 +236,7 @@ public interface ActorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__RED = 14;
+	int ACTOR__RED = 13;
 
 	/**
 	 * The feature id for the '<em><b>Green</b></em>' attribute.
@@ -263,7 +245,7 @@ public interface ActorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__GREEN = 15;
+	int ACTOR__GREEN = 14;
 
 	/**
 	 * The feature id for the '<em><b>Blue</b></em>' attribute.
@@ -272,7 +254,7 @@ public interface ActorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__BLUE = 16;
+	int ACTOR__BLUE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Alpha</b></em>' attribute.
@@ -281,7 +263,16 @@ public interface ActorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__ALPHA = 17;
+	int ACTOR__ALPHA = 16;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__CHILDREN = 17;
 
 	/**
 	 * The number of structural features of the '<em>Actor</em>' class.
@@ -302,14 +293,41 @@ public interface ActorsPackage extends EPackage {
 	int ACTOR_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link com.nukulargames.gdx4e.actors.impl.GroupImpl <em>Group</em>}' class.
+	 * The meta object id for the '{@link com.nukulargames.gdx4e.actors.impl.ActorReferenceImpl <em>Actor Reference</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.nukulargames.gdx4e.actors.impl.GroupImpl
-	 * @see com.nukulargames.gdx4e.actors.impl.ActorsPackageImpl#getGroup()
+	 * @see com.nukulargames.gdx4e.actors.impl.ActorReferenceImpl
+	 * @see com.nukulargames.gdx4e.actors.impl.ActorsPackageImpl#getActorReference()
 	 * @generated
 	 */
-	int GROUP = 2;
+	int ACTOR_REFERENCE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Holds</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_REFERENCE__HOLDS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Uses</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_REFERENCE__USES = 1;
+
+	/**
+	 * The feature id for the '<em><b>Quantity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_REFERENCE__QUANTITY = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -318,215 +336,25 @@ public interface ActorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__NAME = ACTOR__NAME;
+	int ACTOR_REFERENCE__NAME = 3;
 
 	/**
-	 * The feature id for the '<em><b>X</b></em>' attribute.
+	 * The feature id for the '<em><b>Normalized Reference</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__X = ACTOR__X;
+	int ACTOR_REFERENCE__NORMALIZED_REFERENCE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Y</b></em>' attribute.
+	 * The feature id for the '<em><b>Normalized Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__Y = ACTOR__Y;
-
-	/**
-	 * The feature id for the '<em><b>Layer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__LAYER = ACTOR__LAYER;
-
-	/**
-	 * The feature id for the '<em><b>Width</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__WIDTH = ACTOR__WIDTH;
-
-	/**
-	 * The feature id for the '<em><b>Height</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__HEIGHT = ACTOR__HEIGHT;
-
-	/**
-	 * The feature id for the '<em><b>Scale X</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__SCALE_X = ACTOR__SCALE_X;
-
-	/**
-	 * The feature id for the '<em><b>Scale Y</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__SCALE_Y = ACTOR__SCALE_Y;
-
-	/**
-	 * The feature id for the '<em><b>Rotation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__ROTATION = ACTOR__ROTATION;
-
-	/**
-	 * The feature id for the '<em><b>Animations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__ANIMATIONS = ACTOR__ANIMATIONS;
-
-	/**
-	 * The feature id for the '<em><b>States</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__STATES = ACTOR__STATES;
-
-	/**
-	 * The feature id for the '<em><b>Default State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__DEFAULT_STATE = ACTOR__DEFAULT_STATE;
-
-	/**
-	 * The feature id for the '<em><b>Normalized States</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__NORMALIZED_STATES = ACTOR__NORMALIZED_STATES;
-
-	/**
-	 * The feature id for the '<em><b>Normalized Animations</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__NORMALIZED_ANIMATIONS = ACTOR__NORMALIZED_ANIMATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Red</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__RED = ACTOR__RED;
-
-	/**
-	 * The feature id for the '<em><b>Green</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__GREEN = ACTOR__GREEN;
-
-	/**
-	 * The feature id for the '<em><b>Blue</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__BLUE = ACTOR__BLUE;
-
-	/**
-	 * The feature id for the '<em><b>Alpha</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__ALPHA = ACTOR__ALPHA;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__CHILDREN = ACTOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Group</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP_FEATURE_COUNT = ACTOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Group</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP_OPERATION_COUNT = ACTOR_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.nukulargames.gdx4e.actors.impl.ActorReferenceImpl <em>Actor Reference</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.nukulargames.gdx4e.actors.impl.ActorReferenceImpl
-	 * @see com.nukulargames.gdx4e.actors.impl.ActorsPackageImpl#getActorReference()
-	 * @generated
-	 */
-	int ACTOR_REFERENCE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Actor</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_REFERENCE__ACTOR = 0;
-
-	/**
-	 * The feature id for the '<em><b>Dimensions</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_REFERENCE__DIMENSIONS = 1;
+	int ACTOR_REFERENCE__NORMALIZED_NAME = 5;
 
 	/**
 	 * The number of structural features of the '<em>Actor Reference</em>' class.
@@ -535,7 +363,7 @@ public interface ActorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_REFERENCE_FEATURE_COUNT = 2;
+	int ACTOR_REFERENCE_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Actor Reference</em>' class.
@@ -554,7 +382,7 @@ public interface ActorsPackage extends EPackage {
 	 * @see com.nukulargames.gdx4e.actors.impl.ActorsPackageImpl#getStage()
 	 * @generated
 	 */
-	int STAGE = 4;
+	int STAGE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -566,13 +394,22 @@ public interface ActorsPackage extends EPackage {
 	int STAGE__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Actors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STAGE__ACTORS = 1;
+
+	/**
 	 * The number of structural features of the '<em>Stage</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STAGE_FEATURE_COUNT = 1;
+	int STAGE_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Stage</em>' class.
@@ -591,7 +428,7 @@ public interface ActorsPackage extends EPackage {
 	 * @see com.nukulargames.gdx4e.actors.impl.ActorsPackageImpl#getAnimation()
 	 * @generated
 	 */
-	int ANIMATION = 5;
+	int ANIMATION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -673,7 +510,7 @@ public interface ActorsPackage extends EPackage {
 	 * @see com.nukulargames.gdx4e.actors.impl.ActorsPackageImpl#getState()
 	 * @generated
 	 */
-	int STATE = 6;
+	int STATE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -712,44 +549,6 @@ public interface ActorsPackage extends EPackage {
 	int STATE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link com.nukulargames.gdx4e.actors.impl.LayerImpl <em>Layer</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.nukulargames.gdx4e.actors.impl.LayerImpl
-	 * @see com.nukulargames.gdx4e.actors.impl.ActorsPackageImpl#getLayer()
-	 * @generated
-	 */
-	int LAYER = 7;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LAYER__NAME = 0;
-
-	/**
-	 * The number of structural features of the '<em>Layer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LAYER_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Layer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LAYER_OPERATION_COUNT = 0;
-
-
-	/**
 	 * Returns the meta object for class '{@link com.nukulargames.gdx4e.actors.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -780,17 +579,6 @@ public interface ActorsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getModel_BasePackage();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.nukulargames.gdx4e.actors.Model#getLayers <em>Layers</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Layers</em>'.
-	 * @see com.nukulargames.gdx4e.actors.Model#getLayers()
-	 * @see #getModel()
-	 * @generated
-	 */
-	EReference getModel_Layers();
 
 	/**
 	 * Returns the meta object for class '{@link com.nukulargames.gdx4e.actors.Actor <em>Actor</em>}'.
@@ -834,17 +622,6 @@ public interface ActorsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getActor_Y();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.nukulargames.gdx4e.actors.Actor#getLayer <em>Layer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Layer</em>'.
-	 * @see com.nukulargames.gdx4e.actors.Actor#getLayer()
-	 * @see #getActor()
-	 * @generated
-	 */
-	EReference getActor_Layer();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.nukulargames.gdx4e.actors.Actor#getWidth <em>Width</em>}'.
@@ -1001,25 +778,15 @@ public interface ActorsPackage extends EPackage {
 	EAttribute getActor_Alpha();
 
 	/**
-	 * Returns the meta object for class '{@link com.nukulargames.gdx4e.actors.Group <em>Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Group</em>'.
-	 * @see com.nukulargames.gdx4e.actors.Group
-	 * @generated
-	 */
-	EClass getGroup();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.nukulargames.gdx4e.actors.Group#getChildren <em>Children</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.nukulargames.gdx4e.actors.Actor#getChildren <em>Children</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Children</em>'.
-	 * @see com.nukulargames.gdx4e.actors.Group#getChildren()
-	 * @see #getGroup()
+	 * @see com.nukulargames.gdx4e.actors.Actor#getChildren()
+	 * @see #getActor()
 	 * @generated
 	 */
-	EReference getGroup_Children();
+	EReference getActor_Children();
 
 	/**
 	 * Returns the meta object for class '{@link com.nukulargames.gdx4e.actors.ActorReference <em>Actor Reference</em>}'.
@@ -1032,26 +799,70 @@ public interface ActorsPackage extends EPackage {
 	EClass getActorReference();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.nukulargames.gdx4e.actors.ActorReference#getActor <em>Actor</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.nukulargames.gdx4e.actors.ActorReference#getHolds <em>Holds</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Actor</em>'.
-	 * @see com.nukulargames.gdx4e.actors.ActorReference#getActor()
+	 * @return the meta object for the containment reference '<em>Holds</em>'.
+	 * @see com.nukulargames.gdx4e.actors.ActorReference#getHolds()
 	 * @see #getActorReference()
 	 * @generated
 	 */
-	EReference getActorReference_Actor();
+	EReference getActorReference_Holds();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link com.nukulargames.gdx4e.actors.ActorReference#getDimensions <em>Dimensions</em>}'.
+	 * Returns the meta object for the reference '{@link com.nukulargames.gdx4e.actors.ActorReference#getUses <em>Uses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Dimensions</em>'.
-	 * @see com.nukulargames.gdx4e.actors.ActorReference#getDimensions()
+	 * @return the meta object for the reference '<em>Uses</em>'.
+	 * @see com.nukulargames.gdx4e.actors.ActorReference#getUses()
 	 * @see #getActorReference()
 	 * @generated
 	 */
-	EAttribute getActorReference_Dimensions();
+	EReference getActorReference_Uses();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.nukulargames.gdx4e.actors.ActorReference#getQuantity <em>Quantity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Quantity</em>'.
+	 * @see com.nukulargames.gdx4e.actors.ActorReference#getQuantity()
+	 * @see #getActorReference()
+	 * @generated
+	 */
+	EAttribute getActorReference_Quantity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.nukulargames.gdx4e.actors.ActorReference#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.nukulargames.gdx4e.actors.ActorReference#getName()
+	 * @see #getActorReference()
+	 * @generated
+	 */
+	EAttribute getActorReference_Name();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.nukulargames.gdx4e.actors.ActorReference#getNormalizedReference <em>Normalized Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Normalized Reference</em>'.
+	 * @see com.nukulargames.gdx4e.actors.ActorReference#getNormalizedReference()
+	 * @see #getActorReference()
+	 * @generated
+	 */
+	EReference getActorReference_NormalizedReference();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.nukulargames.gdx4e.actors.ActorReference#getNormalizedName <em>Normalized Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Normalized Name</em>'.
+	 * @see com.nukulargames.gdx4e.actors.ActorReference#getNormalizedName()
+	 * @see #getActorReference()
+	 * @generated
+	 */
+	EAttribute getActorReference_NormalizedName();
 
 	/**
 	 * Returns the meta object for class '{@link com.nukulargames.gdx4e.actors.Stage <em>Stage</em>}'.
@@ -1073,6 +884,17 @@ public interface ActorsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getStage_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.nukulargames.gdx4e.actors.Stage#getActors <em>Actors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Actors</em>'.
+	 * @see com.nukulargames.gdx4e.actors.Stage#getActors()
+	 * @see #getStage()
+	 * @generated
+	 */
+	EReference getStage_Actors();
 
 	/**
 	 * Returns the meta object for class '{@link com.nukulargames.gdx4e.actors.Animation <em>Animation</em>}'.
@@ -1183,27 +1005,6 @@ public interface ActorsPackage extends EPackage {
 	EReference getState_Animation();
 
 	/**
-	 * Returns the meta object for class '{@link com.nukulargames.gdx4e.actors.Layer <em>Layer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Layer</em>'.
-	 * @see com.nukulargames.gdx4e.actors.Layer
-	 * @generated
-	 */
-	EClass getLayer();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.nukulargames.gdx4e.actors.Layer#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.nukulargames.gdx4e.actors.Layer#getName()
-	 * @see #getLayer()
-	 * @generated
-	 */
-	EAttribute getLayer_Name();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1253,14 +1054,6 @@ public interface ActorsPackage extends EPackage {
 		EAttribute MODEL__BASE_PACKAGE = eINSTANCE.getModel_BasePackage();
 
 		/**
-		 * The meta object literal for the '<em><b>Layers</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL__LAYERS = eINSTANCE.getModel_Layers();
-
-		/**
 		 * The meta object literal for the '{@link com.nukulargames.gdx4e.actors.impl.ActorImpl <em>Actor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1293,14 +1086,6 @@ public interface ActorsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ACTOR__Y = eINSTANCE.getActor_Y();
-
-		/**
-		 * The meta object literal for the '<em><b>Layer</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ACTOR__LAYER = eINSTANCE.getActor_Layer();
 
 		/**
 		 * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
@@ -1415,22 +1200,12 @@ public interface ActorsPackage extends EPackage {
 		EAttribute ACTOR__ALPHA = eINSTANCE.getActor_Alpha();
 
 		/**
-		 * The meta object literal for the '{@link com.nukulargames.gdx4e.actors.impl.GroupImpl <em>Group</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.nukulargames.gdx4e.actors.impl.GroupImpl
-		 * @see com.nukulargames.gdx4e.actors.impl.ActorsPackageImpl#getGroup()
-		 * @generated
-		 */
-		EClass GROUP = eINSTANCE.getGroup();
-
-		/**
 		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GROUP__CHILDREN = eINSTANCE.getGroup_Children();
+		EReference ACTOR__CHILDREN = eINSTANCE.getActor_Children();
 
 		/**
 		 * The meta object literal for the '{@link com.nukulargames.gdx4e.actors.impl.ActorReferenceImpl <em>Actor Reference</em>}' class.
@@ -1443,20 +1218,52 @@ public interface ActorsPackage extends EPackage {
 		EClass ACTOR_REFERENCE = eINSTANCE.getActorReference();
 
 		/**
-		 * The meta object literal for the '<em><b>Actor</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Holds</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ACTOR_REFERENCE__ACTOR = eINSTANCE.getActorReference_Actor();
+		EReference ACTOR_REFERENCE__HOLDS = eINSTANCE.getActorReference_Holds();
 
 		/**
-		 * The meta object literal for the '<em><b>Dimensions</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Uses</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ACTOR_REFERENCE__DIMENSIONS = eINSTANCE.getActorReference_Dimensions();
+		EReference ACTOR_REFERENCE__USES = eINSTANCE.getActorReference_Uses();
+
+		/**
+		 * The meta object literal for the '<em><b>Quantity</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTOR_REFERENCE__QUANTITY = eINSTANCE.getActorReference_Quantity();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTOR_REFERENCE__NAME = eINSTANCE.getActorReference_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Normalized Reference</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTOR_REFERENCE__NORMALIZED_REFERENCE = eINSTANCE.getActorReference_NormalizedReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Normalized Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTOR_REFERENCE__NORMALIZED_NAME = eINSTANCE.getActorReference_NormalizedName();
 
 		/**
 		 * The meta object literal for the '{@link com.nukulargames.gdx4e.actors.impl.StageImpl <em>Stage</em>}' class.
@@ -1475,6 +1282,14 @@ public interface ActorsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STAGE__NAME = eINSTANCE.getStage_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Actors</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STAGE__ACTORS = eINSTANCE.getStage_Actors();
 
 		/**
 		 * The meta object literal for the '{@link com.nukulargames.gdx4e.actors.impl.AnimationImpl <em>Animation</em>}' class.
@@ -1559,24 +1374,6 @@ public interface ActorsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STATE__ANIMATION = eINSTANCE.getState_Animation();
-
-		/**
-		 * The meta object literal for the '{@link com.nukulargames.gdx4e.actors.impl.LayerImpl <em>Layer</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.nukulargames.gdx4e.actors.impl.LayerImpl
-		 * @see com.nukulargames.gdx4e.actors.impl.ActorsPackageImpl#getLayer()
-		 * @generated
-		 */
-		EClass LAYER = eINSTANCE.getLayer();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LAYER__NAME = eINSTANCE.getLayer_Name();
 
 	}
 

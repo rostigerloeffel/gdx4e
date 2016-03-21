@@ -58,12 +58,10 @@ public class ActorsFactoryImpl extends EFactoryImpl implements ActorsFactory {
 		switch (eClass.getClassifierID()) {
 			case ActorsPackage.MODEL: return createModel();
 			case ActorsPackage.ACTOR: return createActor();
-			case ActorsPackage.GROUP: return createGroup();
 			case ActorsPackage.ACTOR_REFERENCE: return createActorReference();
 			case ActorsPackage.STAGE: return createStage();
 			case ActorsPackage.ANIMATION: return createAnimation();
 			case ActorsPackage.STATE: return createState();
-			case ActorsPackage.LAYER: return createLayer();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -87,16 +85,6 @@ public class ActorsFactoryImpl extends EFactoryImpl implements ActorsFactory {
 	public Actor createActor() {
 		ActorImpl actor = new ActorImpl();
 		return actor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Group createGroup() {
-		GroupImpl group = new GroupImpl();
-		return group;
 	}
 
 	/**
@@ -137,16 +125,6 @@ public class ActorsFactoryImpl extends EFactoryImpl implements ActorsFactory {
 	public State createState() {
 		StateImpl state = new StateImpl();
 		return state;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Layer createLayer() {
-		LayerImpl layer = new LayerImpl();
-		return layer;
 	}
 
 	/**

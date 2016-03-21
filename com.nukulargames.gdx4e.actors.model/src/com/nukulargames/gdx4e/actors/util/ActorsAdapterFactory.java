@@ -76,10 +76,6 @@ public class ActorsAdapterFactory extends AdapterFactoryImpl {
 				return createActorAdapter();
 			}
 			@Override
-			public Adapter caseGroup(Group object) {
-				return createGroupAdapter();
-			}
-			@Override
 			public Adapter caseActorReference(ActorReference object) {
 				return createActorReferenceAdapter();
 			}
@@ -94,10 +90,6 @@ public class ActorsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseState(State object) {
 				return createStateAdapter();
-			}
-			@Override
-			public Adapter caseLayer(Layer object) {
-				return createLayerAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -144,20 +136,6 @@ public class ActorsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createActorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.nukulargames.gdx4e.actors.Group <em>Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.nukulargames.gdx4e.actors.Group
-	 * @generated
-	 */
-	public Adapter createGroupAdapter() {
 		return null;
 	}
 
@@ -214,20 +192,6 @@ public class ActorsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStateAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.nukulargames.gdx4e.actors.Layer <em>Layer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.nukulargames.gdx4e.actors.Layer
-	 * @generated
-	 */
-	public Adapter createLayerAdapter() {
 		return null;
 	}
 

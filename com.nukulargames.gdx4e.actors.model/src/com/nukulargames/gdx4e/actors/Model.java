@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.nukulargames.gdx4e.actors.Model#getActors <em>Actors</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.Model#getBasePackage <em>Base Package</em>}</li>
- *   <li>{@link com.nukulargames.gdx4e.actors.Model#getLayers <em>Layers</em>}</li>
  * </ul>
  *
  * @see com.nukulargames.gdx4e.actors.ActorsPackage#getModel()
@@ -66,21 +65,5 @@ public interface Model extends EObject {
 	 * @generated
 	 */
 	void setBasePackage(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Layers</b></em>' containment reference list.
-	 * The list contents are of type {@link com.nukulargames.gdx4e.actors.Layer}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Layers</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Layers</em>' containment reference list.
-	 * @see com.nukulargames.gdx4e.actors.ActorsPackage#getModel_Layers()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Layer> getLayers();
 
 } // Model

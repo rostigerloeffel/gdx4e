@@ -10,49 +10,38 @@ import "http://www.eclipse.org/xtext/xbase/Xtype" as xtype
 Model returns Model:
 	{Model}
 	('base-package' '=' basePackage = QualifiedName)?
-	('layers' '=' layers += Layer (',' layers += Layer)*)?
 	actors+=Actor*;
 
-Layer returns Layer:
-	{Layer}
-	name = QualifiedName;
-
 Actor returns Actor:
-	Actor_Impl | Group_Impl;
-
-Actor_Impl returns Actor:
 	{Actor}
 	'actor'
 	name=QualifiedName
 	(':'
-		('x' '=' x=EFloat)?
-		('y' '=' y=EFloat)?
-		('layer' '=' layer=[Layer|QualifiedName])?
-		('width' '=' width=EFloat)?
-		('height' '=' height=EFloat)?
-		('scale-x' '=' scaleX=EFloat)?
-		('scale-y' '=' scaleY=EFloat)?
-		('rotation' '=' rotation=EFloat)?
-		('red' '=' red=EFloat)?
-		('green' '=' green=EFloat)?
-		('blue' '=' blue=EFloat)?
-		('alpha' '=' alpha=EFloat)?
-		animations += Animation*
-		states += State*)?
-		('default' '=' defaultState = [State])?;
-
-EFloat returns ecore::EFloat:
-	'-'? INT? '.' INT (('E'|'e') '-'? INT)?;
+		(('x' '=' x=EFloat)? &
+		('y' '=' y=EFloat)? &
+		('width' '=' width=EFloat)? &
+		('height' '=' height=EFloat)? &
+		('scale-x' '=' scaleX=EFloat)? &
+		('scale-y' '=' scaleY=EFloat)? &
+		('rotation' '=' rotation=EFloat)? &
+		('red' '=' red=EFloat)? &
+		('green' '=' green=EFloat)? &
+		('blue' '=' blue=EFloat)? &
+		('alpha' '=' alpha=EFloat)? &
+		animations += Animation* &
+		states += State* &
+		children += ActorReference* &
+		('default' '=' defaultState = [State])?))?;
 
 Animation returns Animation:
 	{Animation}
 	'animation'
 	name=QualifiedName
 	(':'
-		('texture' '=' texture=STRING)?
-		('columns' '=' columns=EInt)?
-		('rows' '=' rows=EInt)?
-		('delay' '=' delay=EFloat)?)?;
+		(('texture' '=' texture=STRING)? &
+		('columns' '=' columns=EInt)? &
+		('rows' '=' rows=EInt)? &
+		('delay' '=' delay=EFloat)?))?;
 
 State returns State:
 	{State}
@@ -61,32 +50,22 @@ State returns State:
 	(':'
 		('animation' '=' animation=[Animation|QualifiedName])?)?;
 
-Group_Impl returns Group:
-	{Group}
-	'group'
-	name=QualifiedName
-	(':'
-		('x' '=' x=EFloat)?
-		('y' '=' y=EFloat)?
-		('width' '=' width=EFloat)?
-		('height' '=' height=EFloat)?
-		('scale-x' '=' scaleX=EFloat)?
-		('scale-y' '=' scaleY=EFloat)?
-		('rotation' '=' rotation=EFloat)?
-		animations+=Animation*
-		states+=State*
-		('default' '=' defaultState = [State])?
-		=>('child' =>children+=ActorReference)*)?;
-
 ActorReference returns ActorReference:
 	{ActorReference}
-	actor = [Actor|QualifiedName]
-	('[' dimensions += EInt ']')*;
+	(('holds' holds = Actor) | 
+	('uses' uses = [Actor|QualifiedName]))
+	=>('quantity' '=' quantity = EInt)?;
 
 Stage returns Stage:
 	{Stage}
 	'stage'
-	name=QualifiedName;
+	name=QualifiedName
+	(':'
+		actors += ActorReference*
+	)?;
 
 EInt returns ecore::EInt:
 	'-'? INT;
+
+EFloat returns ecore::EFloat:
+	'-'? INT? '.' INT (('E'|'e') '-'? INT)?;

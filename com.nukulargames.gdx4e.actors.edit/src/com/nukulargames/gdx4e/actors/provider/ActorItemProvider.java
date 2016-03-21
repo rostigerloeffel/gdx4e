@@ -66,7 +66,6 @@ public class ActorItemProvider
 			addNamePropertyDescriptor(object);
 			addXPropertyDescriptor(object);
 			addYPropertyDescriptor(object);
-			addLayerPropertyDescriptor(object);
 			addWidthPropertyDescriptor(object);
 			addHeightPropertyDescriptor(object);
 			addScaleXPropertyDescriptor(object);
@@ -145,28 +144,6 @@ public class ActorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Layer feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLayerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Actor_layer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_layer_feature", "_UI_Actor_type"),
-				 ActorsPackage.Literals.ACTOR__LAYER,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}
@@ -449,6 +426,7 @@ public class ActorItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ActorsPackage.Literals.ACTOR__ANIMATIONS);
 			childrenFeatures.add(ActorsPackage.Literals.ACTOR__STATES);
+			childrenFeatures.add(ActorsPackage.Literals.ACTOR__CHILDREN);
 		}
 		return childrenFeatures;
 	}
@@ -520,6 +498,7 @@ public class ActorItemProvider
 				return;
 			case ActorsPackage.ACTOR__ANIMATIONS:
 			case ActorsPackage.ACTOR__STATES:
+			case ActorsPackage.ACTOR__CHILDREN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -546,6 +525,11 @@ public class ActorItemProvider
 			(createChildParameter
 				(ActorsPackage.Literals.ACTOR__STATES,
 				 ActorsFactory.eINSTANCE.createState()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ActorsPackage.Literals.ACTOR__CHILDREN,
+				 ActorsFactory.eINSTANCE.createActorReference()));
 	}
 
 	/**

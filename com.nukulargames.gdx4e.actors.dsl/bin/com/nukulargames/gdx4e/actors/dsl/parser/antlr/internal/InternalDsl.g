@@ -113,65 +113,11 @@ ruleModel returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_4='layers'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getModelAccess().getLayersKeyword_2_0());
-			}
-			otherlv_5='='
-			{
-				newLeafNode(otherlv_5, grammarAccess.getModelAccess().getEqualsSignKeyword_2_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getModelAccess().getLayersLayerParserRuleCall_2_2_0());
-					}
-					lv_layers_6_0=ruleLayer
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getModelRule());
-						}
-						add(
-							$current,
-							"layers",
-							lv_layers_6_0,
-							"com.nukulargames.gdx4e.actors.dsl.Dsl.Layer");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_7=','
-				{
-					newLeafNode(otherlv_7, grammarAccess.getModelAccess().getCommaKeyword_2_3_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getModelAccess().getLayersLayerParserRuleCall_2_3_1_0());
-						}
-						lv_layers_8_0=ruleLayer
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getModelRule());
-							}
-							add(
-								$current,
-								"layers",
-								lv_layers_8_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.Layer");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-		)?
-		(
 			(
 				{
-					newCompositeNode(grammarAccess.getModelAccess().getActorsActorParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getModelAccess().getActorsActorParserRuleCall_2_0());
 				}
-				lv_actors_9_0=ruleActor
+				lv_actors_4_0=ruleActor
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -179,57 +125,12 @@ ruleModel returns [EObject current=null]
 					add(
 						$current,
 						"actors",
-						lv_actors_9_0,
+						lv_actors_4_0,
 						"com.nukulargames.gdx4e.actors.dsl.Dsl.Actor");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-	)
-;
-
-// Entry rule entryRuleLayer
-entryRuleLayer returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getLayerRule()); }
-	iv_ruleLayer=ruleLayer
-	{ $current=$iv_ruleLayer.current; }
-	EOF;
-
-// Rule Layer
-ruleLayer returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getLayerAccess().getLayerAction_0(),
-					$current);
-			}
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getLayerAccess().getNameQualifiedNameParserRuleCall_1_0());
-				}
-				lv_name_1_0=ruleQualifiedName
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getLayerRule());
-					}
-					set(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.xbase.Xbase.QualifiedName");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
 	)
 ;
 
@@ -249,62 +150,26 @@ ruleActor returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getActorAccess().getActor_ImplParserRuleCall_0());
-		}
-		this_Actor_Impl_0=ruleActor_Impl
-		{
-			$current = $this_Actor_Impl_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getActorAccess().getGroup_ImplParserRuleCall_1());
-		}
-		this_Group_Impl_1=ruleGroup_Impl
-		{
-			$current = $this_Group_Impl_1.current;
-			afterParserOrEnumRuleCall();
-		}
-	)
-;
-
-// Entry rule entryRuleActor_Impl
-entryRuleActor_Impl returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getActor_ImplRule()); }
-	iv_ruleActor_Impl=ruleActor_Impl
-	{ $current=$iv_ruleActor_Impl.current; }
-	EOF;
-
-// Rule Actor_Impl
-ruleActor_Impl returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
 		(
 			{
 				$current = forceCreateModelElement(
-					grammarAccess.getActor_ImplAccess().getActorAction_0(),
+					grammarAccess.getActorAccess().getActorAction_0(),
 					$current);
 			}
 		)
 		otherlv_1='actor'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getActor_ImplAccess().getActorKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getActorAccess().getActorKeyword_1());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getActor_ImplAccess().getNameQualifiedNameParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getActorAccess().getNameQualifiedNameParserRuleCall_2_0());
 				}
 				lv_name_2_0=ruleQualifiedName
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getActor_ImplRule());
+						$current = createModelElementForParent(grammarAccess.getActorRule());
 					}
 					set(
 						$current,
@@ -316,492 +181,580 @@ ruleActor_Impl returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_3=':'
+			otherlv_3='extends'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getActor_ImplAccess().getColonKeyword_3_0());
+				newLeafNode(otherlv_3, grammarAccess.getActorAccess().getExtendsKeyword_3_0());
 			}
 			(
-				otherlv_4='x'
-				{
-					newLeafNode(otherlv_4, grammarAccess.getActor_ImplAccess().getXKeyword_3_1_0());
-				}
-				otherlv_5='='
-				{
-					newLeafNode(otherlv_5, grammarAccess.getActor_ImplAccess().getEqualsSignKeyword_3_1_1());
-				}
 				(
-					(
-						{
-							newCompositeNode(grammarAccess.getActor_ImplAccess().getXEFloatParserRuleCall_3_1_2_0());
-						}
-						lv_x_6_0=ruleEFloat
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getActor_ImplRule());
-							}
-							set(
-								$current,
-								"x",
-								lv_x_6_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				otherlv_7='y'
-				{
-					newLeafNode(otherlv_7, grammarAccess.getActor_ImplAccess().getYKeyword_3_2_0());
-				}
-				otherlv_8='='
-				{
-					newLeafNode(otherlv_8, grammarAccess.getActor_ImplAccess().getEqualsSignKeyword_3_2_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getActor_ImplAccess().getYEFloatParserRuleCall_3_2_2_0());
-						}
-						lv_y_9_0=ruleEFloat
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getActor_ImplRule());
-							}
-							set(
-								$current,
-								"y",
-								lv_y_9_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				otherlv_10='layer'
-				{
-					newLeafNode(otherlv_10, grammarAccess.getActor_ImplAccess().getLayerKeyword_3_3_0());
-				}
-				otherlv_11='='
-				{
-					newLeafNode(otherlv_11, grammarAccess.getActor_ImplAccess().getEqualsSignKeyword_3_3_1());
-				}
-				(
-					(
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getActor_ImplRule());
-							}
-						}
-						{
-							newCompositeNode(grammarAccess.getActor_ImplAccess().getLayerLayerCrossReference_3_3_2_0());
-						}
-						ruleQualifiedName
-						{
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				otherlv_13='width'
-				{
-					newLeafNode(otherlv_13, grammarAccess.getActor_ImplAccess().getWidthKeyword_3_4_0());
-				}
-				otherlv_14='='
-				{
-					newLeafNode(otherlv_14, grammarAccess.getActor_ImplAccess().getEqualsSignKeyword_3_4_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getActor_ImplAccess().getWidthEFloatParserRuleCall_3_4_2_0());
-						}
-						lv_width_15_0=ruleEFloat
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getActor_ImplRule());
-							}
-							set(
-								$current,
-								"width",
-								lv_width_15_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				otherlv_16='height'
-				{
-					newLeafNode(otherlv_16, grammarAccess.getActor_ImplAccess().getHeightKeyword_3_5_0());
-				}
-				otherlv_17='='
-				{
-					newLeafNode(otherlv_17, grammarAccess.getActor_ImplAccess().getEqualsSignKeyword_3_5_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getActor_ImplAccess().getHeightEFloatParserRuleCall_3_5_2_0());
-						}
-						lv_height_18_0=ruleEFloat
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getActor_ImplRule());
-							}
-							set(
-								$current,
-								"height",
-								lv_height_18_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				otherlv_19='scale-x'
-				{
-					newLeafNode(otherlv_19, grammarAccess.getActor_ImplAccess().getScaleXKeyword_3_6_0());
-				}
-				otherlv_20='='
-				{
-					newLeafNode(otherlv_20, grammarAccess.getActor_ImplAccess().getEqualsSignKeyword_3_6_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getActor_ImplAccess().getScaleXEFloatParserRuleCall_3_6_2_0());
-						}
-						lv_scaleX_21_0=ruleEFloat
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getActor_ImplRule());
-							}
-							set(
-								$current,
-								"scaleX",
-								lv_scaleX_21_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				otherlv_22='scale-y'
-				{
-					newLeafNode(otherlv_22, grammarAccess.getActor_ImplAccess().getScaleYKeyword_3_7_0());
-				}
-				otherlv_23='='
-				{
-					newLeafNode(otherlv_23, grammarAccess.getActor_ImplAccess().getEqualsSignKeyword_3_7_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getActor_ImplAccess().getScaleYEFloatParserRuleCall_3_7_2_0());
-						}
-						lv_scaleY_24_0=ruleEFloat
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getActor_ImplRule());
-							}
-							set(
-								$current,
-								"scaleY",
-								lv_scaleY_24_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				otherlv_25='rotation'
-				{
-					newLeafNode(otherlv_25, grammarAccess.getActor_ImplAccess().getRotationKeyword_3_8_0());
-				}
-				otherlv_26='='
-				{
-					newLeafNode(otherlv_26, grammarAccess.getActor_ImplAccess().getEqualsSignKeyword_3_8_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getActor_ImplAccess().getRotationEFloatParserRuleCall_3_8_2_0());
-						}
-						lv_rotation_27_0=ruleEFloat
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getActor_ImplRule());
-							}
-							set(
-								$current,
-								"rotation",
-								lv_rotation_27_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				otherlv_28='red'
-				{
-					newLeafNode(otherlv_28, grammarAccess.getActor_ImplAccess().getRedKeyword_3_9_0());
-				}
-				otherlv_29='='
-				{
-					newLeafNode(otherlv_29, grammarAccess.getActor_ImplAccess().getEqualsSignKeyword_3_9_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getActor_ImplAccess().getRedEFloatParserRuleCall_3_9_2_0());
-						}
-						lv_red_30_0=ruleEFloat
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getActor_ImplRule());
-							}
-							set(
-								$current,
-								"red",
-								lv_red_30_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				otherlv_31='green'
-				{
-					newLeafNode(otherlv_31, grammarAccess.getActor_ImplAccess().getGreenKeyword_3_10_0());
-				}
-				otherlv_32='='
-				{
-					newLeafNode(otherlv_32, grammarAccess.getActor_ImplAccess().getEqualsSignKeyword_3_10_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getActor_ImplAccess().getGreenEFloatParserRuleCall_3_10_2_0());
-						}
-						lv_green_33_0=ruleEFloat
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getActor_ImplRule());
-							}
-							set(
-								$current,
-								"green",
-								lv_green_33_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				otherlv_34='blue'
-				{
-					newLeafNode(otherlv_34, grammarAccess.getActor_ImplAccess().getBlueKeyword_3_11_0());
-				}
-				otherlv_35='='
-				{
-					newLeafNode(otherlv_35, grammarAccess.getActor_ImplAccess().getEqualsSignKeyword_3_11_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getActor_ImplAccess().getBlueEFloatParserRuleCall_3_11_2_0());
-						}
-						lv_blue_36_0=ruleEFloat
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getActor_ImplRule());
-							}
-							set(
-								$current,
-								"blue",
-								lv_blue_36_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				otherlv_37='alpha'
-				{
-					newLeafNode(otherlv_37, grammarAccess.getActor_ImplAccess().getAlphaKeyword_3_12_0());
-				}
-				otherlv_38='='
-				{
-					newLeafNode(otherlv_38, grammarAccess.getActor_ImplAccess().getEqualsSignKeyword_3_12_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getActor_ImplAccess().getAlphaEFloatParserRuleCall_3_12_2_0());
-						}
-						lv_alpha_39_0=ruleEFloat
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getActor_ImplRule());
-							}
-							set(
-								$current,
-								"alpha",
-								lv_alpha_39_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getActor_ImplAccess().getAnimationsAnimationParserRuleCall_3_13_0());
-					}
-					lv_animations_40_0=ruleAnimation
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getActor_ImplRule());
+							$current = createModelElement(grammarAccess.getActorRule());
 						}
-						add(
-							$current,
-							"animations",
-							lv_animations_40_0,
-							"com.nukulargames.gdx4e.actors.dsl.Dsl.Animation");
+					}
+					{
+						newCompositeNode(grammarAccess.getActorAccess().getExtendsActorCrossReference_3_1_0());
+					}
+					ruleQualifiedName
+					{
 						afterParserOrEnumRuleCall();
-					}
-				)
-			)*
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getActor_ImplAccess().getStatesStateParserRuleCall_3_14_0());
-					}
-					lv_states_41_0=ruleState
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getActor_ImplRule());
-						}
-						add(
-							$current,
-							"states",
-							lv_states_41_0,
-							"com.nukulargames.gdx4e.actors.dsl.Dsl.State");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)*
-		)?
-		(
-			otherlv_42='default'
-			{
-				newLeafNode(otherlv_42, grammarAccess.getActor_ImplAccess().getDefaultKeyword_4_0());
-			}
-			otherlv_43='='
-			{
-				newLeafNode(otherlv_43, grammarAccess.getActor_ImplAccess().getEqualsSignKeyword_4_1());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getActor_ImplRule());
-						}
-					}
-					otherlv_44=RULE_ID
-					{
-						newLeafNode(otherlv_44, grammarAccess.getActor_ImplAccess().getDefaultStateStateCrossReference_4_2_0());
 					}
 				)
 			)
 		)?
-	)
-;
-
-// Entry rule entryRuleEFloat
-entryRuleEFloat returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getEFloatRule()); }
-	iv_ruleEFloat=ruleEFloat
-	{ $current=$iv_ruleEFloat.current.getText(); }
-	EOF;
-
-// Rule EFloat
-ruleEFloat returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
 		(
-			kw='-'
+			otherlv_5=':'
 			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getEFloatAccess().getHyphenMinusKeyword_0());
+				newLeafNode(otherlv_5, grammarAccess.getActorAccess().getColonKeyword_4_0());
 			}
-		)?
-		(
-			this_INT_1=RULE_INT
-			{
-				$current.merge(this_INT_1);
-			}
-			{
-				newLeafNode(this_INT_1, grammarAccess.getEFloatAccess().getINTTerminalRuleCall_1());
-			}
-		)?
-		kw='.'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getEFloatAccess().getFullStopKeyword_2());
-		}
-		this_INT_3=RULE_INT
-		{
-			$current.merge(this_INT_3);
-		}
-		{
-			newLeafNode(this_INT_3, grammarAccess.getEFloatAccess().getINTTerminalRuleCall_3());
-		}
-		(
 			(
-				kw='E'
-				{
-					$current.merge(kw);
-					newLeafNode(kw, grammarAccess.getEFloatAccess().getEKeyword_4_0_0());
-				}
-				    |
-				kw='e'
-				{
-					$current.merge(kw);
-					newLeafNode(kw, grammarAccess.getEFloatAccess().getEKeyword_4_0_1());
-				}
+				(
+					{ 
+					  getUnorderedGroupHelper().enter(grammarAccess.getActorAccess().getUnorderedGroup_4_1());
+					}
+					(
+						(
+				(
+					{getUnorderedGroupHelper().canSelect(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 0)}?=>(
+						{
+							getUnorderedGroupHelper().select(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 0);
+						}
+									({true}?=>(otherlv_7='x'
+									{
+										newLeafNode(otherlv_7, grammarAccess.getActorAccess().getXKeyword_4_1_0_0());
+									}
+									otherlv_8='='
+									{
+										newLeafNode(otherlv_8, grammarAccess.getActorAccess().getEqualsSignKeyword_4_1_0_1());
+									}
+									(
+										(
+											{
+												newCompositeNode(grammarAccess.getActorAccess().getXEFloatParserRuleCall_4_1_0_2_0());
+											}
+											lv_x_9_0=ruleEFloat
+											{
+												if ($current==null) {
+													$current = createModelElementForParent(grammarAccess.getActorRule());
+												}
+												set(
+													$current,
+													"x",
+													lv_x_9_0,
+													"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
+												afterParserOrEnumRuleCall();
+											}
+										)
+									)
+									))
+						{ 
+							getUnorderedGroupHelper().returnFromSelection(grammarAccess.getActorAccess().getUnorderedGroup_4_1());
+						}
+					)
+				)|
+				(
+					{getUnorderedGroupHelper().canSelect(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 1)}?=>(
+						{
+							getUnorderedGroupHelper().select(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 1);
+						}
+									({true}?=>(otherlv_10='y'
+									{
+										newLeafNode(otherlv_10, grammarAccess.getActorAccess().getYKeyword_4_1_1_0());
+									}
+									otherlv_11='='
+									{
+										newLeafNode(otherlv_11, grammarAccess.getActorAccess().getEqualsSignKeyword_4_1_1_1());
+									}
+									(
+										(
+											{
+												newCompositeNode(grammarAccess.getActorAccess().getYEFloatParserRuleCall_4_1_1_2_0());
+											}
+											lv_y_12_0=ruleEFloat
+											{
+												if ($current==null) {
+													$current = createModelElementForParent(grammarAccess.getActorRule());
+												}
+												set(
+													$current,
+													"y",
+													lv_y_12_0,
+													"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
+												afterParserOrEnumRuleCall();
+											}
+										)
+									)
+									))
+						{ 
+							getUnorderedGroupHelper().returnFromSelection(grammarAccess.getActorAccess().getUnorderedGroup_4_1());
+						}
+					)
+				)|
+				(
+					{getUnorderedGroupHelper().canSelect(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 2)}?=>(
+						{
+							getUnorderedGroupHelper().select(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 2);
+						}
+									({true}?=>(otherlv_13='width'
+									{
+										newLeafNode(otherlv_13, grammarAccess.getActorAccess().getWidthKeyword_4_1_2_0());
+									}
+									otherlv_14='='
+									{
+										newLeafNode(otherlv_14, grammarAccess.getActorAccess().getEqualsSignKeyword_4_1_2_1());
+									}
+									(
+										(
+											{
+												newCompositeNode(grammarAccess.getActorAccess().getWidthEFloatParserRuleCall_4_1_2_2_0());
+											}
+											lv_width_15_0=ruleEFloat
+											{
+												if ($current==null) {
+													$current = createModelElementForParent(grammarAccess.getActorRule());
+												}
+												set(
+													$current,
+													"width",
+													lv_width_15_0,
+													"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
+												afterParserOrEnumRuleCall();
+											}
+										)
+									)
+									))
+						{ 
+							getUnorderedGroupHelper().returnFromSelection(grammarAccess.getActorAccess().getUnorderedGroup_4_1());
+						}
+					)
+				)|
+				(
+					{getUnorderedGroupHelper().canSelect(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 3)}?=>(
+						{
+							getUnorderedGroupHelper().select(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 3);
+						}
+									({true}?=>(otherlv_16='height'
+									{
+										newLeafNode(otherlv_16, grammarAccess.getActorAccess().getHeightKeyword_4_1_3_0());
+									}
+									otherlv_17='='
+									{
+										newLeafNode(otherlv_17, grammarAccess.getActorAccess().getEqualsSignKeyword_4_1_3_1());
+									}
+									(
+										(
+											{
+												newCompositeNode(grammarAccess.getActorAccess().getHeightEFloatParserRuleCall_4_1_3_2_0());
+											}
+											lv_height_18_0=ruleEFloat
+											{
+												if ($current==null) {
+													$current = createModelElementForParent(grammarAccess.getActorRule());
+												}
+												set(
+													$current,
+													"height",
+													lv_height_18_0,
+													"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
+												afterParserOrEnumRuleCall();
+											}
+										)
+									)
+									))
+						{ 
+							getUnorderedGroupHelper().returnFromSelection(grammarAccess.getActorAccess().getUnorderedGroup_4_1());
+						}
+					)
+				)|
+				(
+					{getUnorderedGroupHelper().canSelect(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 4)}?=>(
+						{
+							getUnorderedGroupHelper().select(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 4);
+						}
+									({true}?=>(otherlv_19='scale-x'
+									{
+										newLeafNode(otherlv_19, grammarAccess.getActorAccess().getScaleXKeyword_4_1_4_0());
+									}
+									otherlv_20='='
+									{
+										newLeafNode(otherlv_20, grammarAccess.getActorAccess().getEqualsSignKeyword_4_1_4_1());
+									}
+									(
+										(
+											{
+												newCompositeNode(grammarAccess.getActorAccess().getScaleXEFloatParserRuleCall_4_1_4_2_0());
+											}
+											lv_scaleX_21_0=ruleEFloat
+											{
+												if ($current==null) {
+													$current = createModelElementForParent(grammarAccess.getActorRule());
+												}
+												set(
+													$current,
+													"scaleX",
+													lv_scaleX_21_0,
+													"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
+												afterParserOrEnumRuleCall();
+											}
+										)
+									)
+									))
+						{ 
+							getUnorderedGroupHelper().returnFromSelection(grammarAccess.getActorAccess().getUnorderedGroup_4_1());
+						}
+					)
+				)|
+				(
+					{getUnorderedGroupHelper().canSelect(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 5)}?=>(
+						{
+							getUnorderedGroupHelper().select(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 5);
+						}
+									({true}?=>(otherlv_22='scale-y'
+									{
+										newLeafNode(otherlv_22, grammarAccess.getActorAccess().getScaleYKeyword_4_1_5_0());
+									}
+									otherlv_23='='
+									{
+										newLeafNode(otherlv_23, grammarAccess.getActorAccess().getEqualsSignKeyword_4_1_5_1());
+									}
+									(
+										(
+											{
+												newCompositeNode(grammarAccess.getActorAccess().getScaleYEFloatParserRuleCall_4_1_5_2_0());
+											}
+											lv_scaleY_24_0=ruleEFloat
+											{
+												if ($current==null) {
+													$current = createModelElementForParent(grammarAccess.getActorRule());
+												}
+												set(
+													$current,
+													"scaleY",
+													lv_scaleY_24_0,
+													"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
+												afterParserOrEnumRuleCall();
+											}
+										)
+									)
+									))
+						{ 
+							getUnorderedGroupHelper().returnFromSelection(grammarAccess.getActorAccess().getUnorderedGroup_4_1());
+						}
+					)
+				)|
+				(
+					{getUnorderedGroupHelper().canSelect(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 6)}?=>(
+						{
+							getUnorderedGroupHelper().select(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 6);
+						}
+									({true}?=>(otherlv_25='rotation'
+									{
+										newLeafNode(otherlv_25, grammarAccess.getActorAccess().getRotationKeyword_4_1_6_0());
+									}
+									otherlv_26='='
+									{
+										newLeafNode(otherlv_26, grammarAccess.getActorAccess().getEqualsSignKeyword_4_1_6_1());
+									}
+									(
+										(
+											{
+												newCompositeNode(grammarAccess.getActorAccess().getRotationEFloatParserRuleCall_4_1_6_2_0());
+											}
+											lv_rotation_27_0=ruleEFloat
+											{
+												if ($current==null) {
+													$current = createModelElementForParent(grammarAccess.getActorRule());
+												}
+												set(
+													$current,
+													"rotation",
+													lv_rotation_27_0,
+													"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
+												afterParserOrEnumRuleCall();
+											}
+										)
+									)
+									))
+						{ 
+							getUnorderedGroupHelper().returnFromSelection(grammarAccess.getActorAccess().getUnorderedGroup_4_1());
+						}
+					)
+				)|
+				(
+					{getUnorderedGroupHelper().canSelect(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 7)}?=>(
+						{
+							getUnorderedGroupHelper().select(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 7);
+						}
+									({true}?=>(otherlv_28='red'
+									{
+										newLeafNode(otherlv_28, grammarAccess.getActorAccess().getRedKeyword_4_1_7_0());
+									}
+									otherlv_29='='
+									{
+										newLeafNode(otherlv_29, grammarAccess.getActorAccess().getEqualsSignKeyword_4_1_7_1());
+									}
+									(
+										(
+											{
+												newCompositeNode(grammarAccess.getActorAccess().getRedEFloatParserRuleCall_4_1_7_2_0());
+											}
+											lv_red_30_0=ruleEFloat
+											{
+												if ($current==null) {
+													$current = createModelElementForParent(grammarAccess.getActorRule());
+												}
+												set(
+													$current,
+													"red",
+													lv_red_30_0,
+													"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
+												afterParserOrEnumRuleCall();
+											}
+										)
+									)
+									))
+						{ 
+							getUnorderedGroupHelper().returnFromSelection(grammarAccess.getActorAccess().getUnorderedGroup_4_1());
+						}
+					)
+				)|
+				(
+					{getUnorderedGroupHelper().canSelect(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 8)}?=>(
+						{
+							getUnorderedGroupHelper().select(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 8);
+						}
+									({true}?=>(otherlv_31='green'
+									{
+										newLeafNode(otherlv_31, grammarAccess.getActorAccess().getGreenKeyword_4_1_8_0());
+									}
+									otherlv_32='='
+									{
+										newLeafNode(otherlv_32, grammarAccess.getActorAccess().getEqualsSignKeyword_4_1_8_1());
+									}
+									(
+										(
+											{
+												newCompositeNode(grammarAccess.getActorAccess().getGreenEFloatParserRuleCall_4_1_8_2_0());
+											}
+											lv_green_33_0=ruleEFloat
+											{
+												if ($current==null) {
+													$current = createModelElementForParent(grammarAccess.getActorRule());
+												}
+												set(
+													$current,
+													"green",
+													lv_green_33_0,
+													"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
+												afterParserOrEnumRuleCall();
+											}
+										)
+									)
+									))
+						{ 
+							getUnorderedGroupHelper().returnFromSelection(grammarAccess.getActorAccess().getUnorderedGroup_4_1());
+						}
+					)
+				)|
+				(
+					{getUnorderedGroupHelper().canSelect(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 9)}?=>(
+						{
+							getUnorderedGroupHelper().select(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 9);
+						}
+									({true}?=>(otherlv_34='blue'
+									{
+										newLeafNode(otherlv_34, grammarAccess.getActorAccess().getBlueKeyword_4_1_9_0());
+									}
+									otherlv_35='='
+									{
+										newLeafNode(otherlv_35, grammarAccess.getActorAccess().getEqualsSignKeyword_4_1_9_1());
+									}
+									(
+										(
+											{
+												newCompositeNode(grammarAccess.getActorAccess().getBlueEFloatParserRuleCall_4_1_9_2_0());
+											}
+											lv_blue_36_0=ruleEFloat
+											{
+												if ($current==null) {
+													$current = createModelElementForParent(grammarAccess.getActorRule());
+												}
+												set(
+													$current,
+													"blue",
+													lv_blue_36_0,
+													"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
+												afterParserOrEnumRuleCall();
+											}
+										)
+									)
+									))
+						{ 
+							getUnorderedGroupHelper().returnFromSelection(grammarAccess.getActorAccess().getUnorderedGroup_4_1());
+						}
+					)
+				)|
+				(
+					{getUnorderedGroupHelper().canSelect(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 10)}?=>(
+						{
+							getUnorderedGroupHelper().select(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 10);
+						}
+									({true}?=>(otherlv_37='alpha'
+									{
+										newLeafNode(otherlv_37, grammarAccess.getActorAccess().getAlphaKeyword_4_1_10_0());
+									}
+									otherlv_38='='
+									{
+										newLeafNode(otherlv_38, grammarAccess.getActorAccess().getEqualsSignKeyword_4_1_10_1());
+									}
+									(
+										(
+											{
+												newCompositeNode(grammarAccess.getActorAccess().getAlphaEFloatParserRuleCall_4_1_10_2_0());
+											}
+											lv_alpha_39_0=ruleEFloat
+											{
+												if ($current==null) {
+													$current = createModelElementForParent(grammarAccess.getActorRule());
+												}
+												set(
+													$current,
+													"alpha",
+													lv_alpha_39_0,
+													"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
+												afterParserOrEnumRuleCall();
+											}
+										)
+									)
+									))
+						{ 
+							getUnorderedGroupHelper().returnFromSelection(grammarAccess.getActorAccess().getUnorderedGroup_4_1());
+						}
+					)
+				)|
+				(
+					{getUnorderedGroupHelper().canSelect(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 11)}?=>(
+						{
+							getUnorderedGroupHelper().select(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 11);
+						}
+									({true}?=>((
+										{
+											newCompositeNode(grammarAccess.getActorAccess().getAnimationsAnimationParserRuleCall_4_1_11_0());
+										}
+										lv_animations_40_0=ruleAnimation
+										{
+											if ($current==null) {
+												$current = createModelElementForParent(grammarAccess.getActorRule());
+											}
+											add(
+												$current,
+												"animations",
+												lv_animations_40_0,
+												"com.nukulargames.gdx4e.actors.dsl.Dsl.Animation");
+											afterParserOrEnumRuleCall();
+										}
+									)
+									))+
+						{ 
+							getUnorderedGroupHelper().returnFromSelection(grammarAccess.getActorAccess().getUnorderedGroup_4_1());
+						}
+					)
+				)|
+				(
+					{getUnorderedGroupHelper().canSelect(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 12)}?=>(
+						{
+							getUnorderedGroupHelper().select(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 12);
+						}
+									({true}?=>((
+										{
+											newCompositeNode(grammarAccess.getActorAccess().getStatesStateParserRuleCall_4_1_12_0());
+										}
+										lv_states_41_0=ruleState
+										{
+											if ($current==null) {
+												$current = createModelElementForParent(grammarAccess.getActorRule());
+											}
+											add(
+												$current,
+												"states",
+												lv_states_41_0,
+												"com.nukulargames.gdx4e.actors.dsl.Dsl.State");
+											afterParserOrEnumRuleCall();
+										}
+									)
+									))+
+						{ 
+							getUnorderedGroupHelper().returnFromSelection(grammarAccess.getActorAccess().getUnorderedGroup_4_1());
+						}
+					)
+				)|
+				(
+					{getUnorderedGroupHelper().canSelect(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 13)}?=>(
+						{
+							getUnorderedGroupHelper().select(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 13);
+						}
+									({true}?=>((
+										{
+											newCompositeNode(grammarAccess.getActorAccess().getChildrenActorReferenceParserRuleCall_4_1_13_0());
+										}
+										lv_children_42_0=ruleActorReference
+										{
+											if ($current==null) {
+												$current = createModelElementForParent(grammarAccess.getActorRule());
+											}
+											add(
+												$current,
+												"children",
+												lv_children_42_0,
+												"com.nukulargames.gdx4e.actors.dsl.Dsl.ActorReference");
+											afterParserOrEnumRuleCall();
+										}
+									)
+									))+
+						{ 
+							getUnorderedGroupHelper().returnFromSelection(grammarAccess.getActorAccess().getUnorderedGroup_4_1());
+						}
+					)
+				)|
+				(
+					{getUnorderedGroupHelper().canSelect(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 14)}?=>(
+						{
+							getUnorderedGroupHelper().select(grammarAccess.getActorAccess().getUnorderedGroup_4_1(), 14);
+						}
+									({true}?=>(otherlv_43='default'
+									{
+										newLeafNode(otherlv_43, grammarAccess.getActorAccess().getDefaultKeyword_4_1_14_0());
+									}
+									otherlv_44='='
+									{
+										newLeafNode(otherlv_44, grammarAccess.getActorAccess().getEqualsSignKeyword_4_1_14_1());
+									}
+									(
+										(
+											{
+												if ($current==null) {
+													$current = createModelElement(grammarAccess.getActorRule());
+												}
+											}
+											otherlv_45=RULE_ID
+											{
+												newLeafNode(otherlv_45, grammarAccess.getActorAccess().getDefaultStateStateCrossReference_4_1_14_2_0());
+											}
+										)
+									)
+									))
+						{ 
+							getUnorderedGroupHelper().returnFromSelection(grammarAccess.getActorAccess().getUnorderedGroup_4_1());
+						}
+					)
+				)
+						)*
+					)
+				)
+					{ 
+					  getUnorderedGroupHelper().leave(grammarAccess.getActorAccess().getUnorderedGroup_4_1());
+					}
 			)
-			(
-				kw='-'
-				{
-					$current.merge(kw);
-					newLeafNode(kw, grammarAccess.getEFloatAccess().getHyphenMinusKeyword_4_1());
-				}
-			)?
-			this_INT_7=RULE_INT
-			{
-				$current.merge(this_INT_7);
-			}
-			{
-				newLeafNode(this_INT_7, grammarAccess.getEFloatAccess().getINTTerminalRuleCall_4_2());
-			}
 		)?
 	)
 ;
@@ -858,120 +811,170 @@ ruleAnimation returns [EObject current=null]
 				newLeafNode(otherlv_3, grammarAccess.getAnimationAccess().getColonKeyword_3_0());
 			}
 			(
-				otherlv_4='texture'
-				{
-					newLeafNode(otherlv_4, grammarAccess.getAnimationAccess().getTextureKeyword_3_1_0());
-				}
-				otherlv_5='='
-				{
-					newLeafNode(otherlv_5, grammarAccess.getAnimationAccess().getEqualsSignKeyword_3_1_1());
-				}
 				(
+					{ 
+					  getUnorderedGroupHelper().enter(grammarAccess.getAnimationAccess().getUnorderedGroup_3_1());
+					}
 					(
-						lv_texture_6_0=RULE_STRING
+						(
+				(
+					{getUnorderedGroupHelper().canSelect(grammarAccess.getAnimationAccess().getUnorderedGroup_3_1(), 0)}?=>(
 						{
-							newLeafNode(lv_texture_6_0, grammarAccess.getAnimationAccess().getTextureSTRINGTerminalRuleCall_3_1_2_0());
+							getUnorderedGroupHelper().select(grammarAccess.getAnimationAccess().getUnorderedGroup_3_1(), 0);
 						}
+									({true}?=>(otherlv_5='texture'
+									{
+										newLeafNode(otherlv_5, grammarAccess.getAnimationAccess().getTextureKeyword_3_1_0_0());
+									}
+									otherlv_6='='
+									{
+										newLeafNode(otherlv_6, grammarAccess.getAnimationAccess().getEqualsSignKeyword_3_1_0_1());
+									}
+									(
+										(
+											lv_texture_7_0=RULE_STRING
+											{
+												newLeafNode(lv_texture_7_0, grammarAccess.getAnimationAccess().getTextureSTRINGTerminalRuleCall_3_1_0_2_0());
+											}
+											{
+												if ($current==null) {
+													$current = createModelElement(grammarAccess.getAnimationRule());
+												}
+												setWithLastConsumed(
+													$current,
+													"texture",
+													lv_texture_7_0,
+													"org.eclipse.xtext.xbase.Xtype.STRING");
+											}
+										)
+									)
+									))
+						{ 
+							getUnorderedGroupHelper().returnFromSelection(grammarAccess.getAnimationAccess().getUnorderedGroup_3_1());
+						}
+					)
+				)|
+				(
+					{getUnorderedGroupHelper().canSelect(grammarAccess.getAnimationAccess().getUnorderedGroup_3_1(), 1)}?=>(
 						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getAnimationRule());
-							}
-							setWithLastConsumed(
-								$current,
-								"texture",
-								lv_texture_6_0,
-								"org.eclipse.xtext.xbase.Xtype.STRING");
+							getUnorderedGroupHelper().select(grammarAccess.getAnimationAccess().getUnorderedGroup_3_1(), 1);
+						}
+									({true}?=>(otherlv_8='columns'
+									{
+										newLeafNode(otherlv_8, grammarAccess.getAnimationAccess().getColumnsKeyword_3_1_1_0());
+									}
+									otherlv_9='='
+									{
+										newLeafNode(otherlv_9, grammarAccess.getAnimationAccess().getEqualsSignKeyword_3_1_1_1());
+									}
+									(
+										(
+											{
+												newCompositeNode(grammarAccess.getAnimationAccess().getColumnsEIntParserRuleCall_3_1_1_2_0());
+											}
+											lv_columns_10_0=ruleEInt
+											{
+												if ($current==null) {
+													$current = createModelElementForParent(grammarAccess.getAnimationRule());
+												}
+												set(
+													$current,
+													"columns",
+													lv_columns_10_0,
+													"com.nukulargames.gdx4e.actors.dsl.Dsl.EInt");
+												afterParserOrEnumRuleCall();
+											}
+										)
+									)
+									))
+						{ 
+							getUnorderedGroupHelper().returnFromSelection(grammarAccess.getAnimationAccess().getUnorderedGroup_3_1());
+						}
+					)
+				)|
+				(
+					{getUnorderedGroupHelper().canSelect(grammarAccess.getAnimationAccess().getUnorderedGroup_3_1(), 2)}?=>(
+						{
+							getUnorderedGroupHelper().select(grammarAccess.getAnimationAccess().getUnorderedGroup_3_1(), 2);
+						}
+									({true}?=>(otherlv_11='rows'
+									{
+										newLeafNode(otherlv_11, grammarAccess.getAnimationAccess().getRowsKeyword_3_1_2_0());
+									}
+									otherlv_12='='
+									{
+										newLeafNode(otherlv_12, grammarAccess.getAnimationAccess().getEqualsSignKeyword_3_1_2_1());
+									}
+									(
+										(
+											{
+												newCompositeNode(grammarAccess.getAnimationAccess().getRowsEIntParserRuleCall_3_1_2_2_0());
+											}
+											lv_rows_13_0=ruleEInt
+											{
+												if ($current==null) {
+													$current = createModelElementForParent(grammarAccess.getAnimationRule());
+												}
+												set(
+													$current,
+													"rows",
+													lv_rows_13_0,
+													"com.nukulargames.gdx4e.actors.dsl.Dsl.EInt");
+												afterParserOrEnumRuleCall();
+											}
+										)
+									)
+									))
+						{ 
+							getUnorderedGroupHelper().returnFromSelection(grammarAccess.getAnimationAccess().getUnorderedGroup_3_1());
+						}
+					)
+				)|
+				(
+					{getUnorderedGroupHelper().canSelect(grammarAccess.getAnimationAccess().getUnorderedGroup_3_1(), 3)}?=>(
+						{
+							getUnorderedGroupHelper().select(grammarAccess.getAnimationAccess().getUnorderedGroup_3_1(), 3);
+						}
+									({true}?=>(otherlv_14='delay'
+									{
+										newLeafNode(otherlv_14, grammarAccess.getAnimationAccess().getDelayKeyword_3_1_3_0());
+									}
+									otherlv_15='='
+									{
+										newLeafNode(otherlv_15, grammarAccess.getAnimationAccess().getEqualsSignKeyword_3_1_3_1());
+									}
+									(
+										(
+											{
+												newCompositeNode(grammarAccess.getAnimationAccess().getDelayEFloatParserRuleCall_3_1_3_2_0());
+											}
+											lv_delay_16_0=ruleEFloat
+											{
+												if ($current==null) {
+													$current = createModelElementForParent(grammarAccess.getAnimationRule());
+												}
+												set(
+													$current,
+													"delay",
+													lv_delay_16_0,
+													"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
+												afterParserOrEnumRuleCall();
+											}
+										)
+									)
+									))
+						{ 
+							getUnorderedGroupHelper().returnFromSelection(grammarAccess.getAnimationAccess().getUnorderedGroup_3_1());
 						}
 					)
 				)
-			)?
-			(
-				otherlv_7='columns'
-				{
-					newLeafNode(otherlv_7, grammarAccess.getAnimationAccess().getColumnsKeyword_3_2_0());
-				}
-				otherlv_8='='
-				{
-					newLeafNode(otherlv_8, grammarAccess.getAnimationAccess().getEqualsSignKeyword_3_2_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getAnimationAccess().getColumnsEIntParserRuleCall_3_2_2_0());
-						}
-						lv_columns_9_0=ruleEInt
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getAnimationRule());
-							}
-							set(
-								$current,
-								"columns",
-								lv_columns_9_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EInt");
-							afterParserOrEnumRuleCall();
-						}
+						)*
 					)
 				)
-			)?
-			(
-				otherlv_10='rows'
-				{
-					newLeafNode(otherlv_10, grammarAccess.getAnimationAccess().getRowsKeyword_3_3_0());
-				}
-				otherlv_11='='
-				{
-					newLeafNode(otherlv_11, grammarAccess.getAnimationAccess().getEqualsSignKeyword_3_3_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getAnimationAccess().getRowsEIntParserRuleCall_3_3_2_0());
-						}
-						lv_rows_12_0=ruleEInt
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getAnimationRule());
-							}
-							set(
-								$current,
-								"rows",
-								lv_rows_12_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EInt");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				otherlv_13='delay'
-				{
-					newLeafNode(otherlv_13, grammarAccess.getAnimationAccess().getDelayKeyword_3_4_0());
-				}
-				otherlv_14='='
-				{
-					newLeafNode(otherlv_14, grammarAccess.getAnimationAccess().getEqualsSignKeyword_3_4_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getAnimationAccess().getDelayEFloatParserRuleCall_3_4_2_0());
-						}
-						lv_delay_15_0=ruleEFloat
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getAnimationRule());
-							}
-							set(
-								$current,
-								"delay",
-								lv_delay_15_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
+					{ 
+					  getUnorderedGroupHelper().leave(grammarAccess.getAnimationAccess().getUnorderedGroup_3_1());
+					}
+			)
 		)?
 	)
 ;
@@ -1057,369 +1060,6 @@ ruleState returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleGroup_Impl
-entryRuleGroup_Impl returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getGroup_ImplRule()); }
-	iv_ruleGroup_Impl=ruleGroup_Impl
-	{ $current=$iv_ruleGroup_Impl.current; }
-	EOF;
-
-// Rule Group_Impl
-ruleGroup_Impl returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getGroup_ImplAccess().getGroupAction_0(),
-					$current);
-			}
-		)
-		otherlv_1='group'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getGroup_ImplAccess().getGroupKeyword_1());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getGroup_ImplAccess().getNameQualifiedNameParserRuleCall_2_0());
-				}
-				lv_name_2_0=ruleQualifiedName
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getGroup_ImplRule());
-					}
-					set(
-						$current,
-						"name",
-						lv_name_2_0,
-						"org.eclipse.xtext.xbase.Xbase.QualifiedName");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_3=':'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getGroup_ImplAccess().getColonKeyword_3_0());
-			}
-			(
-				otherlv_4='x'
-				{
-					newLeafNode(otherlv_4, grammarAccess.getGroup_ImplAccess().getXKeyword_3_1_0());
-				}
-				otherlv_5='='
-				{
-					newLeafNode(otherlv_5, grammarAccess.getGroup_ImplAccess().getEqualsSignKeyword_3_1_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getGroup_ImplAccess().getXEFloatParserRuleCall_3_1_2_0());
-						}
-						lv_x_6_0=ruleEFloat
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getGroup_ImplRule());
-							}
-							set(
-								$current,
-								"x",
-								lv_x_6_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				otherlv_7='y'
-				{
-					newLeafNode(otherlv_7, grammarAccess.getGroup_ImplAccess().getYKeyword_3_2_0());
-				}
-				otherlv_8='='
-				{
-					newLeafNode(otherlv_8, grammarAccess.getGroup_ImplAccess().getEqualsSignKeyword_3_2_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getGroup_ImplAccess().getYEFloatParserRuleCall_3_2_2_0());
-						}
-						lv_y_9_0=ruleEFloat
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getGroup_ImplRule());
-							}
-							set(
-								$current,
-								"y",
-								lv_y_9_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				otherlv_10='width'
-				{
-					newLeafNode(otherlv_10, grammarAccess.getGroup_ImplAccess().getWidthKeyword_3_3_0());
-				}
-				otherlv_11='='
-				{
-					newLeafNode(otherlv_11, grammarAccess.getGroup_ImplAccess().getEqualsSignKeyword_3_3_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getGroup_ImplAccess().getWidthEFloatParserRuleCall_3_3_2_0());
-						}
-						lv_width_12_0=ruleEFloat
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getGroup_ImplRule());
-							}
-							set(
-								$current,
-								"width",
-								lv_width_12_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				otherlv_13='height'
-				{
-					newLeafNode(otherlv_13, grammarAccess.getGroup_ImplAccess().getHeightKeyword_3_4_0());
-				}
-				otherlv_14='='
-				{
-					newLeafNode(otherlv_14, grammarAccess.getGroup_ImplAccess().getEqualsSignKeyword_3_4_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getGroup_ImplAccess().getHeightEFloatParserRuleCall_3_4_2_0());
-						}
-						lv_height_15_0=ruleEFloat
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getGroup_ImplRule());
-							}
-							set(
-								$current,
-								"height",
-								lv_height_15_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				otherlv_16='scale-x'
-				{
-					newLeafNode(otherlv_16, grammarAccess.getGroup_ImplAccess().getScaleXKeyword_3_5_0());
-				}
-				otherlv_17='='
-				{
-					newLeafNode(otherlv_17, grammarAccess.getGroup_ImplAccess().getEqualsSignKeyword_3_5_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getGroup_ImplAccess().getScaleXEFloatParserRuleCall_3_5_2_0());
-						}
-						lv_scaleX_18_0=ruleEFloat
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getGroup_ImplRule());
-							}
-							set(
-								$current,
-								"scaleX",
-								lv_scaleX_18_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				otherlv_19='scale-y'
-				{
-					newLeafNode(otherlv_19, grammarAccess.getGroup_ImplAccess().getScaleYKeyword_3_6_0());
-				}
-				otherlv_20='='
-				{
-					newLeafNode(otherlv_20, grammarAccess.getGroup_ImplAccess().getEqualsSignKeyword_3_6_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getGroup_ImplAccess().getScaleYEFloatParserRuleCall_3_6_2_0());
-						}
-						lv_scaleY_21_0=ruleEFloat
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getGroup_ImplRule());
-							}
-							set(
-								$current,
-								"scaleY",
-								lv_scaleY_21_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				otherlv_22='rotation'
-				{
-					newLeafNode(otherlv_22, grammarAccess.getGroup_ImplAccess().getRotationKeyword_3_7_0());
-				}
-				otherlv_23='='
-				{
-					newLeafNode(otherlv_23, grammarAccess.getGroup_ImplAccess().getEqualsSignKeyword_3_7_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getGroup_ImplAccess().getRotationEFloatParserRuleCall_3_7_2_0());
-						}
-						lv_rotation_24_0=ruleEFloat
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getGroup_ImplRule());
-							}
-							set(
-								$current,
-								"rotation",
-								lv_rotation_24_0,
-								"com.nukulargames.gdx4e.actors.dsl.Dsl.EFloat");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getGroup_ImplAccess().getAnimationsAnimationParserRuleCall_3_8_0());
-					}
-					lv_animations_25_0=ruleAnimation
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getGroup_ImplRule());
-						}
-						add(
-							$current,
-							"animations",
-							lv_animations_25_0,
-							"com.nukulargames.gdx4e.actors.dsl.Dsl.Animation");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)*
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getGroup_ImplAccess().getStatesStateParserRuleCall_3_9_0());
-					}
-					lv_states_26_0=ruleState
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getGroup_ImplRule());
-						}
-						add(
-							$current,
-							"states",
-							lv_states_26_0,
-							"com.nukulargames.gdx4e.actors.dsl.Dsl.State");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)*
-			(
-				otherlv_27='default'
-				{
-					newLeafNode(otherlv_27, grammarAccess.getGroup_ImplAccess().getDefaultKeyword_3_10_0());
-				}
-				otherlv_28='='
-				{
-					newLeafNode(otherlv_28, grammarAccess.getGroup_ImplAccess().getEqualsSignKeyword_3_10_1());
-				}
-				(
-					(
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getGroup_ImplRule());
-							}
-						}
-						otherlv_29=RULE_ID
-						{
-							newLeafNode(otherlv_29, grammarAccess.getGroup_ImplAccess().getDefaultStateStateCrossReference_3_10_2_0());
-						}
-					)
-				)
-			)?
-			(
-				((
-					'child'
-					(
-						((
-							ruleActorReference
-						)
-						)=>
-						(
-							ruleActorReference
-						)
-					)
-				)
-				)=>
-				(
-					otherlv_30='child'
-					{
-						newLeafNode(otherlv_30, grammarAccess.getGroup_ImplAccess().getChildKeyword_3_11_0_0());
-					}
-					(
-						((
-							ruleActorReference
-						)
-						)=>
-						(
-							{
-								newCompositeNode(grammarAccess.getGroup_ImplAccess().getChildrenActorReferenceParserRuleCall_3_11_0_1_0());
-							}
-							lv_children_31_0=ruleActorReference
-							{
-								if ($current==null) {
-									$current = createModelElementForParent(grammarAccess.getGroup_ImplRule());
-								}
-								add(
-									$current,
-									"children",
-									lv_children_31_0,
-									"com.nukulargames.gdx4e.actors.dsl.Dsl.ActorReference");
-								afterParserOrEnumRuleCall();
-							}
-						)
-					)
-				)
-			)*
-		)?
-	)
-;
-
 // Entry rule entryRuleActorReference
 entryRuleActorReference returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getActorReferenceRule()); }
@@ -1445,49 +1085,95 @@ ruleActorReference returns [EObject current=null]
 		)
 		(
 			(
+				otherlv_1='holds'
 				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getActorReferenceRule());
-					}
+					newLeafNode(otherlv_1, grammarAccess.getActorReferenceAccess().getHoldsKeyword_1_0_0());
 				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getActorReferenceAccess().getHoldsActorParserRuleCall_1_0_1_0());
+						}
+						lv_holds_2_0=ruleActor
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getActorReferenceRule());
+							}
+							set(
+								$current,
+								"holds",
+								lv_holds_2_0,
+								"com.nukulargames.gdx4e.actors.dsl.Dsl.Actor");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+			    |
+			(
+				otherlv_3='uses'
 				{
-					newCompositeNode(grammarAccess.getActorReferenceAccess().getActorActorCrossReference_1_0());
+					newLeafNode(otherlv_3, grammarAccess.getActorReferenceAccess().getUsesKeyword_1_1_0());
 				}
-				ruleQualifiedName
-				{
-					afterParserOrEnumRuleCall();
-				}
+				(
+					(
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getActorReferenceRule());
+							}
+						}
+						{
+							newCompositeNode(grammarAccess.getActorReferenceAccess().getUsesActorCrossReference_1_1_1_0());
+						}
+						ruleQualifiedName
+						{
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
 			)
 		)
 		(
-			otherlv_2='['
-			{
-				newLeafNode(otherlv_2, grammarAccess.getActorReferenceAccess().getLeftSquareBracketKeyword_2_0());
-			}
-			(
+			((
+				'quantity'
+				'='
 				(
-					{
-						newCompositeNode(grammarAccess.getActorReferenceAccess().getDimensionsEIntParserRuleCall_2_1_0());
-					}
-					lv_dimensions_3_0=ruleEInt
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getActorReferenceRule());
-						}
-						add(
-							$current,
-							"dimensions",
-							lv_dimensions_3_0,
-							"com.nukulargames.gdx4e.actors.dsl.Dsl.EInt");
-						afterParserOrEnumRuleCall();
-					}
+					(
+						ruleEInt
+					)
 				)
 			)
-			otherlv_4=']'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getActorReferenceAccess().getRightSquareBracketKeyword_2_2());
-			}
-		)*
+			)=>
+			(
+				otherlv_5='quantity'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getActorReferenceAccess().getQuantityKeyword_2_0_0());
+				}
+				otherlv_6='='
+				{
+					newLeafNode(otherlv_6, grammarAccess.getActorReferenceAccess().getEqualsSignKeyword_2_0_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getActorReferenceAccess().getQuantityEIntParserRuleCall_2_0_2_0());
+						}
+						lv_quantity_7_0=ruleEInt
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getActorReferenceRule());
+							}
+							set(
+								$current,
+								"quantity",
+								lv_quantity_7_0,
+								"com.nukulargames.gdx4e.actors.dsl.Dsl.EInt");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+		)?
 	)
 ;
 
@@ -1521,6 +1207,82 @@ ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 		{
 			newLeafNode(this_INT_1, grammarAccess.getEIntAccess().getINTTerminalRuleCall_1());
 		}
+	)
+;
+
+// Entry rule entryRuleEFloat
+entryRuleEFloat returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getEFloatRule()); }
+	iv_ruleEFloat=ruleEFloat
+	{ $current=$iv_ruleEFloat.current.getText(); }
+	EOF;
+
+// Rule EFloat
+ruleEFloat returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			kw='-'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getEFloatAccess().getHyphenMinusKeyword_0());
+			}
+		)?
+		(
+			this_INT_1=RULE_INT
+			{
+				$current.merge(this_INT_1);
+			}
+			{
+				newLeafNode(this_INT_1, grammarAccess.getEFloatAccess().getINTTerminalRuleCall_1());
+			}
+		)?
+		kw='.'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getEFloatAccess().getFullStopKeyword_2());
+		}
+		this_INT_3=RULE_INT
+		{
+			$current.merge(this_INT_3);
+		}
+		{
+			newLeafNode(this_INT_3, grammarAccess.getEFloatAccess().getINTTerminalRuleCall_3());
+		}
+		(
+			(
+				kw='E'
+				{
+					$current.merge(kw);
+					newLeafNode(kw, grammarAccess.getEFloatAccess().getEKeyword_4_0_0());
+				}
+				    |
+				kw='e'
+				{
+					$current.merge(kw);
+					newLeafNode(kw, grammarAccess.getEFloatAccess().getEKeyword_4_0_1());
+				}
+			)
+			(
+				kw='-'
+				{
+					$current.merge(kw);
+					newLeafNode(kw, grammarAccess.getEFloatAccess().getHyphenMinusKeyword_4_1());
+				}
+			)?
+			this_INT_7=RULE_INT
+			{
+				$current.merge(this_INT_7);
+			}
+			{
+				newLeafNode(this_INT_7, grammarAccess.getEFloatAccess().getINTTerminalRuleCall_4_2());
+			}
+		)?
 	)
 ;
 

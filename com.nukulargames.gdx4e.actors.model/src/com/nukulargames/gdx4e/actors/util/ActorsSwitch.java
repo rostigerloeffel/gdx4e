@@ -78,13 +78,6 @@ public class ActorsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ActorsPackage.GROUP: {
-				Group group = (Group)theEObject;
-				T result = caseGroup(group);
-				if (result == null) result = caseActor(group);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ActorsPackage.ACTOR_REFERENCE: {
 				ActorReference actorReference = (ActorReference)theEObject;
 				T result = caseActorReference(actorReference);
@@ -106,12 +99,6 @@ public class ActorsSwitch<T> extends Switch<T> {
 			case ActorsPackage.STATE: {
 				State state = (State)theEObject;
 				T result = caseState(state);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ActorsPackage.LAYER: {
-				Layer layer = (Layer)theEObject;
-				T result = caseLayer(layer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -146,21 +133,6 @@ public class ActorsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseActor(Actor object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Group</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseGroup(Group object) {
 		return null;
 	}
 
@@ -221,21 +193,6 @@ public class ActorsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseState(State object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Layer</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Layer</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseLayer(Layer object) {
 		return null;
 	}
 

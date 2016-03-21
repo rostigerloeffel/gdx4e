@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getName <em>Name</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getX <em>X</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getY <em>Y</em>}</li>
- *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getLayer <em>Layer</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getWidth <em>Width</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getHeight <em>Height</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getScaleX <em>Scale X</em>}</li>
@@ -33,6 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getGreen <em>Green</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getBlue <em>Blue</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getAlpha <em>Alpha</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.Actor#getChildren <em>Children</em>}</li>
  * </ul>
  *
  * @see com.nukulargames.gdx4e.actors.ActorsPackage#getActor()
@@ -117,32 +117,6 @@ public interface Actor extends EObject {
 	 * @generated
 	 */
 	void setY(float value);
-
-	/**
-	 * Returns the value of the '<em><b>Layer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Layer</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Layer</em>' reference.
-	 * @see #setLayer(Layer)
-	 * @see com.nukulargames.gdx4e.actors.ActorsPackage#getActor_Layer()
-	 * @model
-	 * @generated
-	 */
-	Layer getLayer();
-
-	/**
-	 * Sets the value of the '{@link com.nukulargames.gdx4e.actors.Actor#getLayer <em>Layer</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Layer</em>' reference.
-	 * @see #getLayer()
-	 * @generated
-	 */
-	void setLayer(Layer value);
 
 	/**
 	 * Returns the value of the '<em><b>Width</b></em>' attribute.
@@ -475,5 +449,21 @@ public interface Actor extends EObject {
 	 * @generated
 	 */
 	void setAlpha(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Children</b></em>' containment reference list.
+	 * The list contents are of type {@link com.nukulargames.gdx4e.actors.ActorReference}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Children</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Children</em>' containment reference list.
+	 * @see com.nukulargames.gdx4e.actors.ActorsPackage#getActor_Children()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ActorReference> getChildren();
 
 } // Actor

@@ -8,8 +8,6 @@ import com.nukulargames.gdx4e.actors.Actor;
 import com.nukulargames.gdx4e.actors.ActorReference;
 import com.nukulargames.gdx4e.actors.ActorsPackage;
 import com.nukulargames.gdx4e.actors.Animation;
-import com.nukulargames.gdx4e.actors.Group;
-import com.nukulargames.gdx4e.actors.Layer;
 import com.nukulargames.gdx4e.actors.Model;
 import com.nukulargames.gdx4e.actors.Stage;
 import com.nukulargames.gdx4e.actors.State;
@@ -30,8 +28,6 @@ import org.eclipse.xtext.common.types.JvmUpperBound;
 import org.eclipse.xtext.common.types.JvmWildcardTypeReference;
 import org.eclipse.xtext.common.types.TypesPackage;
 import org.eclipse.xtext.serializer.ISerializationContext;
-import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.eclipse.xtext.xbase.XAssignment;
 import org.eclipse.xtext.xbase.XBasicForLoopExpression;
 import org.eclipse.xtext.xbase.XBinaryOperation;
@@ -88,19 +84,13 @@ public class DslSemanticSequencer extends XbaseWithAnnotationsSemanticSequencer 
 		if (epackage == ActorsPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
 			case ActorsPackage.ACTOR:
-				sequence_Actor_Impl(context, (Actor) semanticObject); 
+				sequence_Actor(context, (Actor) semanticObject); 
 				return; 
 			case ActorsPackage.ACTOR_REFERENCE:
 				sequence_ActorReference(context, (ActorReference) semanticObject); 
 				return; 
 			case ActorsPackage.ANIMATION:
 				sequence_Animation(context, (Animation) semanticObject); 
-				return; 
-			case ActorsPackage.GROUP:
-				sequence_Group_Impl(context, (Group) semanticObject); 
-				return; 
-			case ActorsPackage.LAYER:
-				sequence_Layer(context, (Layer) semanticObject); 
 				return; 
 			case ActorsPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
@@ -421,7 +411,7 @@ public class DslSemanticSequencer extends XbaseWithAnnotationsSemanticSequencer 
 	 *     ActorReference returns ActorReference
 	 *
 	 * Constraint:
-	 *     (actor=[Actor|QualifiedName] dimensions+=EInt*)
+	 *     ((holds=Actor | uses=[Actor|QualifiedName]) quantity=EInt?)
 	 */
 	protected void sequence_ActorReference(ISerializationContext context, ActorReference semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -431,29 +421,31 @@ public class DslSemanticSequencer extends XbaseWithAnnotationsSemanticSequencer 
 	/**
 	 * Contexts:
 	 *     Actor returns Actor
-	 *     Actor_Impl returns Actor
 	 *
 	 * Constraint:
 	 *     (
 	 *         name=QualifiedName 
-	 *         x=EFloat? 
-	 *         y=EFloat? 
-	 *         layer=[Layer|QualifiedName]? 
-	 *         width=EFloat? 
-	 *         height=EFloat? 
-	 *         scaleX=EFloat? 
-	 *         scaleY=EFloat? 
-	 *         rotation=EFloat? 
-	 *         red=EFloat? 
-	 *         green=EFloat? 
-	 *         blue=EFloat? 
-	 *         alpha=EFloat? 
-	 *         animations+=Animation* 
-	 *         states+=State* 
-	 *         defaultState=[State|ID]?
+	 *         extends=[Actor|QualifiedName]? 
+	 *         (
+	 *             x=EFloat | 
+	 *             y=EFloat | 
+	 *             width=EFloat | 
+	 *             height=EFloat | 
+	 *             scaleX=EFloat | 
+	 *             scaleY=EFloat | 
+	 *             rotation=EFloat | 
+	 *             red=EFloat | 
+	 *             green=EFloat | 
+	 *             blue=EFloat | 
+	 *             alpha=EFloat | 
+	 *             animations+=Animation | 
+	 *             states+=State | 
+	 *             children+=ActorReference | 
+	 *             defaultState=[State|ID]
+	 *         )*
 	 *     )
 	 */
-	protected void sequence_Actor_Impl(ISerializationContext context, Actor semanticObject) {
+	protected void sequence_Actor(ISerializationContext context, Actor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -463,7 +455,7 @@ public class DslSemanticSequencer extends XbaseWithAnnotationsSemanticSequencer 
 	 *     Animation returns Animation
 	 *
 	 * Constraint:
-	 *     (name=QualifiedName texture=STRING? columns=EInt? rows=EInt? delay=EFloat?)
+	 *     (name=QualifiedName (texture=STRING | columns=EInt | rows=EInt | delay=EFloat)*)
 	 */
 	protected void sequence_Animation(ISerializationContext context, Animation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -472,54 +464,10 @@ public class DslSemanticSequencer extends XbaseWithAnnotationsSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Actor returns Group
-	 *     Group_Impl returns Group
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=QualifiedName 
-	 *         x=EFloat? 
-	 *         y=EFloat? 
-	 *         width=EFloat? 
-	 *         height=EFloat? 
-	 *         scaleX=EFloat? 
-	 *         scaleY=EFloat? 
-	 *         rotation=EFloat? 
-	 *         animations+=Animation* 
-	 *         states+=State* 
-	 *         defaultState=[State|ID]? 
-	 *         children+=ActorReference*
-	 *     )
-	 */
-	protected void sequence_Group_Impl(ISerializationContext context, Group semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Layer returns Layer
-	 *
-	 * Constraint:
-	 *     name=QualifiedName
-	 */
-	protected void sequence_Layer(ISerializationContext context, Layer semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, ActorsPackage.Literals.LAYER__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ActorsPackage.Literals.LAYER__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getLayerAccess().getNameQualifiedNameParserRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (basePackage=QualifiedName? (layers+=Layer layers+=Layer*)? actors+=Actor*)
+	 *     (basePackage=QualifiedName? actors+=Actor*)
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -531,16 +479,10 @@ public class DslSemanticSequencer extends XbaseWithAnnotationsSemanticSequencer 
 	 *     Stage returns Stage
 	 *
 	 * Constraint:
-	 *     name=QualifiedName
+	 *     (name=QualifiedName actors+=ActorReference*)
 	 */
 	protected void sequence_Stage(ISerializationContext context, Stage semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, ActorsPackage.Literals.STAGE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ActorsPackage.Literals.STAGE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getStageAccess().getNameQualifiedNameParserRuleCall_2_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

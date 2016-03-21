@@ -5,20 +5,14 @@ package com.nukulargames.gdx4e.actors.impl;
 import com.nukulargames.gdx4e.actors.Actor;
 import com.nukulargames.gdx4e.actors.ActorReference;
 import com.nukulargames.gdx4e.actors.ActorsPackage;
-
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.EList;
-
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,32 +22,124 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorReferenceImpl#getActor <em>Actor</em>}</li>
- *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorReferenceImpl#getDimensions <em>Dimensions</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorReferenceImpl#getHolds <em>Holds</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorReferenceImpl#getUses <em>Uses</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorReferenceImpl#getQuantity <em>Quantity</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorReferenceImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorReferenceImpl#getNormalizedReference <em>Normalized Reference</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorReferenceImpl#getNormalizedName <em>Normalized Name</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ActorReferenceImpl extends MinimalEObjectImpl.Container implements ActorReference {
 	/**
-	 * The cached value of the '{@link #getActor() <em>Actor</em>}' reference.
+	 * The cached value of the '{@link #getHolds() <em>Holds</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getActor()
+	 * @see #getHolds()
 	 * @generated
 	 * @ordered
 	 */
-	protected Actor actor;
+	protected Actor holds;
 
 	/**
-	 * The cached value of the '{@link #getDimensions() <em>Dimensions</em>}' attribute list.
+	 * The cached value of the '{@link #getUses() <em>Uses</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDimensions()
+	 * @see #getUses()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Integer> dimensions;
+	protected Actor uses;
+
+	/**
+	 * The default value of the '{@link #getQuantity() <em>Quantity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuantity()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int QUANTITY_EDEFAULT = 1;
+
+	/**
+	 * The cached value of the '{@link #getQuantity() <em>Quantity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuantity()
+	 * @generated
+	 * @ordered
+	 */
+	protected int quantity = QUANTITY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getNormalizedReference() <em>Normalized Reference</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNormalizedReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Actor normalizedReference;
+
+	/**
+	 * This is true if the Normalized Reference reference has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean normalizedReferenceESet;
+
+	/**
+	 * The default value of the '{@link #getNormalizedName() <em>Normalized Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNormalizedName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NORMALIZED_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getNormalizedName() <em>Normalized Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNormalizedName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String normalizedName = NORMALIZED_NAME_EDEFAULT;
+
+	/**
+	 * This is true if the Normalized Name attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean normalizedNameESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -79,16 +165,59 @@ public class ActorReferenceImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Actor getActor() {
-		if (actor != null && actor.eIsProxy()) {
-			InternalEObject oldActor = (InternalEObject)actor;
-			actor = (Actor)eResolveProxy(oldActor);
-			if (actor != oldActor) {
+	public Actor getHolds() {
+		return holds;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetHolds(Actor newHolds, NotificationChain msgs) {
+		Actor oldHolds = holds;
+		holds = newHolds;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ActorsPackage.ACTOR_REFERENCE__HOLDS, oldHolds, newHolds);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHolds(Actor newHolds) {
+		if (newHolds != holds) {
+			NotificationChain msgs = null;
+			if (holds != null)
+				msgs = ((InternalEObject)holds).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ActorsPackage.ACTOR_REFERENCE__HOLDS, null, msgs);
+			if (newHolds != null)
+				msgs = ((InternalEObject)newHolds).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ActorsPackage.ACTOR_REFERENCE__HOLDS, null, msgs);
+			msgs = basicSetHolds(newHolds, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ActorsPackage.ACTOR_REFERENCE__HOLDS, newHolds, newHolds));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Actor getUses() {
+		if (uses != null && uses.eIsProxy()) {
+			InternalEObject oldUses = (InternalEObject)uses;
+			uses = (Actor)eResolveProxy(oldUses);
+			if (uses != oldUses) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ActorsPackage.ACTOR_REFERENCE__ACTOR, oldActor, actor));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ActorsPackage.ACTOR_REFERENCE__USES, oldUses, uses));
 			}
 		}
-		return actor;
+		return uses;
 	}
 
 	/**
@@ -96,8 +225,8 @@ public class ActorReferenceImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Actor basicGetActor() {
-		return actor;
+	public Actor basicGetUses() {
+		return uses;
 	}
 
 	/**
@@ -105,11 +234,11 @@ public class ActorReferenceImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setActor(Actor newActor) {
-		Actor oldActor = actor;
-		actor = newActor;
+	public void setUses(Actor newUses) {
+		Actor oldUses = uses;
+		uses = newUses;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ActorsPackage.ACTOR_REFERENCE__ACTOR, oldActor, actor));
+			eNotify(new ENotificationImpl(this, Notification.SET, ActorsPackage.ACTOR_REFERENCE__USES, oldUses, uses));
 	}
 
 	/**
@@ -117,11 +246,164 @@ public class ActorReferenceImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Integer> getDimensions() {
-		if (dimensions == null) {
-			dimensions = new EDataTypeUniqueEList<Integer>(Integer.class, this, ActorsPackage.ACTOR_REFERENCE__DIMENSIONS);
+	public int getQuantity() {
+		return quantity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setQuantity(int newQuantity) {
+		int oldQuantity = quantity;
+		quantity = newQuantity;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ActorsPackage.ACTOR_REFERENCE__QUANTITY, oldQuantity, quantity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ActorsPackage.ACTOR_REFERENCE__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Actor getNormalizedReference() {
+		if (normalizedReference != null && normalizedReference.eIsProxy()) {
+			InternalEObject oldNormalizedReference = (InternalEObject)normalizedReference;
+			normalizedReference = (Actor)eResolveProxy(oldNormalizedReference);
+			if (normalizedReference != oldNormalizedReference) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ActorsPackage.ACTOR_REFERENCE__NORMALIZED_REFERENCE, oldNormalizedReference, normalizedReference));
+			}
 		}
-		return dimensions;
+		return normalizedReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Actor basicGetNormalizedReference() {
+		return normalizedReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNormalizedReference(Actor newNormalizedReference) {
+		Actor oldNormalizedReference = normalizedReference;
+		normalizedReference = newNormalizedReference;
+		boolean oldNormalizedReferenceESet = normalizedReferenceESet;
+		normalizedReferenceESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ActorsPackage.ACTOR_REFERENCE__NORMALIZED_REFERENCE, oldNormalizedReference, normalizedReference, !oldNormalizedReferenceESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetNormalizedReference() {
+		Actor oldNormalizedReference = normalizedReference;
+		boolean oldNormalizedReferenceESet = normalizedReferenceESet;
+		normalizedReference = null;
+		normalizedReferenceESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ActorsPackage.ACTOR_REFERENCE__NORMALIZED_REFERENCE, oldNormalizedReference, null, oldNormalizedReferenceESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetNormalizedReference() {
+		return normalizedReferenceESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getNormalizedName() {
+		return normalizedName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNormalizedName(String newNormalizedName) {
+		String oldNormalizedName = normalizedName;
+		normalizedName = newNormalizedName;
+		boolean oldNormalizedNameESet = normalizedNameESet;
+		normalizedNameESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ActorsPackage.ACTOR_REFERENCE__NORMALIZED_NAME, oldNormalizedName, normalizedName, !oldNormalizedNameESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetNormalizedName() {
+		String oldNormalizedName = normalizedName;
+		boolean oldNormalizedNameESet = normalizedNameESet;
+		normalizedName = NORMALIZED_NAME_EDEFAULT;
+		normalizedNameESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ActorsPackage.ACTOR_REFERENCE__NORMALIZED_NAME, oldNormalizedName, NORMALIZED_NAME_EDEFAULT, oldNormalizedNameESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetNormalizedName() {
+		return normalizedNameESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ActorsPackage.ACTOR_REFERENCE__HOLDS:
+				return basicSetHolds(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -132,11 +414,20 @@ public class ActorReferenceImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ActorsPackage.ACTOR_REFERENCE__ACTOR:
-				if (resolve) return getActor();
-				return basicGetActor();
-			case ActorsPackage.ACTOR_REFERENCE__DIMENSIONS:
-				return getDimensions();
+			case ActorsPackage.ACTOR_REFERENCE__HOLDS:
+				return getHolds();
+			case ActorsPackage.ACTOR_REFERENCE__USES:
+				if (resolve) return getUses();
+				return basicGetUses();
+			case ActorsPackage.ACTOR_REFERENCE__QUANTITY:
+				return getQuantity();
+			case ActorsPackage.ACTOR_REFERENCE__NAME:
+				return getName();
+			case ActorsPackage.ACTOR_REFERENCE__NORMALIZED_REFERENCE:
+				if (resolve) return getNormalizedReference();
+				return basicGetNormalizedReference();
+			case ActorsPackage.ACTOR_REFERENCE__NORMALIZED_NAME:
+				return getNormalizedName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -150,12 +441,23 @@ public class ActorReferenceImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ActorsPackage.ACTOR_REFERENCE__ACTOR:
-				setActor((Actor)newValue);
+			case ActorsPackage.ACTOR_REFERENCE__HOLDS:
+				setHolds((Actor)newValue);
 				return;
-			case ActorsPackage.ACTOR_REFERENCE__DIMENSIONS:
-				getDimensions().clear();
-				getDimensions().addAll((Collection<? extends Integer>)newValue);
+			case ActorsPackage.ACTOR_REFERENCE__USES:
+				setUses((Actor)newValue);
+				return;
+			case ActorsPackage.ACTOR_REFERENCE__QUANTITY:
+				setQuantity((Integer)newValue);
+				return;
+			case ActorsPackage.ACTOR_REFERENCE__NAME:
+				setName((String)newValue);
+				return;
+			case ActorsPackage.ACTOR_REFERENCE__NORMALIZED_REFERENCE:
+				setNormalizedReference((Actor)newValue);
+				return;
+			case ActorsPackage.ACTOR_REFERENCE__NORMALIZED_NAME:
+				setNormalizedName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -169,11 +471,23 @@ public class ActorReferenceImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ActorsPackage.ACTOR_REFERENCE__ACTOR:
-				setActor((Actor)null);
+			case ActorsPackage.ACTOR_REFERENCE__HOLDS:
+				setHolds((Actor)null);
 				return;
-			case ActorsPackage.ACTOR_REFERENCE__DIMENSIONS:
-				getDimensions().clear();
+			case ActorsPackage.ACTOR_REFERENCE__USES:
+				setUses((Actor)null);
+				return;
+			case ActorsPackage.ACTOR_REFERENCE__QUANTITY:
+				setQuantity(QUANTITY_EDEFAULT);
+				return;
+			case ActorsPackage.ACTOR_REFERENCE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case ActorsPackage.ACTOR_REFERENCE__NORMALIZED_REFERENCE:
+				unsetNormalizedReference();
+				return;
+			case ActorsPackage.ACTOR_REFERENCE__NORMALIZED_NAME:
+				unsetNormalizedName();
 				return;
 		}
 		super.eUnset(featureID);
@@ -187,10 +501,18 @@ public class ActorReferenceImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ActorsPackage.ACTOR_REFERENCE__ACTOR:
-				return actor != null;
-			case ActorsPackage.ACTOR_REFERENCE__DIMENSIONS:
-				return dimensions != null && !dimensions.isEmpty();
+			case ActorsPackage.ACTOR_REFERENCE__HOLDS:
+				return holds != null;
+			case ActorsPackage.ACTOR_REFERENCE__USES:
+				return uses != null;
+			case ActorsPackage.ACTOR_REFERENCE__QUANTITY:
+				return quantity != QUANTITY_EDEFAULT;
+			case ActorsPackage.ACTOR_REFERENCE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case ActorsPackage.ACTOR_REFERENCE__NORMALIZED_REFERENCE:
+				return isSetNormalizedReference();
+			case ActorsPackage.ACTOR_REFERENCE__NORMALIZED_NAME:
+				return isSetNormalizedName();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -205,8 +527,12 @@ public class ActorReferenceImpl extends MinimalEObjectImpl.Container implements 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (dimensions: ");
-		result.append(dimensions);
+		result.append(" (quantity: ");
+		result.append(quantity);
+		result.append(", name: ");
+		result.append(name);
+		result.append(", normalizedName: ");
+		if (normalizedNameESet) result.append(normalizedName); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

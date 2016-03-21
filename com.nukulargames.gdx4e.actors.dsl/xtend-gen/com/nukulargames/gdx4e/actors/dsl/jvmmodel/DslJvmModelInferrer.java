@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.google.inject.Inject;
 import com.nukulargames.gdx4e.actors.Actor;
+import com.nukulargames.gdx4e.actors.ActorReference;
 import com.nukulargames.gdx4e.actors.ActorsFactory;
 import com.nukulargames.gdx4e.actors.Animation;
 import com.nukulargames.gdx4e.actors.Model;
@@ -102,8 +103,8 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
     final JvmGenericType genClass = this._jvmTypesBuilder.toClass(element, _plus_1);
     final Procedure1<JvmGenericType> _function = (JvmGenericType it) -> {
       EList<JvmTypeReference> _superTypes = it.getSuperTypes();
-      JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(NukuActor.class);
-      this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _typeRef);
+      JvmTypeReference _superType = this.superType(element);
+      this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _superType);
       EList<JvmMember> _members = it.getMembers();
       JvmEnumerationType _stateEnum = this.stateEnum(element);
       this._jvmTypesBuilder.<JvmEnumerationType>operator_add(_members, _stateEnum);
@@ -123,68 +124,83 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
       JvmField _stateTimeField = this.stateTimeField(element);
       this._jvmTypesBuilder.<JvmField>operator_add(_members_5, _stateTimeField);
       EList<JvmMember> _members_6 = it.getMembers();
-      JvmConstructor _constructor = this.constructor(element);
-      this._jvmTypesBuilder.<JvmConstructor>operator_add(_members_6, _constructor);
+      List<JvmField> _childField = this.childField(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_6, _childField);
       EList<JvmMember> _members_7 = it.getMembers();
-      JvmOperation _initPosition = this.initPosition(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_7, _initPosition);
+      JvmConstructor _constructor = this.constructor(element);
+      this._jvmTypesBuilder.<JvmConstructor>operator_add(_members_7, _constructor);
       EList<JvmMember> _members_8 = it.getMembers();
-      JvmOperation _initSize = this.initSize(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_8, _initSize);
+      JvmOperation _initPosition = this.initPosition(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_8, _initPosition);
       EList<JvmMember> _members_9 = it.getMembers();
-      JvmOperation _initScale = this.initScale(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_9, _initScale);
+      JvmOperation _initSize = this.initSize(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_9, _initSize);
       EList<JvmMember> _members_10 = it.getMembers();
-      JvmOperation _initRotation = this.initRotation(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_10, _initRotation);
+      JvmOperation _initScale = this.initScale(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_10, _initScale);
       EList<JvmMember> _members_11 = it.getMembers();
-      JvmOperation _initColor = this.initColor(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_11, _initColor);
+      JvmOperation _initRotation = this.initRotation(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_11, _initRotation);
       EList<JvmMember> _members_12 = it.getMembers();
-      JvmOperation _initState = this.initState(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_12, _initState);
+      JvmOperation _initColor = this.initColor(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_12, _initColor);
       EList<JvmMember> _members_13 = it.getMembers();
-      List<JvmOperation> _animation = this.getAnimation(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_13, _animation);
+      JvmOperation _initState = this.initState(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_13, _initState);
       EList<JvmMember> _members_14 = it.getMembers();
-      JvmOperation _draw = this.draw(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_14, _draw);
+      List<JvmOperation> _animation = this.getAnimation(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_14, _animation);
       EList<JvmMember> _members_15 = it.getMembers();
-      List<JvmOperation> _drawState = this.drawState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_15, _drawState);
+      JvmOperation _draw = this.draw(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_15, _draw);
       EList<JvmMember> _members_16 = it.getMembers();
-      JvmOperation _drawAnimation = this.drawAnimation(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_16, _drawAnimation);
+      List<JvmOperation> _drawState = this.drawState(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_16, _drawState);
       EList<JvmMember> _members_17 = it.getMembers();
-      JvmOperation _act = this.act(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_17, _act);
+      JvmOperation _drawAnimation = this.drawAnimation(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_17, _drawAnimation);
       EList<JvmMember> _members_18 = it.getMembers();
-      List<JvmOperation> __actState = this._actState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_18, __actState);
+      JvmOperation _act = this.act(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_18, _act);
       EList<JvmMember> _members_19 = it.getMembers();
-      List<JvmOperation> _actState = this.actState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_19, _actState);
+      List<JvmOperation> __actState = this._actState(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_19, __actState);
       EList<JvmMember> _members_20 = it.getMembers();
-      JvmOperation _resetStateTime = this.resetStateTime(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_20, _resetStateTime);
+      List<JvmOperation> _actState = this.actState(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_20, _actState);
       EList<JvmMember> _members_21 = it.getMembers();
-      JvmOperation _currentState_1 = this.getCurrentState(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_21, _currentState_1);
+      JvmOperation _resetStateTime = this.resetStateTime(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_21, _resetStateTime);
       EList<JvmMember> _members_22 = it.getMembers();
-      JvmOperation _transit = this.transit(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_22, _transit);
+      JvmOperation _currentState_1 = this.getCurrentState(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_22, _currentState_1);
       EList<JvmMember> _members_23 = it.getMembers();
-      List<JvmOperation> __enterState = this._enterState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_23, __enterState);
+      JvmOperation _transit = this.transit(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_23, _transit);
       EList<JvmMember> _members_24 = it.getMembers();
-      List<JvmOperation> _enterState = this.enterState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_24, _enterState);
+      List<JvmOperation> __enterState = this._enterState(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_24, __enterState);
       EList<JvmMember> _members_25 = it.getMembers();
-      List<JvmOperation> __leaveState = this._leaveState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_25, __leaveState);
+      List<JvmOperation> _enterState = this.enterState(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_25, _enterState);
       EList<JvmMember> _members_26 = it.getMembers();
+      List<JvmOperation> __leaveState = this._leaveState(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_26, __leaveState);
+      EList<JvmMember> _members_27 = it.getMembers();
       List<JvmOperation> _leaveState = this.leaveState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_26, _leaveState);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_27, _leaveState);
+      EList<JvmMember> _members_28 = it.getMembers();
+      List<JvmOperation> _initChild = this.initChild(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_28, _initChild);
+      EList<JvmMember> _members_29 = it.getMembers();
+      List<JvmOperation> _initChildQuantity = this.initChildQuantity(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_29, _initChildQuantity);
+      EList<JvmMember> _members_30 = it.getMembers();
+      Iterable<JvmOperation> _initEachChild = this.initEachChild(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_30, _initEachChild);
+      EList<JvmMember> _members_31 = it.getMembers();
+      List<JvmOperation> _child = this.getChild(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_31, _child);
     };
     acceptor.<JvmGenericType>accept(genClass, _function);
     String _basePackageName_1 = this.basePackageName(model);
@@ -210,6 +226,10 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
       _xifexpression = (_basePackage_1 + ".");
     }
     return _xifexpression;
+  }
+  
+  public JvmTypeReference superType(final Actor actor) {
+    return this._typeReferenceBuilder.typeRef(NukuActor.class);
   }
   
   public JvmEnumerationType stateEnum(final Actor actor) {
@@ -322,6 +342,32 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
   public JvmField currentAnimationField(final Actor actor) {
     JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(com.badlogic.gdx.graphics.g2d.Animation.class);
     return this._jvmTypesBuilder.toField(actor, "currentAnimation", _typeRef);
+  }
+  
+  public List<JvmField> childField(final Actor actor) {
+    EList<ActorReference> _children = actor.getChildren();
+    final Function1<ActorReference, JvmField> _function = (ActorReference c) -> {
+      String _normalizedName = c.getNormalizedName();
+      JvmTypeReference _xifexpression = null;
+      int _quantity = c.getQuantity();
+      boolean _greaterThan = (_quantity > 1);
+      if (_greaterThan) {
+        Actor _normalizedReference = c.getNormalizedReference();
+        String _name = _normalizedReference.getName();
+        String _plus = ("List<" + _name);
+        String _plus_1 = (_plus + ">");
+        _xifexpression = this._typeReferenceBuilder.typeRef(_plus_1);
+      } else {
+        Actor _normalizedReference_1 = c.getNormalizedReference();
+        String _name_1 = _normalizedReference_1.getName();
+        _xifexpression = this._typeReferenceBuilder.typeRef(_name_1);
+      }
+      final Procedure1<JvmField> _function_1 = (JvmField it) -> {
+        it.setVisibility(JvmVisibility.PRIVATE);
+      };
+      return this._jvmTypesBuilder.toField(actor, _normalizedName, _xifexpression, _function_1);
+    };
+    return ListExtensions.<ActorReference, JvmField>map(_children, _function);
   }
   
   public JvmConstructor constructor(final Actor actor) {
@@ -745,18 +791,26 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
   
   public Animation animationForState(final Actor actor, final State state) {
     Animation _elvis = null;
+    Animation _elvis_1 = null;
     Animation _animation = state.getAnimation();
     if (_animation != null) {
-      _elvis = _animation;
+      _elvis_1 = _animation;
     } else {
-      EList<Animation> _animations = actor.getAnimations();
+      EList<Animation> _normalizedAnimations = actor.getNormalizedAnimations();
       final Function1<Animation, Boolean> _function = (Animation a) -> {
         String _name = a.getName();
         String _name_1 = state.getName();
         return Boolean.valueOf(_name.equals(_name_1));
       };
-      Animation _findFirst = IterableExtensions.<Animation>findFirst(_animations, _function);
-      _elvis = _findFirst;
+      Animation _findFirst = IterableExtensions.<Animation>findFirst(_normalizedAnimations, _function);
+      _elvis_1 = _findFirst;
+    }
+    if (_elvis_1 != null) {
+      _elvis = _elvis_1;
+    } else {
+      EList<Animation> _normalizedAnimations_1 = actor.getNormalizedAnimations();
+      Animation _head = IterableExtensions.<Animation>head(_normalizedAnimations_1);
+      _elvis = _head;
     }
     return _elvis;
   }
@@ -867,10 +921,9 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
     _builder.append("\t");
     _builder.append("default:");
     _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("super.draw(batch, parentAlpha);");
-    _builder.newLine();
     _builder.append("}");
+    _builder.newLine();
+    _builder.append("super.draw(batch, parentAlpha);");
     _builder.newLine();
     return _builder;
   }
@@ -1006,10 +1059,9 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
     _builder.append("\t");
     _builder.append("default:");
     _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("super.act(delta);");
-    _builder.newLine();
     _builder.append("}");
+    _builder.newLine();
+    _builder.append("super.act(delta);");
     _builder.newLine();
     return _builder;
   }
@@ -1086,6 +1138,138 @@ public class DslJvmModelInferrer extends AbstractModelInferrer {
       this._jvmTypesBuilder.setBody(it, _client);
     };
     return this._jvmTypesBuilder.toMethod(actor, "resetStateTime", _typeRef, _function);
+  }
+  
+  public List<JvmOperation> initChild(final Actor element) {
+    EList<ActorReference> _children = element.getChildren();
+    final Function1<ActorReference, JvmOperation> _function = (ActorReference c) -> {
+      Actor _normalizedReference = c.getNormalizedReference();
+      String _normalizedName = c.getNormalizedName();
+      String _plus = ("initChild" + _normalizedName);
+      JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(void.class);
+      final Procedure1<JvmOperation> _function_1 = (JvmOperation it) -> {
+        it.setVisibility(JvmVisibility.PROTECTED);
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+          }
+        };
+        this._jvmTypesBuilder.setBody(it, _client);
+      };
+      return this._jvmTypesBuilder.toMethod(_normalizedReference, _plus, _typeRef, _function_1);
+    };
+    return ListExtensions.<ActorReference, JvmOperation>map(_children, _function);
+  }
+  
+  public List<JvmOperation> initChildQuantity(final Actor element) {
+    EList<ActorReference> _children = element.getChildren();
+    final Function1<ActorReference, JvmOperation> _function = (ActorReference c) -> {
+      Actor _normalizedReference = c.getNormalizedReference();
+      String _normalizedName = c.getNormalizedName();
+      String _plus = ("initChild" + _normalizedName);
+      String _plus_1 = (_plus + "Quantity");
+      JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(int.class);
+      final Procedure1<JvmOperation> _function_1 = (JvmOperation it) -> {
+        it.setVisibility(JvmVisibility.PROTECTED);
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+          }
+        };
+        this._jvmTypesBuilder.setBody(it, _client);
+      };
+      return this._jvmTypesBuilder.toMethod(_normalizedReference, _plus_1, _typeRef, _function_1);
+    };
+    return ListExtensions.<ActorReference, JvmOperation>map(_children, _function);
+  }
+  
+  public Iterable<JvmOperation> initEachChild(final Actor element) {
+    EList<ActorReference> _children = element.getChildren();
+    final Function1<ActorReference, Boolean> _function = (ActorReference c) -> {
+      int _quantity = c.getQuantity();
+      return Boolean.valueOf((_quantity > 1));
+    };
+    Iterable<ActorReference> _filter = IterableExtensions.<ActorReference>filter(_children, _function);
+    final Function1<ActorReference, JvmOperation> _function_1 = (ActorReference c) -> {
+      Actor _normalizedReference = c.getNormalizedReference();
+      String _normalizedName = c.getNormalizedName();
+      String _plus = ("initEachChild" + _normalizedName);
+      Actor _normalizedReference_1 = c.getNormalizedReference();
+      String _name = _normalizedReference_1.getName();
+      JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(_name);
+      final Procedure1<JvmOperation> _function_2 = (JvmOperation it) -> {
+        it.setVisibility(JvmVisibility.PROTECTED);
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append("return new ");
+            Actor _normalizedReference = c.getNormalizedReference();
+            String _name = _normalizedReference.getName();
+            _builder.append(_name, "");
+            _builder.append("();");
+          }
+        };
+        this._jvmTypesBuilder.setBody(it, _client);
+      };
+      return this._jvmTypesBuilder.toMethod(_normalizedReference, _plus, _typeRef, _function_2);
+    };
+    return IterableExtensions.<ActorReference, JvmOperation>map(_filter, _function_1);
+  }
+  
+  public List<JvmOperation> getChild(final Actor element) {
+    EList<ActorReference> _children = element.getChildren();
+    final Function1<ActorReference, JvmOperation> _function = (ActorReference c) -> {
+      JvmOperation _xifexpression = null;
+      int _quantity = c.getQuantity();
+      boolean _greaterThan = (_quantity > 1);
+      if (_greaterThan) {
+        Actor _normalizedReference = c.getNormalizedReference();
+        String _normalizedName = c.getNormalizedName();
+        String _plus = ("getChildren" + _normalizedName);
+        Actor _normalizedReference_1 = c.getNormalizedReference();
+        String _name = _normalizedReference_1.getName();
+        String _plus_1 = ("List<" + _name);
+        String _plus_2 = (_plus_1 + ">");
+        JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(_plus_2);
+        final Procedure1<JvmOperation> _function_1 = (JvmOperation it) -> {
+          it.setVisibility(JvmVisibility.PROTECTED);
+          StringConcatenationClient _client = new StringConcatenationClient() {
+            @Override
+            protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+              _builder.append("return ");
+              String _normalizedName = c.getNormalizedName();
+              _builder.append(_normalizedName, "");
+              _builder.append(";");
+            }
+          };
+          this._jvmTypesBuilder.setBody(it, _client);
+        };
+        _xifexpression = this._jvmTypesBuilder.toMethod(_normalizedReference, _plus, _typeRef, _function_1);
+      } else {
+        Actor _normalizedReference_2 = c.getNormalizedReference();
+        String _normalizedName_1 = c.getNormalizedName();
+        String _plus_3 = ("getChild" + _normalizedName_1);
+        Actor _normalizedReference_3 = c.getNormalizedReference();
+        String _name_1 = _normalizedReference_3.getName();
+        JvmTypeReference _typeRef_1 = this._typeReferenceBuilder.typeRef(_name_1);
+        final Procedure1<JvmOperation> _function_2 = (JvmOperation it) -> {
+          it.setVisibility(JvmVisibility.PROTECTED);
+          StringConcatenationClient _client = new StringConcatenationClient() {
+            @Override
+            protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+              _builder.append("return ");
+              String _normalizedName = c.getNormalizedName();
+              _builder.append(_normalizedName, "");
+              _builder.append(";");
+            }
+          };
+          this._jvmTypesBuilder.setBody(it, _client);
+        };
+        _xifexpression = this._jvmTypesBuilder.toMethod(_normalizedReference_2, _plus_3, _typeRef_1, _function_2);
+      }
+      return _xifexpression;
+    };
+    return ListExtensions.<ActorReference, JvmOperation>map(_children, _function);
   }
   
   public void infer(final EObject element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {

@@ -118,29 +118,6 @@ public class ActorsItemProviderAdapterFactory extends ActorsAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.nukulargames.gdx4e.actors.Group} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GroupItemProvider groupItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.nukulargames.gdx4e.actors.Group}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGroupAdapter() {
-		if (groupItemProvider == null) {
-			groupItemProvider = new GroupItemProvider(this);
-		}
-
-		return groupItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.nukulargames.gdx4e.actors.ActorReference} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -230,29 +207,6 @@ public class ActorsItemProviderAdapterFactory extends ActorsAdapterFactory imple
 		}
 
 		return stateItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.nukulargames.gdx4e.actors.Layer} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected LayerItemProvider layerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.nukulargames.gdx4e.actors.Layer}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createLayerAdapter() {
-		if (layerItemProvider == null) {
-			layerItemProvider = new LayerItemProvider(this);
-		}
-
-		return layerItemProvider;
 	}
 
 	/**
@@ -356,12 +310,10 @@ public class ActorsItemProviderAdapterFactory extends ActorsAdapterFactory imple
 	public void dispose() {
 		if (modelItemProvider != null) modelItemProvider.dispose();
 		if (actorItemProvider != null) actorItemProvider.dispose();
-		if (groupItemProvider != null) groupItemProvider.dispose();
 		if (actorReferenceItemProvider != null) actorReferenceItemProvider.dispose();
 		if (stageItemProvider != null) stageItemProvider.dispose();
 		if (animationItemProvider != null) animationItemProvider.dispose();
 		if (stateItemProvider != null) stateItemProvider.dispose();
-		if (layerItemProvider != null) layerItemProvider.dispose();
 	}
 
 }

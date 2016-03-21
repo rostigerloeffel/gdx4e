@@ -65,6 +65,7 @@ public class AnimationItemProvider
 			addColumnsPropertyDescriptor(object);
 			addRowsPropertyDescriptor(object);
 			addDelayPropertyDescriptor(object);
+			addNormalizedTexturePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -180,6 +181,28 @@ public class AnimationItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Normalized Texture feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNormalizedTexturePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Animation_normalizedTexture_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Animation_normalizedTexture_feature", "_UI_Animation_type"),
+				 ActorsPackage.Literals.ANIMATION__NORMALIZED_TEXTURE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Animation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -222,6 +245,7 @@ public class AnimationItemProvider
 			case ActorsPackage.ANIMATION__COLUMNS:
 			case ActorsPackage.ANIMATION__ROWS:
 			case ActorsPackage.ANIMATION__DELAY:
+			case ActorsPackage.ANIMATION__NORMALIZED_TEXTURE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

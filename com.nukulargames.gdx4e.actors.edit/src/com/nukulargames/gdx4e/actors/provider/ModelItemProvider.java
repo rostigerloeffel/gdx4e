@@ -126,7 +126,6 @@ public class ModelItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ActorsPackage.Literals.MODEL__ACTORS);
-			childrenFeatures.add(ActorsPackage.Literals.MODEL__LAYERS);
 		}
 		return childrenFeatures;
 	}
@@ -186,7 +185,6 @@ public class ModelItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ActorsPackage.MODEL__ACTORS:
-			case ActorsPackage.MODEL__LAYERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -208,16 +206,6 @@ public class ModelItemProvider
 			(createChildParameter
 				(ActorsPackage.Literals.MODEL__ACTORS,
 				 ActorsFactory.eINSTANCE.createActor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ActorsPackage.Literals.MODEL__ACTORS,
-				 ActorsFactory.eINSTANCE.createGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ActorsPackage.Literals.MODEL__LAYERS,
-				 ActorsFactory.eINSTANCE.createLayer()));
 	}
 
 	/**

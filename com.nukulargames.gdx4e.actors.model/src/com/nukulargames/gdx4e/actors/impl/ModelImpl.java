@@ -4,7 +4,6 @@ package com.nukulargames.gdx4e.actors.impl;
 
 import com.nukulargames.gdx4e.actors.Actor;
 import com.nukulargames.gdx4e.actors.ActorsPackage;
-import com.nukulargames.gdx4e.actors.Layer;
 import com.nukulargames.gdx4e.actors.Model;
 
 import java.util.Collection;
@@ -33,7 +32,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.nukulargames.gdx4e.actors.impl.ModelImpl#getActors <em>Actors</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.impl.ModelImpl#getBasePackage <em>Base Package</em>}</li>
- *   <li>{@link com.nukulargames.gdx4e.actors.impl.ModelImpl#getLayers <em>Layers</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,16 +66,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * @ordered
 	 */
 	protected String basePackage = BASE_PACKAGE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getLayers() <em>Layers</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLayers()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Layer> layers;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -136,25 +124,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Layer> getLayers() {
-		if (layers == null) {
-			layers = new EObjectContainmentEList<Layer>(Layer.class, this, ActorsPackage.MODEL__LAYERS);
-		}
-		return layers;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ActorsPackage.MODEL__ACTORS:
 				return ((InternalEList<?>)getActors()).basicRemove(otherEnd, msgs);
-			case ActorsPackage.MODEL__LAYERS:
-				return ((InternalEList<?>)getLayers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -171,8 +145,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 				return getActors();
 			case ActorsPackage.MODEL__BASE_PACKAGE:
 				return getBasePackage();
-			case ActorsPackage.MODEL__LAYERS:
-				return getLayers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -193,10 +165,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 			case ActorsPackage.MODEL__BASE_PACKAGE:
 				setBasePackage((String)newValue);
 				return;
-			case ActorsPackage.MODEL__LAYERS:
-				getLayers().clear();
-				getLayers().addAll((Collection<? extends Layer>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -215,9 +183,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 			case ActorsPackage.MODEL__BASE_PACKAGE:
 				setBasePackage(BASE_PACKAGE_EDEFAULT);
 				return;
-			case ActorsPackage.MODEL__LAYERS:
-				getLayers().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -234,8 +199,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 				return actors != null && !actors.isEmpty();
 			case ActorsPackage.MODEL__BASE_PACKAGE:
 				return BASE_PACKAGE_EDEFAULT == null ? basePackage != null : !BASE_PACKAGE_EDEFAULT.equals(basePackage);
-			case ActorsPackage.MODEL__LAYERS:
-				return layers != null && !layers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

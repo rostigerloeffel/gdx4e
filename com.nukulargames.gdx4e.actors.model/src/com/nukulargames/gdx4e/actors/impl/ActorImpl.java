@@ -3,9 +3,9 @@
 package com.nukulargames.gdx4e.actors.impl;
 
 import com.nukulargames.gdx4e.actors.Actor;
+import com.nukulargames.gdx4e.actors.ActorReference;
 import com.nukulargames.gdx4e.actors.ActorsPackage;
 import com.nukulargames.gdx4e.actors.Animation;
-import com.nukulargames.gdx4e.actors.Layer;
 import com.nukulargames.gdx4e.actors.State;
 
 import java.util.Collection;
@@ -36,7 +36,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getX <em>X</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getY <em>Y</em>}</li>
- *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getLayer <em>Layer</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getWidth <em>Width</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getHeight <em>Height</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getScaleX <em>Scale X</em>}</li>
@@ -51,6 +50,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getGreen <em>Green</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getBlue <em>Blue</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getAlpha <em>Alpha</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.impl.ActorImpl#getChildren <em>Children</em>}</li>
  * </ul>
  *
  * @generated
@@ -115,16 +115,6 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	 * @ordered
 	 */
 	protected float y = Y_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getLayer() <em>Layer</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLayer()
-	 * @generated
-	 * @ordered
-	 */
-	protected Layer layer;
 
 	/**
 	 * The default value of the '{@link #getWidth() <em>Width</em>}' attribute.
@@ -357,6 +347,16 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	protected float alpha = ALPHA_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getChildren()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ActorReference> children;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -436,44 +436,6 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 		y = newY;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ActorsPackage.ACTOR__Y, oldY, y));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Layer getLayer() {
-		if (layer != null && layer.eIsProxy()) {
-			InternalEObject oldLayer = (InternalEObject)layer;
-			layer = (Layer)eResolveProxy(oldLayer);
-			if (layer != oldLayer) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ActorsPackage.ACTOR__LAYER, oldLayer, layer));
-			}
-		}
-		return layer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Layer basicGetLayer() {
-		return layer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLayer(Layer newLayer) {
-		Layer oldLayer = layer;
-		layer = newLayer;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ActorsPackage.ACTOR__LAYER, oldLayer, layer));
 	}
 
 	/**
@@ -756,6 +718,18 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ActorReference> getChildren() {
+		if (children == null) {
+			children = new EObjectContainmentEList<ActorReference>(ActorReference.class, this, ActorsPackage.ACTOR__CHILDREN);
+		}
+		return children;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -763,6 +737,8 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return ((InternalEList<?>)getAnimations()).basicRemove(otherEnd, msgs);
 			case ActorsPackage.ACTOR__STATES:
 				return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
+			case ActorsPackage.ACTOR__CHILDREN:
+				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -781,9 +757,6 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return getX();
 			case ActorsPackage.ACTOR__Y:
 				return getY();
-			case ActorsPackage.ACTOR__LAYER:
-				if (resolve) return getLayer();
-				return basicGetLayer();
 			case ActorsPackage.ACTOR__WIDTH:
 				return getWidth();
 			case ActorsPackage.ACTOR__HEIGHT:
@@ -813,6 +786,8 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return getBlue();
 			case ActorsPackage.ACTOR__ALPHA:
 				return getAlpha();
+			case ActorsPackage.ACTOR__CHILDREN:
+				return getChildren();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -834,9 +809,6 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return;
 			case ActorsPackage.ACTOR__Y:
 				setY((Float)newValue);
-				return;
-			case ActorsPackage.ACTOR__LAYER:
-				setLayer((Layer)newValue);
 				return;
 			case ActorsPackage.ACTOR__WIDTH:
 				setWidth((Float)newValue);
@@ -884,6 +856,10 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 			case ActorsPackage.ACTOR__ALPHA:
 				setAlpha((Float)newValue);
 				return;
+			case ActorsPackage.ACTOR__CHILDREN:
+				getChildren().clear();
+				getChildren().addAll((Collection<? extends ActorReference>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -904,9 +880,6 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return;
 			case ActorsPackage.ACTOR__Y:
 				setY(Y_EDEFAULT);
-				return;
-			case ActorsPackage.ACTOR__LAYER:
-				setLayer((Layer)null);
 				return;
 			case ActorsPackage.ACTOR__WIDTH:
 				setWidth(WIDTH_EDEFAULT);
@@ -950,6 +923,9 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 			case ActorsPackage.ACTOR__ALPHA:
 				setAlpha(ALPHA_EDEFAULT);
 				return;
+			case ActorsPackage.ACTOR__CHILDREN:
+				getChildren().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -968,8 +944,6 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return x != X_EDEFAULT;
 			case ActorsPackage.ACTOR__Y:
 				return y != Y_EDEFAULT;
-			case ActorsPackage.ACTOR__LAYER:
-				return layer != null;
 			case ActorsPackage.ACTOR__WIDTH:
 				return width != WIDTH_EDEFAULT;
 			case ActorsPackage.ACTOR__HEIGHT:
@@ -998,6 +972,8 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return blue != BLUE_EDEFAULT;
 			case ActorsPackage.ACTOR__ALPHA:
 				return alpha != ALPHA_EDEFAULT;
+			case ActorsPackage.ACTOR__CHILDREN:
+				return children != null && !children.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

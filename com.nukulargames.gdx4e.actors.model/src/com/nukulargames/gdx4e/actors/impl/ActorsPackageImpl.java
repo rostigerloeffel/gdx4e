@@ -7,8 +7,6 @@ import com.nukulargames.gdx4e.actors.ActorReference;
 import com.nukulargames.gdx4e.actors.ActorsFactory;
 import com.nukulargames.gdx4e.actors.ActorsPackage;
 import com.nukulargames.gdx4e.actors.Animation;
-import com.nukulargames.gdx4e.actors.Group;
-import com.nukulargames.gdx4e.actors.Layer;
 import com.nukulargames.gdx4e.actors.Model;
 import com.nukulargames.gdx4e.actors.Stage;
 import com.nukulargames.gdx4e.actors.State;
@@ -46,13 +44,6 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass groupEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass actorReferenceEClass = null;
 
 	/**
@@ -75,13 +66,6 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * @generated
 	 */
 	private EClass stateEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass layerEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -176,15 +160,6 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_Layers() {
-		return (EReference)modelEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getActor() {
 		return actorEClass;
 	}
@@ -221,17 +196,8 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getActor_Layer() {
-		return (EReference)actorEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getActor_Width() {
-		return (EAttribute)actorEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)actorEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -240,7 +206,7 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * @generated
 	 */
 	public EAttribute getActor_Height() {
-		return (EAttribute)actorEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)actorEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -249,7 +215,7 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * @generated
 	 */
 	public EAttribute getActor_ScaleX() {
-		return (EAttribute)actorEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)actorEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -258,7 +224,7 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * @generated
 	 */
 	public EAttribute getActor_ScaleY() {
-		return (EAttribute)actorEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)actorEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -267,7 +233,7 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * @generated
 	 */
 	public EAttribute getActor_Rotation() {
-		return (EAttribute)actorEClass.getEStructuralFeatures().get(8);
+		return (EAttribute)actorEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -276,7 +242,7 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * @generated
 	 */
 	public EReference getActor_Animations() {
-		return (EReference)actorEClass.getEStructuralFeatures().get(9);
+		return (EReference)actorEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -285,7 +251,7 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * @generated
 	 */
 	public EReference getActor_States() {
-		return (EReference)actorEClass.getEStructuralFeatures().get(10);
+		return (EReference)actorEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -294,7 +260,7 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * @generated
 	 */
 	public EReference getActor_DefaultState() {
-		return (EReference)actorEClass.getEStructuralFeatures().get(11);
+		return (EReference)actorEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -303,7 +269,7 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * @generated
 	 */
 	public EReference getActor_NormalizedStates() {
-		return (EReference)actorEClass.getEStructuralFeatures().get(12);
+		return (EReference)actorEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -312,7 +278,7 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * @generated
 	 */
 	public EReference getActor_NormalizedAnimations() {
-		return (EReference)actorEClass.getEStructuralFeatures().get(13);
+		return (EReference)actorEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -321,7 +287,7 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * @generated
 	 */
 	public EAttribute getActor_Red() {
-		return (EAttribute)actorEClass.getEStructuralFeatures().get(14);
+		return (EAttribute)actorEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -330,7 +296,7 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * @generated
 	 */
 	public EAttribute getActor_Green() {
-		return (EAttribute)actorEClass.getEStructuralFeatures().get(15);
+		return (EAttribute)actorEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -339,7 +305,7 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * @generated
 	 */
 	public EAttribute getActor_Blue() {
-		return (EAttribute)actorEClass.getEStructuralFeatures().get(16);
+		return (EAttribute)actorEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -348,7 +314,7 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * @generated
 	 */
 	public EAttribute getActor_Alpha() {
-		return (EAttribute)actorEClass.getEStructuralFeatures().get(17);
+		return (EAttribute)actorEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -356,17 +322,8 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getGroup() {
-		return groupEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGroup_Children() {
-		return (EReference)groupEClass.getEStructuralFeatures().get(0);
+	public EReference getActor_Children() {
+		return (EReference)actorEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -383,7 +340,7 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getActorReference_Actor() {
+	public EReference getActorReference_Holds() {
 		return (EReference)actorReferenceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -392,8 +349,44 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getActorReference_Dimensions() {
-		return (EAttribute)actorReferenceEClass.getEStructuralFeatures().get(1);
+	public EReference getActorReference_Uses() {
+		return (EReference)actorReferenceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getActorReference_Quantity() {
+		return (EAttribute)actorReferenceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getActorReference_Name() {
+		return (EAttribute)actorReferenceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getActorReference_NormalizedReference() {
+		return (EReference)actorReferenceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getActorReference_NormalizedName() {
+		return (EAttribute)actorReferenceEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -412,6 +405,15 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 */
 	public EAttribute getStage_Name() {
 		return (EAttribute)stageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStage_Actors() {
+		return (EReference)stageEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -509,24 +511,6 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getLayer() {
-		return layerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLayer_Name() {
-		return (EAttribute)layerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ActorsFactory getActorsFactory() {
 		return (ActorsFactory)getEFactoryInstance();
 	}
@@ -553,13 +537,11 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 		modelEClass = createEClass(MODEL);
 		createEReference(modelEClass, MODEL__ACTORS);
 		createEAttribute(modelEClass, MODEL__BASE_PACKAGE);
-		createEReference(modelEClass, MODEL__LAYERS);
 
 		actorEClass = createEClass(ACTOR);
 		createEAttribute(actorEClass, ACTOR__NAME);
 		createEAttribute(actorEClass, ACTOR__X);
 		createEAttribute(actorEClass, ACTOR__Y);
-		createEReference(actorEClass, ACTOR__LAYER);
 		createEAttribute(actorEClass, ACTOR__WIDTH);
 		createEAttribute(actorEClass, ACTOR__HEIGHT);
 		createEAttribute(actorEClass, ACTOR__SCALE_X);
@@ -574,16 +556,19 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 		createEAttribute(actorEClass, ACTOR__GREEN);
 		createEAttribute(actorEClass, ACTOR__BLUE);
 		createEAttribute(actorEClass, ACTOR__ALPHA);
-
-		groupEClass = createEClass(GROUP);
-		createEReference(groupEClass, GROUP__CHILDREN);
+		createEReference(actorEClass, ACTOR__CHILDREN);
 
 		actorReferenceEClass = createEClass(ACTOR_REFERENCE);
-		createEReference(actorReferenceEClass, ACTOR_REFERENCE__ACTOR);
-		createEAttribute(actorReferenceEClass, ACTOR_REFERENCE__DIMENSIONS);
+		createEReference(actorReferenceEClass, ACTOR_REFERENCE__HOLDS);
+		createEReference(actorReferenceEClass, ACTOR_REFERENCE__USES);
+		createEAttribute(actorReferenceEClass, ACTOR_REFERENCE__QUANTITY);
+		createEAttribute(actorReferenceEClass, ACTOR_REFERENCE__NAME);
+		createEReference(actorReferenceEClass, ACTOR_REFERENCE__NORMALIZED_REFERENCE);
+		createEAttribute(actorReferenceEClass, ACTOR_REFERENCE__NORMALIZED_NAME);
 
 		stageEClass = createEClass(STAGE);
 		createEAttribute(stageEClass, STAGE__NAME);
+		createEReference(stageEClass, STAGE__ACTORS);
 
 		animationEClass = createEClass(ANIMATION);
 		createEAttribute(animationEClass, ANIMATION__NAME);
@@ -596,9 +581,6 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 		stateEClass = createEClass(STATE);
 		createEAttribute(stateEClass, STATE__NAME);
 		createEReference(stateEClass, STATE__ANIMATION);
-
-		layerEClass = createEClass(LAYER);
-		createEAttribute(layerEClass, LAYER__NAME);
 	}
 
 	/**
@@ -629,19 +611,16 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		groupEClass.getESuperTypes().add(this.getActor());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModel_Actors(), this.getActor(), null, "actors", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModel_BasePackage(), ecorePackage.getEString(), "basePackage", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModel_Layers(), this.getLayer(), null, "layers", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actorEClass, Actor.class, "Actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getActor_Name(), ecorePackage.getEString(), "name", null, 1, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActor_X(), ecorePackage.getEFloat(), "x", null, 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActor_Y(), ecorePackage.getEFloat(), "y", null, 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getActor_Layer(), this.getLayer(), null, "layer", null, 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActor_Width(), ecorePackage.getEFloat(), "width", "1.0", 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActor_Height(), ecorePackage.getEFloat(), "height", "1.0", 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActor_ScaleX(), ecorePackage.getEFloat(), "scaleX", "1.0f", 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -656,16 +635,19 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 		initEAttribute(getActor_Green(), ecorePackage.getEFloat(), "green", "1.0f", 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActor_Blue(), ecorePackage.getEFloat(), "blue", "1.0f", 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActor_Alpha(), ecorePackage.getEFloat(), "alpha", "1.0f", 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGroup_Children(), this.getActorReference(), null, "children", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActor_Children(), this.getActorReference(), null, "children", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actorReferenceEClass, ActorReference.class, "ActorReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getActorReference_Actor(), this.getActor(), null, "actor", null, 1, 1, ActorReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getActorReference_Dimensions(), ecorePackage.getEInt(), "dimensions", null, 0, -1, ActorReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActorReference_Holds(), this.getActor(), null, "holds", null, 0, 1, ActorReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActorReference_Uses(), this.getActor(), null, "uses", null, 0, 1, ActorReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActorReference_Quantity(), ecorePackage.getEInt(), "quantity", "1", 1, 1, ActorReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActorReference_Name(), ecorePackage.getEString(), "name", null, 0, 1, ActorReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActorReference_NormalizedReference(), this.getActor(), null, "normalizedReference", null, 0, 1, ActorReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActorReference_NormalizedName(), ecorePackage.getEString(), "normalizedName", null, 0, 1, ActorReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(stageEClass, Stage.class, "Stage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStage_Name(), ecorePackage.getEString(), "name", null, 1, 1, Stage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStage_Actors(), this.getActorReference(), null, "actors", null, 0, -1, Stage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(animationEClass, Animation.class, "Animation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAnimation_Name(), ecorePackage.getEString(), "name", null, 1, 1, Animation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -678,9 +660,6 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 1, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getState_Animation(), this.getAnimation(), null, "animation", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(layerEClass, Layer.class, "Layer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLayer_Name(), ecorePackage.getEString(), "name", null, 1, 1, Layer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
