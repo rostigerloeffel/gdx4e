@@ -21,6 +21,7 @@ import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor.IPostIndexingInitializing
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import com.badlogic.gdx.graphics.Color
+import java.util.List
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -75,6 +76,8 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 
 			members += stateEnum(element)
 			members += currentState(element)
+
+			members += dummyFields(element)
 
 			members += textureFields(element)
 			members += animationFields(element)
@@ -146,8 +149,12 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 		]
 	}
 
+	def dummyFields(Actor actor) {
+		actor.toField("importDummy", typeRef(List))
+	}
+
 	def textureFields(Actor actor) {
-		actor.normalizedAnimations.map [a |
+		actor.normalizedAnimations.map [ a |
 			actor.toField(a.name.toUpperCase + "_TEXTURE", typeRef(Texture)) [
 				visibility = JvmVisibility.
 					PRIVATE
@@ -159,7 +166,7 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 	}
 
 	def animationFields(Actor actor) {
-		actor.normalizedAnimations.map [a |
+		actor.normalizedAnimations.map [ a |
 			actor.toField(a.name.toFirstLower + "Animation", typeRef(Animation)) [
 				visibility = JvmVisibility.PRIVATE
 				final = true
@@ -179,10 +186,11 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 	}
 
 	def childField(Actor actor) {
-		actor.children.map [c |
-			actor.toField(c.normalizedName,
-				if(c.quantity > 1) typeRef("List<" + c.normalizedReference.name + ">") else typeRef(
-					c.normalizedReference.name)) [
+		actor.children.map [ c |
+			actor.toField(c.normalizedName.toFirstLower, if (c.quantity > 1)
+				typeRef('''«List.simpleName»''' + "<" + c.normalizedReference.name + ">")
+			else
+				typeRef(c.normalizedReference.name)) [
 				visibility = JvmVisibility.PRIVATE
 			]
 		]
@@ -194,6 +202,7 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 			body = '''
 				super();
 				«createAnimationCalls(actor)»
+				init();
 				initState();
 			'''
 		]
@@ -271,7 +280,7 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 	}
 
 	def getAnimation(Actor actor) {
-		actor.animations.map [a |
+		actor.animations.map [ a |
 			actor.toMethod("get" + a.name.toFirstUpper + "Animation", typeRef(Animation)) [
 				visibility = JvmVisibility.PUBLIC
 				body = '''
@@ -315,7 +324,7 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 	}
 
 	def _enterState(Actor actor) {
-		actor.normalizedStates.map [s |
+		actor.normalizedStates.map [ s |
 			actor.toMethod("_enter" + s.name.toFirstUpper + "State", typeRef(void)) [
 				visibility = JvmVisibility.PROTECTED
 				body = '''
@@ -329,7 +338,7 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 	}
 
 	def enterState(Actor actor) {
-		actor.normalizedStates.map [s |
+		actor.normalizedStates.map [ s |
 			actor.toMethod("enter" + s.name.toFirstUpper + "State", typeRef(void)) [
 				visibility = JvmVisibility.PROTECTED
 				body = ''''''
@@ -343,7 +352,7 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 	}
 
 	def _leaveState(Actor actor) {
-		actor.normalizedStates.map [s |
+		actor.normalizedStates.map [ s |
 			actor.toMethod("_leave" + s.name.toFirstUpper + "State", typeRef(void)) [
 				visibility = JvmVisibility.PROTECTED
 				body = '''
@@ -354,7 +363,7 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 	}
 
 	def leaveState(Actor actor) {
-		actor.normalizedStates.map [s |
+		actor.normalizedStates.map [ s |
 			actor.toMethod("leave" + s.name.toFirstUpper + "State", typeRef(void)) [
 				visibility = JvmVisibility.PROTECTED
 				body = ''''''
@@ -385,7 +394,7 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 	'''
 
 	def drawState(Actor actor) {
-		actor.normalizedStates.map [s |
+		actor.normalizedStates.map [ s |
 			actor.toMethod("draw" + s.name.toFirstUpper + "State", typeRef(void)) [
 				parameters += actor.toParameter("batch", typeRef(Batch))
 				parameters += actor.toParameter("parentAlpha", typeRef(float))
@@ -435,7 +444,7 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 	'''
 
 	def _actState(Actor actor) {
-		actor.normalizedStates.map [s |
+		actor.normalizedStates.map [ s |
 			actor.toMethod("_act" + s.name.toFirstUpper + "State", typeRef(void)) [
 				parameters += actor.toParameter("delta", typeRef(float))
 				visibility = JvmVisibility.PROTECTED
@@ -448,7 +457,7 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 	}
 
 	def actState(Actor actor) {
-		actor.normalizedStates.map [s |
+		actor.normalizedStates.map [ s |
 			actor.toMethod("act" + s.name.toFirstUpper + "State", typeRef(void)) [
 				parameters += actor.toParameter("delta", typeRef(float))
 				visibility = JvmVisibility.PROTECTED
@@ -464,25 +473,36 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 	}
 
 	def initChild(Actor element) {
-		element.children.map [c |
-			c.normalizedReference.toMethod("initChild" + c.normalizedName, typeRef(void)) [
-				visibility = JvmVisibility.PROTECTED
-				body = ''''''
-			]
+		element.children.map [ c |
+			if (c.quantity > 1) {
+				c.normalizedReference.toMethod("initChild" + c.normalizedName, typeRef(void)) [
+					visibility = JvmVisibility.PROTECTED
+					body = '''
+						for (int i = 0; i < initChild«c.normalizedName»Quantity(); ++i) { 
+							«c.normalizedName.toFirstLower».add(initEachChild«c.normalizedName»());
+						}
+					'''
+				]
+			} else {
+				c.normalizedReference.toMethod("initChild" + c.normalizedName, typeRef(void)) [
+					visibility = JvmVisibility.PROTECTED
+					body = '''«c.normalizedName.toFirstLower» = initEachChild«c.normalizedName»();'''
+				]
+			}
 		]
 	}
 
 	def initChildQuantity(Actor element) {
-		element.children.map [c |
+		element.children.filter[c|c.quantity > 1].map [ c |
 			c.normalizedReference.toMethod("initChild" + c.normalizedName + "Quantity", typeRef(int)) [
 				visibility = JvmVisibility.PROTECTED
-				body = ''''''
+				body = '''return «c.quantity»;'''
 			]
 		]
 	}
 
 	def initEachChild(Actor element) {
-		element.children.filter[c|c.quantity > 1].map [c |
+		element.children.map [ c |
 			c.normalizedReference.toMethod("initEachChild" + c.normalizedName, typeRef(c.normalizedReference.name)) [
 				visibility = JvmVisibility.PROTECTED
 				body = '''return new «c.normalizedReference.name»();'''
@@ -491,17 +511,17 @@ class DslJvmModelInferrer extends AbstractModelInferrer {
 	}
 
 	def getChild(Actor element) {
-		element.children.map [c |
+		element.children.map [ c |
 			if (c.quantity > 1)
 				c.normalizedReference.toMethod("getChildren" + c.normalizedName,
 					typeRef("List<" + c.normalizedReference.name + ">")) [
 					visibility = JvmVisibility.PROTECTED
-					body = '''return «c.normalizedName»;'''
+					body = '''return «c.normalizedName.toFirstLower»;'''
 				]
 			else
 				c.normalizedReference.toMethod("getChild" + c.normalizedName, typeRef(c.normalizedReference.name)) [
 					visibility = JvmVisibility.PROTECTED
-					body = '''return «c.normalizedName»;'''
+					body = '''return «c.normalizedName.toFirstLower»;'''
 				]
 		]
 	}
