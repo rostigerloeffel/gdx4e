@@ -4,6 +4,7 @@
 package com.nukulargames.gdx4e.actors.dsl
 
 import com.nukulargames.gdx4e.actors.dsl.generator.DslGenerator
+import com.nukulargames.gdx4e.actors.dsl.jvmmodel.ActorInferrer
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -12,6 +13,10 @@ class DslRuntimeModule extends AbstractDslRuntimeModule {
 
 	override bindIGenerator() {
 		DslGenerator
+	}
+	
+	def bindActorInferrer() {
+		ActorInferrer
 	}
 
 }

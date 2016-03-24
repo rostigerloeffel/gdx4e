@@ -425,7 +425,6 @@ public class DslSemanticSequencer extends XbaseWithAnnotationsSemanticSequencer 
 	 * Constraint:
 	 *     (
 	 *         name=QualifiedName 
-	 *         extends=[Actor|QualifiedName]? 
 	 *         (
 	 *             x=EFloat | 
 	 *             y=EFloat | 
@@ -467,7 +466,7 @@ public class DslSemanticSequencer extends XbaseWithAnnotationsSemanticSequencer 
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (basePackage=QualifiedName? actors+=Actor*)
+	 *     (basePackage=QualifiedName? (actors+=Actor | stages+=Stage)*)
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

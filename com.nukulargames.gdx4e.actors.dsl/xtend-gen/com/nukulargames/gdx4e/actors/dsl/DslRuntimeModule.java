@@ -5,6 +5,7 @@ package com.nukulargames.gdx4e.actors.dsl;
 
 import com.nukulargames.gdx4e.actors.dsl.AbstractDslRuntimeModule;
 import com.nukulargames.gdx4e.actors.dsl.generator.DslGenerator;
+import com.nukulargames.gdx4e.actors.dsl.jvmmodel.ActorInferrer;
 import org.eclipse.xtext.generator.IGenerator;
 
 /**
@@ -15,5 +16,9 @@ public class DslRuntimeModule extends AbstractDslRuntimeModule {
   @Override
   public Class<? extends IGenerator> bindIGenerator() {
     return DslGenerator.class;
+  }
+  
+  public Class<ActorInferrer> bindActorInferrer() {
+    return ActorInferrer.class;
   }
 }

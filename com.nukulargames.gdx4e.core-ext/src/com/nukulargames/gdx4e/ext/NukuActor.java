@@ -5,11 +5,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.scenes.scene2d.Group;
 
 public abstract class NukuActor extends Group {
-	
-	public NukuActor() {
-		
-	}
-	
+
 	protected void init() {
 		initPosition();
 		initSize();

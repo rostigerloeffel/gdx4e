@@ -15,8 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.nukulargames.gdx4e.actors.Model#getActors <em>Actors</em>}</li>
  *   <li>{@link com.nukulargames.gdx4e.actors.Model#getBasePackage <em>Base Package</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.Model#getActors <em>Actors</em>}</li>
+ *   <li>{@link com.nukulargames.gdx4e.actors.Model#getStages <em>Stages</em>}</li>
  * </ul>
  *
  * @see com.nukulargames.gdx4e.actors.ActorsPackage#getModel()
@@ -39,6 +40,22 @@ public interface Model extends EObject {
 	 * @generated
 	 */
 	EList<Actor> getActors();
+
+	/**
+	 * Returns the value of the '<em><b>Stages</b></em>' containment reference list.
+	 * The list contents are of type {@link com.nukulargames.gdx4e.actors.Stage}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Stages</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Stages</em>' containment reference list.
+	 * @see com.nukulargames.gdx4e.actors.ActorsPackage#getModel_Stages()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Stage> getStages();
 
 	/**
 	 * Returns the value of the '<em><b>Base Package</b></em>' attribute.

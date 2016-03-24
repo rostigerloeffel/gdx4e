@@ -21,7 +21,7 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected DslGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Actor_ColonKeyword_4_0_q;
+	protected AbstractElementAlias match_Actor_ColonKeyword_3_0_q;
 	protected AbstractElementAlias match_Animation_ColonKeyword_3_0_q;
 	protected AbstractElementAlias match_Stage_ColonKeyword_3_0_q;
 	protected AbstractElementAlias match_State_ColonKeyword_3_0_q;
@@ -36,7 +36,7 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (DslGrammarAccess) access;
-		match_Actor_ColonKeyword_4_0_q = new TokenAlias(false, true, grammarAccess.getActorAccess().getColonKeyword_4_0());
+		match_Actor_ColonKeyword_3_0_q = new TokenAlias(false, true, grammarAccess.getActorAccess().getColonKeyword_3_0());
 		match_Animation_ColonKeyword_3_0_q = new TokenAlias(false, true, grammarAccess.getAnimationAccess().getColonKeyword_3_0());
 		match_Stage_ColonKeyword_3_0_q = new TokenAlias(false, true, grammarAccess.getStageAccess().getColonKeyword_3_0());
 		match_State_ColonKeyword_3_0_q = new TokenAlias(false, true, grammarAccess.getStateAccess().getColonKeyword_3_0());
@@ -86,8 +86,8 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Actor_ColonKeyword_4_0_q.equals(syntax))
-				emit_Actor_ColonKeyword_4_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_Actor_ColonKeyword_3_0_q.equals(syntax))
+				emit_Actor_ColonKeyword_3_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Animation_ColonKeyword_3_0_q.equals(syntax))
 				emit_Animation_ColonKeyword_3_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Stage_ColonKeyword_3_0_q.equals(syntax))
@@ -117,10 +117,9 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ':'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     extends=[Actor|QualifiedName] (ambiguity) (rule end)
 	 *     name=QualifiedName (ambiguity) (rule end)
 	 */
-	protected void emit_Actor_ColonKeyword_4_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Actor_ColonKeyword_3_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

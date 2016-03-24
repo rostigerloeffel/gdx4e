@@ -63,8 +63,8 @@ public class ModelItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addActorsPropertyDescriptor(object);
 			addBasePackagePropertyDescriptor(object);
+			addActorsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -126,6 +126,7 @@ public class ModelItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ActorsPackage.Literals.MODEL__ACTORS);
+			childrenFeatures.add(ActorsPackage.Literals.MODEL__STAGES);
 		}
 		return childrenFeatures;
 	}
@@ -185,6 +186,7 @@ public class ModelItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ActorsPackage.MODEL__ACTORS:
+			case ActorsPackage.MODEL__STAGES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -206,6 +208,11 @@ public class ModelItemProvider
 			(createChildParameter
 				(ActorsPackage.Literals.MODEL__ACTORS,
 				 ActorsFactory.eINSTANCE.createActor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ActorsPackage.Literals.MODEL__STAGES,
+				 ActorsFactory.eINSTANCE.createStage()));
 	}
 
 	/**

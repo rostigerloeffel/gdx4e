@@ -67,22 +67,31 @@ public interface ActorsPackage extends EPackage {
 	int MODEL = 0;
 
 	/**
-	 * The feature id for the '<em><b>Actors</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__ACTORS = 0;
-
-	/**
 	 * The feature id for the '<em><b>Base Package</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__BASE_PACKAGE = 1;
+	int MODEL__BASE_PACKAGE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Actors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__ACTORS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Stages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__STAGES = 2;
 
 	/**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -91,7 +100,7 @@ public interface ActorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = 2;
+	int MODEL_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -570,6 +579,17 @@ public interface ActorsPackage extends EPackage {
 	EReference getModel_Actors();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link com.nukulargames.gdx4e.actors.Model#getStages <em>Stages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Stages</em>'.
+	 * @see com.nukulargames.gdx4e.actors.Model#getStages()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Stages();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.nukulargames.gdx4e.actors.Model#getBasePackage <em>Base Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1044,6 +1064,14 @@ public interface ActorsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODEL__ACTORS = eINSTANCE.getModel_Actors();
+
+		/**
+		 * The meta object literal for the '<em><b>Stages</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__STAGES = eINSTANCE.getModel_Stages();
 
 		/**
 		 * The meta object literal for the '<em><b>Base Package</b></em>' attribute feature.

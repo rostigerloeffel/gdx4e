@@ -143,7 +143,16 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * @generated
 	 */
 	public EReference getModel_Actors() {
-		return (EReference)modelEClass.getEStructuralFeatures().get(0);
+		return (EReference)modelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModel_Stages() {
+		return (EReference)modelEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -152,7 +161,7 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 	 * @generated
 	 */
 	public EAttribute getModel_BasePackage() {
-		return (EAttribute)modelEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -535,8 +544,9 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 
 		// Create classes and their features
 		modelEClass = createEClass(MODEL);
-		createEReference(modelEClass, MODEL__ACTORS);
 		createEAttribute(modelEClass, MODEL__BASE_PACKAGE);
+		createEReference(modelEClass, MODEL__ACTORS);
+		createEReference(modelEClass, MODEL__STAGES);
 
 		actorEClass = createEClass(ACTOR);
 		createEAttribute(actorEClass, ACTOR__NAME);
@@ -614,8 +624,9 @@ public class ActorsPackageImpl extends EPackageImpl implements ActorsPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModel_Actors(), this.getActor(), null, "actors", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModel_BasePackage(), ecorePackage.getEString(), "basePackage", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_Actors(), this.getActor(), null, "actors", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_Stages(), this.getStage(), null, "stages", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actorEClass, Actor.class, "Actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getActor_Name(), ecorePackage.getEString(), "name", null, 1, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
