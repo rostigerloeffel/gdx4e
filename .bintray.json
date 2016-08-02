@@ -26,9 +26,9 @@
 
     "files":
         [
-        {"includePattern": "com.nukulargames.gdx4e.releng/target/repository/artifacts.jar", "uploadPattern": "/artifacts.jar"},
-        {"includePattern": "com.nukulargames.gdx4e.releng/target/repository/content.jar", "uploadPattern": "/content.jar"},
-        {"includePattern": "com.nukulargames.gdx4e.releng/target/repository/plugins/(.*)", "uploadPattern": "/plugins/$1"}
+        {"includePattern": "com.nukulargames.gdx4e.releng/target/repository/artifacts.jar", "uploadPattern": "/gdx4e/snapshots/artifacts.jar"},
+        {"includePattern": "com.nukulargames.gdx4e.releng/target/repository/content.jar", "uploadPattern": "/gdx4e/snapshots/content.jar"},
+        {"includePattern": "com.nukulargames.gdx4e.releng/target/repository/plugins/(.*)", "uploadPattern": "/gdx4e/snapshots/plugins/$1"}
         ],
     "publish": true
 }
