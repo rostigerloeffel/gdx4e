@@ -43,6 +43,8 @@ public class CameraMouseProcessor extends InputAdapter {
 			Vector3 worldScroll = stage.getCamera().unproject(new Vector3((float) screenX, (float) screenY, 0.0f));
 			stage.getCamera().translate(-worldScroll.x + touchDownPosition.x, -worldScroll.y + touchDownPosition.y, 0.0f);
 
+			System.out.println("world = " + -worldScroll.x + "; " + -worldScroll.y);
+			
 			Vector3 position = stage.getCamera().position;
 			position.set(MathUtils.clamp(position.x, -70.0f, 70.0f), MathUtils.clamp(position.y, -70.0f, 70.0f), 0.0f);
 			return true;

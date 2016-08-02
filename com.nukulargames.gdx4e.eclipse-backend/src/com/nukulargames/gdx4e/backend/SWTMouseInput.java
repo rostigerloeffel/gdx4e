@@ -235,6 +235,8 @@ public class SWTMouseInput implements Input, MouseMoveListener, MouseListener, M
 		x = e.x;
 		y = e.y;
 		
+//		System.out.println("mouse = " + x + "; " + y);
+		
 		if (processor != null) {
 			processor.touchDragged(e.x, e.y, 0);
 		}

@@ -423,7 +423,7 @@ public class ActorInferrer {
   }
   
   public JvmOperation initPosition(final Actor actor) {
-    JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(void.class);
+    JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(NukuActor.class);
     final Procedure1<JvmOperation> _function = (JvmOperation it) -> {
       it.setVisibility(JvmVisibility.PROTECTED);
       this._annotationTypesBuilder.annotationRef(Override.class);
@@ -440,6 +440,8 @@ public class ActorInferrer {
           _builder.append(_y, "");
           _builder.append(");");
           _builder.newLineIfNotEmpty();
+          _builder.append("return this;");
+          _builder.newLine();
         }
       };
       this._jvmTypesBuilder.setBody(it, _client);
@@ -448,7 +450,7 @@ public class ActorInferrer {
   }
   
   public JvmOperation initSize(final Actor actor) {
-    JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(void.class);
+    JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(NukuActor.class);
     final Procedure1<JvmOperation> _function = (JvmOperation it) -> {
       it.setVisibility(JvmVisibility.PROTECTED);
       this._annotationTypesBuilder.annotationRef(Override.class);
@@ -465,6 +467,8 @@ public class ActorInferrer {
           _builder.append(_height, "");
           _builder.append(");");
           _builder.newLineIfNotEmpty();
+          _builder.append("return this;");
+          _builder.newLine();
         }
       };
       this._jvmTypesBuilder.setBody(it, _client);
@@ -473,7 +477,7 @@ public class ActorInferrer {
   }
   
   public JvmOperation initScale(final Actor actor) {
-    JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(void.class);
+    JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(NukuActor.class);
     final Procedure1<JvmOperation> _function = (JvmOperation it) -> {
       it.setVisibility(JvmVisibility.PROTECTED);
       this._annotationTypesBuilder.annotationRef(Override.class);
@@ -490,6 +494,8 @@ public class ActorInferrer {
           _builder.append(_scaleY, "");
           _builder.append(");");
           _builder.newLineIfNotEmpty();
+          _builder.append("return this;");
+          _builder.newLine();
         }
       };
       this._jvmTypesBuilder.setBody(it, _client);
@@ -498,7 +504,7 @@ public class ActorInferrer {
   }
   
   public JvmOperation initRotation(final Actor actor) {
-    JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(void.class);
+    JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(NukuActor.class);
     final Procedure1<JvmOperation> _function = (JvmOperation it) -> {
       it.setVisibility(JvmVisibility.PROTECTED);
       this._annotationTypesBuilder.annotationRef(Override.class);
@@ -510,6 +516,8 @@ public class ActorInferrer {
           _builder.append(_rotation, "");
           _builder.append(");");
           _builder.newLineIfNotEmpty();
+          _builder.append("return this;");
+          _builder.newLine();
         }
       };
       this._jvmTypesBuilder.setBody(it, _client);
@@ -518,7 +526,7 @@ public class ActorInferrer {
   }
   
   public JvmOperation initColor(final Actor actor) {
-    JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(void.class);
+    JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(NukuActor.class);
     final Procedure1<JvmOperation> _function = (JvmOperation it) -> {
       it.setVisibility(JvmVisibility.PROTECTED);
       this._annotationTypesBuilder.annotationRef(Override.class);
@@ -539,6 +547,8 @@ public class ActorInferrer {
           _builder.append(_alpha, "");
           _builder.append(");");
           _builder.newLineIfNotEmpty();
+          _builder.append("return this;");
+          _builder.newLine();
         }
       };
       this._jvmTypesBuilder.setBody(it, _client);
@@ -547,7 +557,7 @@ public class ActorInferrer {
   }
   
   public JvmOperation initState(final Actor actor) {
-    JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(void.class);
+    JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(NukuActor.class);
     final Procedure1<JvmOperation> _function = (JvmOperation it) -> {
       it.setVisibility(JvmVisibility.PROTECTED);
       StringConcatenationClient _client = new StringConcatenationClient() {
@@ -599,6 +609,8 @@ public class ActorInferrer {
           _builder.append(stateName, "");
           _builder.append("State();");
           _builder.newLineIfNotEmpty();
+          _builder.append("return this;");
+          _builder.newLine();
         }
       };
       this._jvmTypesBuilder.setBody(it, _client);

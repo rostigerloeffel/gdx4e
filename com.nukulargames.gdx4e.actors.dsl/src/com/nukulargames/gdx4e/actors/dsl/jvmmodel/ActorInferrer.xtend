@@ -188,65 +188,71 @@ class ActorInferrer {
 	}
 
 	def initPosition(Actor actor) {
-		actor.toMethod("initPosition", typeRef(void)) [
+		actor.toMethod("initPosition", typeRef(NukuActor)) [
 			visibility = JvmVisibility.PROTECTED
 			annotationRef(Override)
 			body = '''
 				setX((float) «actor.x»);
 				setY((float) «actor.y»);
+				return this;
 			'''
 		]
 	}
 
 	def initSize(Actor actor) {
-		actor.toMethod("initSize", typeRef(void)) [
+		actor.toMethod("initSize", typeRef(NukuActor)) [
 			visibility = JvmVisibility.PROTECTED
 			annotationRef(Override)
 			body = '''
 				setWidth((float) «actor.width»);
 				setHeight((float) «actor.height»);
+				return this;
 			'''
 		]
 	}
 
 	def initScale(Actor actor) {
-		actor.toMethod("initScale", typeRef(void)) [
+		actor.toMethod("initScale", typeRef(NukuActor)) [
 			visibility = JvmVisibility.PROTECTED
 			annotationRef(Override)
 			body = '''
 				setScaleX((float) «actor.scaleX»);
 				setScaleY((float) «actor.scaleY»);
+				return this;
 			'''
 		]
 	}
 
 	def initRotation(Actor actor) {
-		actor.toMethod("initRotation", typeRef(void)) [
+		actor.toMethod("initRotation", typeRef(NukuActor)) [
 			visibility = JvmVisibility.PROTECTED
 			annotationRef(Override)
 			body = '''
 				setRotation((float) «actor.rotation»);
+				return this;
 			'''
 		]
 	}
 
 	def initColor(Actor actor) {
-		actor.toMethod("initColor", typeRef(void)) [
+		actor.toMethod("initColor", typeRef(NukuActor)) [
 			visibility = JvmVisibility.PROTECTED
 			annotationRef(Override)
 			body = '''
 				setColor((float) «actor.red», (float) «actor.green», (float) «actor.blue», (float) «actor.alpha»);
+				return this;
 			'''
 		]
 	}
 
 	def initState(Actor actor) {
-		actor.toMethod("initState", typeRef(void)) [
+		actor.toMethod("initState", typeRef(NukuActor)) [
 			visibility = JvmVisibility.
 				PROTECTED
 			body = '''
 				«val stateName = actor?.defaultState?.name?.toFirstUpper ?: actor?.states?.head?.name?.toFirstUpper ?: "Default"»
 				_enter«stateName»State();
+				return this;
 			'''
 		]
 	}

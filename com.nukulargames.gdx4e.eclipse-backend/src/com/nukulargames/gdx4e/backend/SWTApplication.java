@@ -155,7 +155,7 @@ public class SWTApplication implements Application {
 				public void run() {
 					if (!canvas.isDisposed() && running) {
 						innerLoop();
-						Display.getDefault().timerExec(20, this);
+						Display.getDefault().timerExec(50, this);
 					}
 				}
 			});
@@ -201,7 +201,7 @@ public class SWTApplication implements Application {
 			graphics.update();
 			listener.render();
 			canvas.swapBuffers();
-			//input.update();
+//			input.update();
 		}
 	}
 	

@@ -75,4 +75,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="animation" eType="#//Animation"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Event" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EnteredState" eSuperTypes="#//Event"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LeavedState" eSuperTypes="#//Event"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StartedStage" eSuperTypes="#//Event"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StartedGame" eSuperTypes="#//Event"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MoveAction" abstract="true" eSuperTypes="#//Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MoveToAction" eSuperTypes="#//MoveAction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MoveByAction" eSuperTypes="#//MoveAction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TransitToStateAction" eSuperTypes="#//Action"/>
 </ecore:EPackage>
