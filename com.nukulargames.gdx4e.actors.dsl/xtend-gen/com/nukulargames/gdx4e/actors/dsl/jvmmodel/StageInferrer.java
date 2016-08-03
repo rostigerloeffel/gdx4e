@@ -89,20 +89,23 @@ public class StageInferrer {
       JvmConstructor _genClassConstructor = this.genClassConstructor(element);
       this._jvmTypesBuilder.<JvmConstructor>operator_add(_members_2, _genClassConstructor);
       EList<JvmMember> _members_3 = it.getMembers();
-      JvmOperation _initAllChildren = this.initAllChildren(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_3, _initAllChildren);
+      JvmOperation _init = this.init(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_3, _init);
       EList<JvmMember> _members_4 = it.getMembers();
-      List<JvmOperation> _initChild = this.initChild(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_4, _initChild);
+      JvmOperation _initAllChildren = this.initAllChildren(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_4, _initAllChildren);
       EList<JvmMember> _members_5 = it.getMembers();
-      Iterable<JvmOperation> _initChildQuantity = this.initChildQuantity(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_5, _initChildQuantity);
+      List<JvmOperation> _initChild = this.initChild(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_5, _initChild);
       EList<JvmMember> _members_6 = it.getMembers();
-      List<JvmOperation> _initEachChild = this.initEachChild(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_6, _initEachChild);
+      Iterable<JvmOperation> _initChildQuantity = this.initChildQuantity(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_6, _initChildQuantity);
       EList<JvmMember> _members_7 = it.getMembers();
+      List<JvmOperation> _initEachChild = this.initEachChild(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_7, _initEachChild);
+      EList<JvmMember> _members_8 = it.getMembers();
       List<JvmOperation> _child = this.getChild(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_7, _child);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_8, _child);
     };
     acceptor.<JvmGenericType>accept(genClass, _function);
     String _basePackageName_1 = this.basePackageName(model);
@@ -188,8 +191,6 @@ public class StageInferrer {
         protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
           _builder.append("super(viewport);");
           _builder.newLine();
-          _builder.append("initAllChildren(); ");
-          _builder.newLine();
         }
       };
       this._jvmTypesBuilder.setBody(it, _client);
@@ -216,8 +217,26 @@ public class StageInferrer {
     return this._jvmTypesBuilder.toConstructor(stage, _function);
   }
   
+  public JvmOperation init(final Stage element) {
+    JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(NukuStage.class);
+    final Procedure1<JvmOperation> _function = (JvmOperation it) -> {
+      it.setVisibility(JvmVisibility.PUBLIC);
+      StringConcatenationClient _client = new StringConcatenationClient() {
+        @Override
+        protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+          _builder.append("initAllChildren();");
+          _builder.newLine();
+          _builder.append("return this;");
+          _builder.newLine();
+        }
+      };
+      this._jvmTypesBuilder.setBody(it, _client);
+    };
+    return this._jvmTypesBuilder.toMethod(element, "init", _typeRef, _function);
+  }
+  
   public JvmOperation initAllChildren(final Stage element) {
-    JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(void.class);
+    JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(NukuStage.class);
     final Procedure1<JvmOperation> _function = (JvmOperation it) -> {
       it.setVisibility(JvmVisibility.PROTECTED);
       StringConcatenationClient _client = new StringConcatenationClient() {
@@ -233,6 +252,8 @@ public class StageInferrer {
               _builder.newLineIfNotEmpty();
             }
           }
+          _builder.append("return this;");
+          _builder.newLine();
         }
       };
       this._jvmTypesBuilder.setBody(it, _client);
@@ -250,7 +271,7 @@ public class StageInferrer {
         Actor _normalizedReference = a.getNormalizedReference();
         String _normalizedName = a.getNormalizedName();
         String _plus = ("initChild" + _normalizedName);
-        JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(void.class);
+        JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(NukuStage.class);
         final Procedure1<JvmOperation> _function_1 = (JvmOperation it) -> {
           it.setVisibility(JvmVisibility.PROTECTED);
           StringConcatenationClient _client = new StringConcatenationClient() {
@@ -293,6 +314,8 @@ public class StageInferrer {
               _builder.newLine();
               _builder.append("}");
               _builder.newLine();
+              _builder.append("return this;");
+              _builder.newLine();
             }
           };
           this._jvmTypesBuilder.setBody(it, _client);
@@ -302,7 +325,7 @@ public class StageInferrer {
         Actor _normalizedReference_1 = a.getNormalizedReference();
         String _normalizedName_1 = a.getNormalizedName();
         String _plus_1 = ("initChild" + _normalizedName_1);
-        JvmTypeReference _typeRef_1 = this._typeReferenceBuilder.typeRef(void.class);
+        JvmTypeReference _typeRef_1 = this._typeReferenceBuilder.typeRef(NukuStage.class);
         final Procedure1<JvmOperation> _function_2 = (JvmOperation it) -> {
           it.setVisibility(JvmVisibility.PROTECTED);
           StringConcatenationClient _client = new StringConcatenationClient() {
@@ -322,6 +345,8 @@ public class StageInferrer {
               _builder.append(_firstLower_1, "");
               _builder.append(");");
               _builder.newLineIfNotEmpty();
+              _builder.append("return this;");
+              _builder.newLine();
             }
           };
           this._jvmTypesBuilder.setBody(it, _client);
@@ -382,7 +407,7 @@ public class StageInferrer {
             Actor _normalizedReference = a.getNormalizedReference();
             String _name = _normalizedReference.getName();
             _builder.append(_name, "");
-            _builder.append("();");
+            _builder.append("().init();");
           }
         };
         this._jvmTypesBuilder.setBody(it, _client);

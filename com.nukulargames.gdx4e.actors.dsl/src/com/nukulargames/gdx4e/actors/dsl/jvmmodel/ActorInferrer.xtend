@@ -56,6 +56,7 @@ class ActorInferrer {
 			members += childField(element)
 
 			members += constructor(element)
+			members += init(element)
 			members += initPosition(element)
 			members += initSize(element)
 			members += initScale(element)
@@ -172,10 +173,6 @@ class ActorInferrer {
 			visibility = JvmVisibility.PUBLIC
 			body = '''
 				super();
-				«createAnimationCalls(actor)»
-				init();
-				initState();
-				initAllChildren(); 
 			'''
 		]
 	}
@@ -185,6 +182,20 @@ class ActorInferrer {
 			a.name.toFirstLower + "Animation = createAnimation(" + a.name.toUpperCase + "_TEXTURE, " + a.rows + ", " +
 				a.columns + ", (float) " + a.delay + ");"
 		].fold("", [in, line|in + "\n" + line])
+	}
+
+	def init(Actor actor) {
+		actor.toMethod("init", typeRef(NukuActor)) [
+			visibility = JvmVisibility.PUBLIC
+			annotationRef(Override)
+			body = '''
+				super.init();
+				«createAnimationCalls(actor)»
+				initState();
+				initAllChildren(); 
+				return this;
+			'''
+		]
 	}
 
 	def initPosition(Actor actor) {
@@ -501,7 +512,7 @@ class ActorInferrer {
 		element.children.map [ c |
 			c.normalizedReference.toMethod("initEachChild" + c.normalizedName, typeRef(c.normalizedReference.name)) [
 				visibility = JvmVisibility.PROTECTED
-				body = '''return new «c.normalizedReference.name»();'''
+				body = '''return new «c.normalizedReference.name»().init();'''
 			]
 		]
 	}

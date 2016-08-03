@@ -27,30 +27,21 @@ public class DslGenerator extends JvmModelGenerator {
   
   @Override
   protected void _internalDoGenerate(final JvmDeclaredType type, final IFileSystemAccess fsa) {
-    boolean _or = false;
-    boolean _isDisabled = DisableCodeGenerationAdapter.isDisabled(type);
-    if (_isDisabled) {
-      _or = true;
-    } else {
-      String _qualifiedName = type.getQualifiedName();
-      boolean _equals = Objects.equal(_qualifiedName, null);
-      _or = _equals;
-    }
-    if (_or) {
+    if ((DisableCodeGenerationAdapter.isDisabled(type) || Objects.equal(type.getQualifiedName(), null))) {
       return;
     }
     String _simpleName = type.getSimpleName();
     boolean _endsWith = _simpleName.endsWith("Gen");
     if (_endsWith) {
-      String _qualifiedName_1 = type.getQualifiedName();
-      String _replace = _qualifiedName_1.replace(".", "/");
+      String _qualifiedName = type.getQualifiedName();
+      String _replace = _qualifiedName.replace(".", "/");
       String _plus = (_replace + ".java");
       GeneratorConfig _get = this.generatorConfigProvider.get(type);
       CharSequence _generateType = this.generateType(type, _get);
       fsa.generateFile(_plus, _generateType);
     } else {
-      String _qualifiedName_2 = type.getQualifiedName();
-      String _replace_1 = _qualifiedName_2.replace(".", "/");
+      String _qualifiedName_1 = type.getQualifiedName();
+      String _replace_1 = _qualifiedName_1.replace(".", "/");
       String _plus_1 = (_replace_1 + ".java");
       GeneratorConfig _get_1 = this.generatorConfigProvider.get(type);
       CharSequence _generateType_1 = this.generateType(type, _get_1);
