@@ -1,6 +1,6 @@
 package com.nukulargames.gdx4e.actors.dsl.jvmmodel
 
-import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.assets.AssetManager
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.Animation
@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion
 import com.google.inject.Inject
 import com.nukulargames.gdx4e.actors.Actor
 import com.nukulargames.gdx4e.actors.ActorReference
-import com.nukulargames.gdx4e.actors.ActorsFactory
 import com.nukulargames.gdx4e.actors.Model
 import com.nukulargames.gdx4e.actors.State
 import com.nukulargames.gdx4e.ext.NukuActor
@@ -24,13 +23,13 @@ import org.eclipse.xtext.xbase.jvmmodel.JvmTypeReferenceBuilder
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 
 class ActorInferrer {
-	
+
 	@Inject JvmAnnotationReferenceBuilder.Factory annotationRefBuilderFactory
 	@Inject JvmTypeReferenceBuilder.Factory typeRefBuilderFactory
 	extension JvmAnnotationReferenceBuilder _annotationTypesBuilder
-	extension JvmTypeReferenceBuilder _typeReferenceBuilder	
+	extension JvmTypeReferenceBuilder _typeReferenceBuilder
 	@Inject extension JvmTypesBuilder
-	
+
 	def initBuilders(EObject object) {
 		_annotationTypesBuilder = annotationRefBuilderFactory.create(object.eResource.resourceSet);
 		_typeReferenceBuilder = typeRefBuilderFactory.create(object.eResource.resourceSet);
@@ -38,10 +37,12 @@ class ActorInferrer {
 
 	def void infer(Actor element, Model model, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
 		initBuilders(element)
-		
-		val genClass = element.toClass(model.basePackageName + element.name + "Gen")
+
+		val genClass = element.toClass(model.basePackageName + genClassName(element))
 		acceptor.accept(genClass) [
 			superTypes += superType(element)
+
+			members += assetManager(element)
 
 			members += stateEnum(element)
 			members += currentState(element)
@@ -62,6 +63,7 @@ class ActorInferrer {
 			members += initScale(element)
 			members += initRotation(element)
 			members += initColor(element)
+			members += initAnimations(element)
 			members += initState(element)
 
 			members += getAnimation(element)
@@ -103,8 +105,21 @@ class ActorInferrer {
 		}
 	}
 
+	def genClassName(Actor actor) {
+		actor.name + "Gen"
+	}
+
 	def superType(Actor actor) {
 		typeRef(NukuActor)
+	}
+
+	def assetManager(Actor actor) {
+		actor.toField("assetManager", typeRef(AssetManager)) [
+			static = true
+			visibility = JvmVisibility.PROTECTED
+			final = true
+			initializer = '''new AssetManager()'''
+		]
 	}
 
 	def stateEnum(Actor actor) {
@@ -127,12 +142,8 @@ class ActorInferrer {
 
 	def textureFields(Actor actor) {
 		actor.normalizedAnimations.map [ a |
-			actor.toField(a.name.toUpperCase + "_TEXTURE", typeRef(Texture)) [
-				visibility = JvmVisibility.
-					PRIVATE
-				final = true
-				static = true
-				initializer = '''new «Texture»(«Gdx».files.internal("«a.texture ?: actor.name.substring(actor.name.lastIndexOf('.') + 1) + "_" + a.name + ".png"»"))'''
+			actor.toField(a.name.toFirstLower + "Texture", typeRef(Texture)) [
+				visibility = JvmVisibility.PRIVATE
 			]
 		]
 	}
@@ -141,7 +152,6 @@ class ActorInferrer {
 		actor.normalizedAnimations.map [ a |
 			actor.toField(a.name.toFirstLower + "Animation", typeRef(Animation)) [
 				visibility = JvmVisibility.PRIVATE
-				final = true
 			]
 		]
 	}
@@ -177,20 +187,13 @@ class ActorInferrer {
 		]
 	}
 
-	def createAnimationCalls(Actor actor) {
-		actor.normalizedAnimations.map [ a |
-			a.name.toFirstLower + "Animation = createAnimation(" + a.name.toUpperCase + "_TEXTURE, " + a.rows + ", " +
-				a.columns + ", (float) " + a.delay + ");"
-		].fold("", [in, line|in + "\n" + line])
-	}
-
 	def init(Actor actor) {
-		actor.toMethod("init", typeRef(NukuActor)) [
+		actor.toMethod("init", typeRef(genClassName(actor))) [
 			visibility = JvmVisibility.PUBLIC
 			annotationRef(Override)
 			body = '''
 				super.init();
-				«createAnimationCalls(actor)»
+				initAnimations();
 				initState();
 				initAllChildren(); 
 				return this;
@@ -199,7 +202,7 @@ class ActorInferrer {
 	}
 
 	def initPosition(Actor actor) {
-		actor.toMethod("initPosition", typeRef(NukuActor)) [
+		actor.toMethod("initPosition", typeRef(genClassName(actor))) [
 			visibility = JvmVisibility.PROTECTED
 			annotationRef(Override)
 			body = '''
@@ -211,7 +214,7 @@ class ActorInferrer {
 	}
 
 	def initSize(Actor actor) {
-		actor.toMethod("initSize", typeRef(NukuActor)) [
+		actor.toMethod("initSize", typeRef(genClassName(actor))) [
 			visibility = JvmVisibility.PROTECTED
 			annotationRef(Override)
 			body = '''
@@ -223,7 +226,7 @@ class ActorInferrer {
 	}
 
 	def initScale(Actor actor) {
-		actor.toMethod("initScale", typeRef(NukuActor)) [
+		actor.toMethod("initScale", typeRef(genClassName(actor))) [
 			visibility = JvmVisibility.PROTECTED
 			annotationRef(Override)
 			body = '''
@@ -235,7 +238,7 @@ class ActorInferrer {
 	}
 
 	def initRotation(Actor actor) {
-		actor.toMethod("initRotation", typeRef(NukuActor)) [
+		actor.toMethod("initRotation", typeRef(genClassName(actor))) [
 			visibility = JvmVisibility.PROTECTED
 			annotationRef(Override)
 			body = '''
@@ -246,7 +249,7 @@ class ActorInferrer {
 	}
 
 	def initColor(Actor actor) {
-		actor.toMethod("initColor", typeRef(NukuActor)) [
+		actor.toMethod("initColor", typeRef(genClassName(actor))) [
 			visibility = JvmVisibility.PROTECTED
 			annotationRef(Override)
 			body = '''
@@ -256,8 +259,22 @@ class ActorInferrer {
 		]
 	}
 
+	def initAnimations(Actor actor) {
+		actor.toMethod("initAnimations", typeRef(genClassName(actor))) [
+			visibility = JvmVisibility.PROTECTED
+			annotationRef(Override)
+			body = '''
+				«FOR com.nukulargames.gdx4e.actors.Animation animation : actor.normalizedAnimations»
+					«animation.name.toFirstLower»Texture = assetManager.get("«animation.texture ?: (actor.name.substring(actor.name.lastIndexOf('.') + 1) + "_" + animation.name + ".png")»", Texture.class);
+					«animation.name.toFirstLower»Animation = createAnimation(«animation.name.toFirstLower»Texture, «animation.rows», «animation.columns», (float) «animation.delay»);
+				«ENDFOR»
+				return this;
+			'''
+		]
+	}
+
 	def initState(Actor actor) {
-		actor.toMethod("initState", typeRef(NukuActor)) [
+		actor.toMethod("initState", typeRef(genClassName(actor))) [
 			visibility = JvmVisibility.
 				PROTECTED
 			body = '''
@@ -512,7 +529,7 @@ class ActorInferrer {
 		element.children.map [ c |
 			c.normalizedReference.toMethod("initEachChild" + c.normalizedName, typeRef(c.normalizedReference.name)) [
 				visibility = JvmVisibility.PROTECTED
-				body = '''return new «c.normalizedReference.name»().init();'''
+				body = '''return («typeRef(c.normalizedReference.name)») new «c.normalizedReference.name»().init();'''
 			]
 		]
 	}

@@ -3,6 +3,7 @@ package com.nukulargames.gdx4e.actors.impl.custom;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
+import com.nukulargames.gdx4e.actors.Actor;
 import com.nukulargames.gdx4e.actors.ActorsFactory;
 import com.nukulargames.gdx4e.actors.Animation;
 import com.nukulargames.gdx4e.actors.State;

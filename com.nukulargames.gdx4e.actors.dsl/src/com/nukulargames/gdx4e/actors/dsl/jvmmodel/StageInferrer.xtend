@@ -32,7 +32,7 @@ class StageInferrer {
 	def void infer(Stage element, Model model, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
 		initBuilders(element)
 		
-		val genClass = element.toClass(model.basePackageName + element.name + "Gen")
+		val genClass = element.toClass(model.basePackageName + genClassName(element))
 		acceptor.accept(genClass) [
 			superTypes += superType(element)
 			
@@ -63,6 +63,10 @@ class StageInferrer {
 		} else {
 			model.basePackage + "."
 		}
+	}
+	
+	def genClassName(Stage element) {
+		element.name + "Gen"
 	}
 
 	def superType(Stage stage) {
@@ -108,7 +112,7 @@ class StageInferrer {
 
 
 	def init(Stage element) {
-		element.toMethod("init", typeRef(NukuStage)) [
+		element.toMethod("init", typeRef(genClassName(element))) [
 			visibility = JvmVisibility.PUBLIC
 			body = '''
 				initAllChildren();
@@ -118,7 +122,7 @@ class StageInferrer {
 	}
 
 	def initAllChildren(Stage element) {
-		element.toMethod("initAllChildren", typeRef(NukuStage)) [
+		element.toMethod("initAllChildren", typeRef(genClassName(element))) [
 			visibility = JvmVisibility.PROTECTED
 			body = '''
 				«FOR ActorReference r : element.actors»
@@ -132,7 +136,7 @@ class StageInferrer {
 	def initChild(Stage element) {
 		element.actors.map [ a |
 			if (a.quantity > 1) {
-				a.normalizedReference.toMethod("initChild" + a.normalizedName, typeRef(NukuStage)) [
+				a.normalizedReference.toMethod("initChild" + a.normalizedName, typeRef(genClassName(element))) [
 					visibility = JvmVisibility.PROTECTED
 					body = '''
 						«int» quantity = initChild«a.normalizedName»Quantity();
@@ -146,7 +150,7 @@ class StageInferrer {
 					'''
 				]
 			} else {
-				a.normalizedReference.toMethod("initChild" + a.normalizedName, typeRef(NukuStage)) [
+				a.normalizedReference.toMethod("initChild" + a.normalizedName, typeRef(genClassName(element))) [
 					visibility = JvmVisibility.PROTECTED
 					body = '''
 						«a.normalizedName.toFirstLower» = initEachChild«a.normalizedName»();
@@ -171,7 +175,7 @@ class StageInferrer {
 		element.actors.map [ a |
 			a.normalizedReference.toMethod("initEachChild" + a.normalizedName, typeRef(a.normalizedReference.name)) [
 				visibility = JvmVisibility.PROTECTED
-				body = '''return new «a.normalizedReference.name»().init();'''
+				body = '''return («typeRef(a.normalizedReference.name)») new «a.normalizedReference.name»().init();'''
 			]
 		]
 	}

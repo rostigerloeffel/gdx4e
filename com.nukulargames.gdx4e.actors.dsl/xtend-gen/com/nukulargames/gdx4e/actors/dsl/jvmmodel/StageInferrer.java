@@ -71,10 +71,9 @@ public class StageInferrer {
   public void infer(final Stage element, final Model model, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
     this.initBuilders(element);
     String _basePackageName = this.basePackageName(model);
-    String _name = element.getName();
-    String _plus = (_basePackageName + _name);
-    String _plus_1 = (_plus + "Gen");
-    final JvmGenericType genClass = this._jvmTypesBuilder.toClass(element, _plus_1);
+    String _genClassName = this.genClassName(element);
+    String _plus = (_basePackageName + _genClassName);
+    final JvmGenericType genClass = this._jvmTypesBuilder.toClass(element, _plus);
     final Procedure1<JvmGenericType> _function = (JvmGenericType it) -> {
       EList<JvmTypeReference> _superTypes = it.getSuperTypes();
       JvmTypeReference _superType = this.superType(element);
@@ -109,9 +108,9 @@ public class StageInferrer {
     };
     acceptor.<JvmGenericType>accept(genClass, _function);
     String _basePackageName_1 = this.basePackageName(model);
-    String _name_1 = element.getName();
-    String _plus_2 = (_basePackageName_1 + _name_1);
-    JvmGenericType _class = this._jvmTypesBuilder.toClass(element, _plus_2);
+    String _name = element.getName();
+    String _plus_1 = (_basePackageName_1 + _name);
+    JvmGenericType _class = this._jvmTypesBuilder.toClass(element, _plus_1);
     final Procedure1<JvmGenericType> _function_1 = (JvmGenericType it) -> {
       EList<JvmTypeReference> _superTypes = it.getSuperTypes();
       JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(genClass);
@@ -134,6 +133,11 @@ public class StageInferrer {
       _xifexpression = (_basePackage_1 + ".");
     }
     return _xifexpression;
+  }
+  
+  public String genClassName(final Stage element) {
+    String _name = element.getName();
+    return (_name + "Gen");
   }
   
   public JvmTypeReference superType(final Stage stage) {
@@ -218,7 +222,8 @@ public class StageInferrer {
   }
   
   public JvmOperation init(final Stage element) {
-    JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(NukuStage.class);
+    String _genClassName = this.genClassName(element);
+    JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(_genClassName);
     final Procedure1<JvmOperation> _function = (JvmOperation it) -> {
       it.setVisibility(JvmVisibility.PUBLIC);
       StringConcatenationClient _client = new StringConcatenationClient() {
@@ -236,7 +241,8 @@ public class StageInferrer {
   }
   
   public JvmOperation initAllChildren(final Stage element) {
-    JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(NukuStage.class);
+    String _genClassName = this.genClassName(element);
+    JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(_genClassName);
     final Procedure1<JvmOperation> _function = (JvmOperation it) -> {
       it.setVisibility(JvmVisibility.PROTECTED);
       StringConcatenationClient _client = new StringConcatenationClient() {
@@ -271,7 +277,8 @@ public class StageInferrer {
         Actor _normalizedReference = a.getNormalizedReference();
         String _normalizedName = a.getNormalizedName();
         String _plus = ("initChild" + _normalizedName);
-        JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(NukuStage.class);
+        String _genClassName = this.genClassName(element);
+        JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(_genClassName);
         final Procedure1<JvmOperation> _function_1 = (JvmOperation it) -> {
           it.setVisibility(JvmVisibility.PROTECTED);
           StringConcatenationClient _client = new StringConcatenationClient() {
@@ -325,7 +332,8 @@ public class StageInferrer {
         Actor _normalizedReference_1 = a.getNormalizedReference();
         String _normalizedName_1 = a.getNormalizedName();
         String _plus_1 = ("initChild" + _normalizedName_1);
-        JvmTypeReference _typeRef_1 = this._typeReferenceBuilder.typeRef(NukuStage.class);
+        String _genClassName_1 = this.genClassName(element);
+        JvmTypeReference _typeRef_1 = this._typeReferenceBuilder.typeRef(_genClassName_1);
         final Procedure1<JvmOperation> _function_2 = (JvmOperation it) -> {
           it.setVisibility(JvmVisibility.PROTECTED);
           StringConcatenationClient _client = new StringConcatenationClient() {
@@ -403,10 +411,15 @@ public class StageInferrer {
         StringConcatenationClient _client = new StringConcatenationClient() {
           @Override
           protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
-            _builder.append("return new ");
+            _builder.append("return (");
             Actor _normalizedReference = a.getNormalizedReference();
             String _name = _normalizedReference.getName();
-            _builder.append(_name, "");
+            JvmTypeReference _typeRef = StageInferrer.this._typeReferenceBuilder.typeRef(_name);
+            _builder.append(_typeRef, "");
+            _builder.append(") new ");
+            Actor _normalizedReference_1 = a.getNormalizedReference();
+            String _name_1 = _normalizedReference_1.getName();
+            _builder.append(_name_1, "");
             _builder.append("().init();");
           }
         };
