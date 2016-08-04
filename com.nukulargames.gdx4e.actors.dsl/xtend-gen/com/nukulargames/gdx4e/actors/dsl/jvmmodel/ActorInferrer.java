@@ -140,62 +140,68 @@ public class ActorInferrer {
       JvmOperation _initState = this.initState(element);
       this._jvmTypesBuilder.<JvmOperation>operator_add(_members_17, _initState);
       EList<JvmMember> _members_18 = it.getMembers();
-      List<JvmOperation> _animation = this.getAnimation(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_18, _animation);
+      List<JvmOperation> _createTexture = this.createTexture(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_18, _createTexture);
       EList<JvmMember> _members_19 = it.getMembers();
-      JvmOperation _draw = this.draw(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_19, _draw);
+      List<JvmOperation> _createAnimation = this.createAnimation(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_19, _createAnimation);
       EList<JvmMember> _members_20 = it.getMembers();
-      List<JvmOperation> _drawState = this.drawState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_20, _drawState);
+      List<JvmOperation> _animation = this.getAnimation(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_20, _animation);
       EList<JvmMember> _members_21 = it.getMembers();
-      JvmOperation _drawAnimation = this.drawAnimation(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_21, _drawAnimation);
+      JvmOperation _draw = this.draw(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_21, _draw);
       EList<JvmMember> _members_22 = it.getMembers();
-      JvmOperation _act = this.act(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_22, _act);
+      List<JvmOperation> _drawState = this.drawState(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_22, _drawState);
       EList<JvmMember> _members_23 = it.getMembers();
-      List<JvmOperation> __actState = this._actState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_23, __actState);
+      JvmOperation _drawAnimation = this.drawAnimation(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_23, _drawAnimation);
       EList<JvmMember> _members_24 = it.getMembers();
-      List<JvmOperation> _actState = this.actState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_24, _actState);
+      JvmOperation _act = this.act(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_24, _act);
       EList<JvmMember> _members_25 = it.getMembers();
-      JvmOperation _resetStateTime = this.resetStateTime(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_25, _resetStateTime);
+      List<JvmOperation> __actState = this._actState(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_25, __actState);
       EList<JvmMember> _members_26 = it.getMembers();
-      JvmOperation _currentState_1 = this.getCurrentState(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_26, _currentState_1);
+      List<JvmOperation> _actState = this.actState(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_26, _actState);
       EList<JvmMember> _members_27 = it.getMembers();
-      JvmOperation _transit = this.transit(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_27, _transit);
+      JvmOperation _resetStateTime = this.resetStateTime(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_27, _resetStateTime);
       EList<JvmMember> _members_28 = it.getMembers();
-      List<JvmOperation> __enterState = this._enterState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_28, __enterState);
+      JvmOperation _currentState_1 = this.getCurrentState(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_28, _currentState_1);
       EList<JvmMember> _members_29 = it.getMembers();
-      List<JvmOperation> _enterState = this.enterState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_29, _enterState);
+      JvmOperation _transit = this.transit(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_29, _transit);
       EList<JvmMember> _members_30 = it.getMembers();
-      List<JvmOperation> __leaveState = this._leaveState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_30, __leaveState);
+      List<JvmOperation> __enterState = this._enterState(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_30, __enterState);
       EList<JvmMember> _members_31 = it.getMembers();
-      List<JvmOperation> _leaveState = this.leaveState(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_31, _leaveState);
+      List<JvmOperation> _enterState = this.enterState(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_31, _enterState);
       EList<JvmMember> _members_32 = it.getMembers();
-      JvmOperation _initAllChildren = this.initAllChildren(element);
-      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_32, _initAllChildren);
+      List<JvmOperation> __leaveState = this._leaveState(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_32, __leaveState);
       EList<JvmMember> _members_33 = it.getMembers();
-      List<JvmOperation> _initChild = this.initChild(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_33, _initChild);
+      List<JvmOperation> _leaveState = this.leaveState(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_33, _leaveState);
       EList<JvmMember> _members_34 = it.getMembers();
-      Iterable<JvmOperation> _initChildQuantity = this.initChildQuantity(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_34, _initChildQuantity);
+      JvmOperation _initAllChildren = this.initAllChildren(element);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_34, _initAllChildren);
       EList<JvmMember> _members_35 = it.getMembers();
-      List<JvmOperation> _initEachChild = this.initEachChild(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_35, _initEachChild);
+      List<JvmOperation> _initChild = this.initChild(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_35, _initChild);
       EList<JvmMember> _members_36 = it.getMembers();
+      Iterable<JvmOperation> _initChildQuantity = this.initChildQuantity(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_36, _initChildQuantity);
+      EList<JvmMember> _members_37 = it.getMembers();
+      List<JvmOperation> _initEachChild = this.initEachChild(element);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_37, _initEachChild);
+      EList<JvmMember> _members_38 = it.getMembers();
       List<JvmOperation> _child = this.getChild(element);
-      this._jvmTypesBuilder.<JvmMember>operator_add(_members_36, _child);
+      this._jvmTypesBuilder.<JvmMember>operator_add(_members_38, _child);
     };
     acceptor.<JvmGenericType>accept(genClass, _function);
     String _basePackageName_1 = this.basePackageName(model);
@@ -548,6 +554,85 @@ public class ActorInferrer {
     return this._jvmTypesBuilder.toMethod(actor, "initColor", _typeRef, _function);
   }
   
+  public List<JvmOperation> createTexture(final Actor actor) {
+    EList<Animation> _normalizedAnimations = actor.getNormalizedAnimations();
+    final Function1<Animation, JvmOperation> _function = (Animation a) -> {
+      String _name = a.getName();
+      String _firstUpper = StringExtensions.toFirstUpper(_name);
+      String _plus = ("create" + _firstUpper);
+      String _plus_1 = (_plus + "Texture");
+      JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(Texture.class);
+      final Procedure1<JvmOperation> _function_1 = (JvmOperation it) -> {
+        it.setVisibility(JvmVisibility.PROTECTED);
+        this._annotationTypesBuilder.annotationRef(Override.class);
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append("return assetManager.get(\"");
+            String _elvis = null;
+            String _texture = a.getTexture();
+            if (_texture != null) {
+              _elvis = _texture;
+            } else {
+              String _name = actor.getName();
+              String _name_1 = actor.getName();
+              int _lastIndexOf = _name_1.lastIndexOf(".");
+              int _plus = (_lastIndexOf + 1);
+              String _substring = _name.substring(_plus);
+              String _plus_1 = (_substring + "_");
+              String _name_2 = a.getName();
+              String _plus_2 = (_plus_1 + _name_2);
+              String _plus_3 = (_plus_2 + ".png");
+              _elvis = _plus_3;
+            }
+            _builder.append(_elvis, "");
+            _builder.append("\", Texture.class);");
+          }
+        };
+        this._jvmTypesBuilder.setBody(it, _client);
+      };
+      return this._jvmTypesBuilder.toMethod(actor, _plus_1, _typeRef, _function_1);
+    };
+    return ListExtensions.<Animation, JvmOperation>map(_normalizedAnimations, _function);
+  }
+  
+  public List<JvmOperation> createAnimation(final Actor actor) {
+    EList<Animation> _normalizedAnimations = actor.getNormalizedAnimations();
+    final Function1<Animation, JvmOperation> _function = (Animation a) -> {
+      String _name = a.getName();
+      String _firstUpper = StringExtensions.toFirstUpper(_name);
+      String _plus = ("create" + _firstUpper);
+      String _plus_1 = (_plus + "Animation");
+      JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(com.badlogic.gdx.graphics.g2d.Animation.class);
+      final Procedure1<JvmOperation> _function_1 = (JvmOperation it) -> {
+        it.setVisibility(JvmVisibility.PROTECTED);
+        this._annotationTypesBuilder.annotationRef(Override.class);
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append("return createAnimation(");
+            String _name = a.getName();
+            String _firstLower = StringExtensions.toFirstLower(_name);
+            _builder.append(_firstLower, "");
+            _builder.append("Texture, ");
+            int _rows = a.getRows();
+            _builder.append(_rows, "");
+            _builder.append(", ");
+            int _columns = a.getColumns();
+            _builder.append(_columns, "");
+            _builder.append(", (float) ");
+            float _delay = a.getDelay();
+            _builder.append(_delay, "");
+            _builder.append(");");
+          }
+        };
+        this._jvmTypesBuilder.setBody(it, _client);
+      };
+      return this._jvmTypesBuilder.toMethod(actor, _plus_1, _typeRef, _function_1);
+    };
+    return ListExtensions.<Animation, JvmOperation>map(_normalizedAnimations, _function);
+  }
+  
   public JvmOperation initAnimations(final Actor actor) {
     String _genClassName = this.genClassName(actor);
     JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(_genClassName);
@@ -563,43 +648,20 @@ public class ActorInferrer {
               String _name = animation.getName();
               String _firstLower = StringExtensions.toFirstLower(_name);
               _builder.append(_firstLower, "");
-              _builder.append("Texture = assetManager.get(\"");
-              String _elvis = null;
-              String _texture = animation.getTexture();
-              if (_texture != null) {
-                _elvis = _texture;
-              } else {
-                String _name_1 = actor.getName();
-                String _name_2 = actor.getName();
-                int _lastIndexOf = _name_2.lastIndexOf(".");
-                int _plus = (_lastIndexOf + 1);
-                String _substring = _name_1.substring(_plus);
-                String _plus_1 = (_substring + "_");
-                String _name_3 = animation.getName();
-                String _plus_2 = (_plus_1 + _name_3);
-                String _plus_3 = (_plus_2 + ".png");
-                _elvis = _plus_3;
-              }
-              _builder.append(_elvis, "");
-              _builder.append("\", Texture.class);");
+              _builder.append("Texture = create");
+              String _name_1 = animation.getName();
+              String _firstUpper = StringExtensions.toFirstUpper(_name_1);
+              _builder.append(_firstUpper, "");
+              _builder.append("Texture();");
               _builder.newLineIfNotEmpty();
-              String _name_4 = animation.getName();
-              String _firstLower_1 = StringExtensions.toFirstLower(_name_4);
+              String _name_2 = animation.getName();
+              String _firstLower_1 = StringExtensions.toFirstLower(_name_2);
               _builder.append(_firstLower_1, "");
-              _builder.append("Animation = createAnimation(");
-              String _name_5 = animation.getName();
-              String _firstLower_2 = StringExtensions.toFirstLower(_name_5);
-              _builder.append(_firstLower_2, "");
-              _builder.append("Texture, ");
-              int _rows = animation.getRows();
-              _builder.append(_rows, "");
-              _builder.append(", ");
-              int _columns = animation.getColumns();
-              _builder.append(_columns, "");
-              _builder.append(", (float) ");
-              float _delay = animation.getDelay();
-              _builder.append(_delay, "");
-              _builder.append(");");
+              _builder.append("Animation = create");
+              String _name_3 = animation.getName();
+              String _firstUpper_1 = StringExtensions.toFirstUpper(_name_3);
+              _builder.append(_firstUpper_1, "");
+              _builder.append("Animation();");
               _builder.newLineIfNotEmpty();
             }
           }

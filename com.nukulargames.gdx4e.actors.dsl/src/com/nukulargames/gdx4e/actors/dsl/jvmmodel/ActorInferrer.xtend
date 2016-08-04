@@ -66,6 +66,9 @@ class ActorInferrer {
 			members += initAnimations(element)
 			members += initState(element)
 
+			members += createTexture(element)
+			members += createAnimation(element)
+
 			members += getAnimation(element)
 
 			members += draw(element)
@@ -259,14 +262,34 @@ class ActorInferrer {
 		]
 	}
 
+	def createTexture(Actor actor) {
+		actor.normalizedAnimations.map [ a |
+			actor.toMethod("create" + a.name.toFirstUpper + "Texture", typeRef(Texture)) [
+				visibility = JvmVisibility.PROTECTED
+				annotationRef(Override)
+				body = '''return assetManager.get("«a.texture ?: (actor.name.substring(actor.name.lastIndexOf('.') + 1) + "_" + a.name + ".png")»", Texture.class);'''
+			]
+		]
+	}
+	
+	def createAnimation(Actor actor) {
+		actor.normalizedAnimations.map [ a |
+			actor.toMethod("create" + a.name.toFirstUpper + "Animation", typeRef(Animation)) [
+				visibility = JvmVisibility.PROTECTED
+				annotationRef(Override)
+				body = '''return createAnimation(«a.name.toFirstLower»Texture, «a.rows», «a.columns», (float) «a.delay»);'''
+			]
+		]
+	}
+
 	def initAnimations(Actor actor) {
 		actor.toMethod("initAnimations", typeRef(genClassName(actor))) [
 			visibility = JvmVisibility.PROTECTED
 			annotationRef(Override)
 			body = '''
 				«FOR com.nukulargames.gdx4e.actors.Animation animation : actor.normalizedAnimations»
-					«animation.name.toFirstLower»Texture = assetManager.get("«animation.texture ?: (actor.name.substring(actor.name.lastIndexOf('.') + 1) + "_" + animation.name + ".png")»", Texture.class);
-					«animation.name.toFirstLower»Animation = createAnimation(«animation.name.toFirstLower»Texture, «animation.rows», «animation.columns», (float) «animation.delay»);
+					«animation.name.toFirstLower»Texture = create«animation.name.toFirstUpper»Texture();
+					«animation.name.toFirstLower»Animation = create«animation.name.toFirstUpper»Animation();
 				«ENDFOR»
 				return this;
 			'''
