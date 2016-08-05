@@ -71,6 +71,8 @@ class ActorInferrer {
 
 			members += getAnimation(element)
 
+			members += getAssetManager(element)
+
 			members += draw(element)
 			members += drawState(element)
 			members += drawAnimation(element)
@@ -88,11 +90,14 @@ class ActorInferrer {
 			members += _leaveState(element)
 			members += leaveState(element)
 
+			members += getChildQuantity(element)
+			members += getChild(element)
+			members += createAllChildren(element)
+			members += createChild(element)
+			members += createEachChild(element)
 			members += initAllChildren(element)
 			members += initChild(element)
-			members += initChildQuantity(element)
-			members += initEachChild(element)
-			members += getChild(element)
+
 		]
 
 		acceptor.accept(element.toClass(model.basePackageName + element.name)) [
@@ -186,6 +191,7 @@ class ActorInferrer {
 			visibility = JvmVisibility.PUBLIC
 			body = '''
 				super();
+				createAllChildren();
 			'''
 		]
 	}
@@ -266,17 +272,23 @@ class ActorInferrer {
 		actor.normalizedAnimations.map [ a |
 			actor.toMethod("create" + a.name.toFirstUpper + "Texture", typeRef(Texture)) [
 				visibility = JvmVisibility.PROTECTED
-				annotationRef(Override)
-				body = '''return assetManager.get("«a.texture ?: (actor.name.substring(actor.name.lastIndexOf('.') + 1) + "_" + a.name + ".png")»", Texture.class);'''
+				annotationRef(
+					Override)
+				body = '''
+					assetManager.load("«a.texture ?: (actor.name.substring(actor.name.lastIndexOf('.') + 1) + "_" + a.name + ".png")»", Texture.class);
+					assetManager.finishLoading();
+					return assetManager.get("«a.texture ?: (actor.name.substring(actor.name.lastIndexOf('.') + 1) + "_" + a.name + ".png")»", Texture.class);
+				'''
 			]
 		]
 	}
-	
+
 	def createAnimation(Actor actor) {
 		actor.normalizedAnimations.map [ a |
 			actor.toMethod("create" + a.name.toFirstUpper + "Animation", typeRef(Animation)) [
 				visibility = JvmVisibility.PROTECTED
-				annotationRef(Override)
+				annotationRef(
+					Override)
 				body = '''return createAnimation(«a.name.toFirstLower»Texture, «a.rows», «a.columns», (float) «a.delay»);'''
 			]
 		]
@@ -316,6 +328,15 @@ class ActorInferrer {
 					return «a.name.toFirstLower»Animation;
 				'''
 			]
+		]
+	}
+
+	def getAssetManager(Actor actor) {
+		actor.toMethod("getAssetManager", typeRef(AssetManager)) [
+			visibility = JvmVisibility.PROTECTED
+			body = '''
+				return assetManager;
+			'''
 		]
 	}
 
@@ -501,6 +522,62 @@ class ActorInferrer {
 		]
 	}
 
+	def getChildQuantity(Actor element) {
+		element.children.filter[c|c.quantity > 1].map [ c |
+			c.normalizedReference.toMethod("getChild" + c.normalizedName + "Quantity", typeRef(int)) [
+				visibility = JvmVisibility.PROTECTED
+				body = '''return «c.quantity»;'''
+			]
+		]
+	}
+
+	def createAllChildren(Actor element) {
+		element.toMethod("createAllChildren", typeRef(void)) [
+			visibility = JvmVisibility.PROTECTED
+			body = '''
+				«FOR ActorReference r : element.children»
+					createChild«r.normalizedName»();
+				«ENDFOR»
+			'''
+		]
+	}
+
+	def createChild(Actor element) {
+		element.children.map [ c |
+			if (c.quantity > 1) {
+				c.normalizedReference.toMethod("createChild" + c.normalizedName, typeRef(void)) [
+					visibility = JvmVisibility.PROTECTED
+					body = '''
+						final «int» quantity = getChild«c.normalizedName»Quantity();
+						«c.normalizedName.toFirstLower» = new «ArrayList.simpleName»<>(quantity);
+						for («int» i = 0; i < quantity; ++i) {
+							final «c.normalizedName» child = createEachChild«c.normalizedName»();
+							«c.normalizedName.toFirstLower».add(child);
+							addActor(child);
+						}
+					'''
+				]
+			} else {
+				c.normalizedReference.toMethod("createChild" + c.normalizedName, typeRef(void)) [
+					visibility = JvmVisibility.PROTECTED
+					body = '''
+						«c.normalizedName.toFirstLower» = createEachChild«c.normalizedName»();
+						addActor(«c.normalizedName.toFirstLower»);
+					'''
+				]
+			}
+		]
+	}
+
+	def createEachChild(Actor element) {
+		element.children.map [ c |
+			c.normalizedReference.toMethod("createEachChild" + c.normalizedName, typeRef(c.normalizedReference.name)) [
+				visibility = JvmVisibility.PROTECTED
+				body = '''return («typeRef(c.normalizedReference.name)») new «c.normalizedReference.name»();'''
+			]
+		]
+	}
+
 	def initAllChildren(Actor element) {
 		element.toMethod("initAllChildren", typeRef(void)) [
 			visibility = JvmVisibility.PROTECTED
@@ -514,45 +591,9 @@ class ActorInferrer {
 
 	def initChild(Actor element) {
 		element.children.map [ c |
-			if (c.quantity > 1) {
-				c.normalizedReference.toMethod("initChild" + c.normalizedName, typeRef(void)) [
-					visibility = JvmVisibility.PROTECTED
-					body = '''
-						«int» quantity = initChild«c.normalizedName»Quantity();
-						«c.normalizedName.toFirstLower» = new «ArrayList.simpleName»<>(quantity);
-						for («int» i = 0; i < quantity; ++i) {
-							«c.normalizedName» child = initEachChild«c.normalizedName»();
-							«c.normalizedName.toFirstLower».add(child);
-							addActor(child);
-						}
-					'''
-				]
-			} else {
-				c.normalizedReference.toMethod("initChild" + c.normalizedName, typeRef(void)) [
-					visibility = JvmVisibility.PROTECTED
-					body = '''
-						«c.normalizedName.toFirstLower» = initEachChild«c.normalizedName»();
-						addActor(«c.normalizedName.toFirstLower»);
-					'''
-				]
-			}
-		]
-	}
-
-	def initChildQuantity(Actor element) {
-		element.children.filter[c|c.quantity > 1].map [ c |
-			c.normalizedReference.toMethod("initChild" + c.normalizedName + "Quantity", typeRef(int)) [
+			c.normalizedReference.toMethod("initChild" + c.normalizedName, typeRef(void)) [
 				visibility = JvmVisibility.PROTECTED
-				body = '''return «c.quantity»;'''
-			]
-		]
-	}
-
-	def initEachChild(Actor element) {
-		element.children.map [ c |
-			c.normalizedReference.toMethod("initEachChild" + c.normalizedName, typeRef(c.normalizedReference.name)) [
-				visibility = JvmVisibility.PROTECTED
-				body = '''return («typeRef(c.normalizedReference.name)») new «c.normalizedReference.name»().init();'''
+				body = ''''''
 			]
 		]
 	}
