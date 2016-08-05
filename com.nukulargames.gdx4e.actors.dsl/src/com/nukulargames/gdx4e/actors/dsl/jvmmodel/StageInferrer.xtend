@@ -43,11 +43,13 @@ class StageInferrer {
 			members += genClassConstructor(element)
 			
 			members += init(element)
+			members += getChildQuantity(element)
+			members += getChild(element)
+			members += createAllChildren(element)
+			members += createChild(element)
+			members += createEachChild(element)
 			members += initAllChildren(element)
 			members += initChild(element)
-			members += initChildQuantity(element)
-			members += initEachChild(element)
-			members += getChild(element)
 		]
 		
 		acceptor.accept(element.toClass(model.basePackageName + element.name)) [
@@ -95,6 +97,7 @@ class StageInferrer {
 			parameters += stage.toParameter("viewport", typeRef(Viewport))
 			body = '''
 				super(viewport);
+				createAllChildren();
 			'''
 		]
 	}
@@ -109,8 +112,6 @@ class StageInferrer {
 		]
 	}
 
-
-
 	def init(Stage element) {
 		element.toMethod("init", typeRef(genClassName(element))) [
 			visibility = JvmVisibility.PUBLIC
@@ -121,77 +122,94 @@ class StageInferrer {
 		]
 	}
 
-	def initAllChildren(Stage element) {
-		element.toMethod("initAllChildren", typeRef(genClassName(element))) [
+	def getChildQuantity(Stage element) {
+		element.actors.filter[c|c.quantity > 1].map [ c |
+			c.normalizedReference.toMethod("getChild" + c.normalizedName + "Quantity", typeRef(int)) [
+				visibility = JvmVisibility.PROTECTED
+				body = '''return «c.quantity»;'''
+			]
+		]
+	}
+
+	def createAllChildren(Stage element) {
+		element.toMethod("createAllChildren", typeRef(void)) [
 			visibility = JvmVisibility.PROTECTED
 			body = '''
 				«FOR ActorReference r : element.actors»
-					initChild«r.normalizedName»();
+					createChild«r.normalizedName»();
 				«ENDFOR»
-				return this;
 			'''
 		]
 	}
 
-	def initChild(Stage element) {
-		element.actors.map [ a |
-			if (a.quantity > 1) {
-				a.normalizedReference.toMethod("initChild" + a.normalizedName, typeRef(genClassName(element))) [
+	def createChild(Stage element) {
+		element.actors.map [ c |
+			if (c.quantity > 1) {
+				c.normalizedReference.toMethod("createChild" + c.normalizedName, typeRef(void)) [
 					visibility = JvmVisibility.PROTECTED
 					body = '''
-						«int» quantity = initChild«a.normalizedName»Quantity();
-						«a.normalizedName.toFirstLower» = new «ArrayList.simpleName»<>(quantity);
+						final «int» quantity = getChild«c.normalizedName»Quantity();
+						«c.normalizedName.toFirstLower» = new «ArrayList.simpleName»<>(quantity);
 						for («int» i = 0; i < quantity; ++i) {
-							«a.normalizedName» child = initEachChild«a.normalizedName»();
-							«a.normalizedName.toFirstLower».add(child);
+							final «c.normalizedName» child = createEachChild«c.normalizedName»();
+							«c.normalizedName.toFirstLower».add(child);
 							addActor(child);
 						}
-						return this;
 					'''
 				]
 			} else {
-				a.normalizedReference.toMethod("initChild" + a.normalizedName, typeRef(genClassName(element))) [
+				c.normalizedReference.toMethod("createChild" + c.normalizedName, typeRef(void)) [
 					visibility = JvmVisibility.PROTECTED
 					body = '''
-						«a.normalizedName.toFirstLower» = initEachChild«a.normalizedName»();
-						addActor(«a.normalizedName.toFirstLower»);
-						return this;
+						«c.normalizedName.toFirstLower» = createEachChild«c.normalizedName»();
+						addActor(«c.normalizedName.toFirstLower»);
 					'''
 				]
 			}
 		]
 	}
 
-	def initChildQuantity(Stage element) {
-		element.actors.filter[a|a.quantity > 1].map [ a |
-			a.normalizedReference.toMethod("initChild" + a.normalizedName + "Quantity", typeRef(int)) [
+	def createEachChild(Stage element) {
+		element.actors.map [ c |
+			c.normalizedReference.toMethod("createEachChild" + c.normalizedName, typeRef(c.normalizedReference.name)) [
 				visibility = JvmVisibility.PROTECTED
-				body = '''return «a.quantity»;'''
+				body = '''return («typeRef(c.normalizedReference.name)») new «c.normalizedReference.name»();'''
 			]
 		]
 	}
 
-	def initEachChild(Stage element) {
-		element.actors.map [ a |
-			a.normalizedReference.toMethod("initEachChild" + a.normalizedName, typeRef(a.normalizedReference.name)) [
+	def initAllChildren(Stage element) {
+		element.toMethod("initAllChildren", typeRef(void)) [
+			visibility = JvmVisibility.PROTECTED
+			body = '''
+				«FOR ActorReference r : element.actors»
+					initChild«r.normalizedName»();
+				«ENDFOR»
+			'''
+		]
+	}
+
+	def initChild(Stage element) {
+		element.actors.map [ c |
+			c.normalizedReference.toMethod("initChild" + c.normalizedName, typeRef(void)) [
 				visibility = JvmVisibility.PROTECTED
-				body = '''return («typeRef(a.normalizedReference.name)») new «a.normalizedReference.name»().init();'''
+				body = ''''''
 			]
 		]
 	}
 
 	def getChild(Stage element) {
-		element.actors.map [ a |
-			if (a.quantity > 1)
-				a.normalizedReference.toMethod("getChildren" + a.normalizedName,
-					typeRef("List<" + a.normalizedReference.name + ">")) [
+		element.actors.map [ c |
+			if (c.quantity > 1)
+				c.normalizedReference.toMethod("getChildren" + c.normalizedName,
+					typeRef("List<" + c.normalizedReference.name + ">")) [
 					visibility = JvmVisibility.PROTECTED
-					body = '''return «a.normalizedName.toFirstLower»;'''
+					body = '''return «c.normalizedName.toFirstLower»;'''
 				]
 			else
-				a.normalizedReference.toMethod("getChild" + a.normalizedName, typeRef(a.normalizedReference.name)) [
+				c.normalizedReference.toMethod("getChild" + c.normalizedName, typeRef(c.normalizedReference.name)) [
 					visibility = JvmVisibility.PROTECTED
-					body = '''return «a.normalizedName.toFirstLower»;'''
+					body = '''return «c.normalizedName.toFirstLower»;'''
 				]
 		]
 	}
